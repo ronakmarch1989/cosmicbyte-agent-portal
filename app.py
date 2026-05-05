@@ -2,6 +2,7 @@ import streamlit as st
 import anthropic
 import json
 import time
+import random
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -761,7 +762,9 @@ def show_home():
             with col_btn:
                 if product["available"]:
                     if st.button("Start →", key=f"btn_{product['id']}", type="primary", disabled=not st.session_state.agent_name):
-                        st.session_state.active_product = product
+                        shuffled = product.copy()
+                        shuffled["questions"] = random.sample(product["questions"], len(product["questions"]))
+                        st.session_state.active_product = shuffled
                         st.session_state.current_q = 0
                         st.session_state.scores = []
                         st.session_state.feedbacks = []
@@ -976,6 +979,10 @@ def show_result():
             st.rerun()
     with col2:
         if st.button("Retake test", type="primary"):
+            original = next(p for p in PRODUCTS if p["id"] == st.session_state.active_product["id"])
+            shuffled = original.copy()
+            shuffled["questions"] = random.sample(original["questions"], len(original["questions"]))
+            st.session_state.active_product = shuffled
             st.session_state.current_q = 0
             st.session_state.scores = []
             st.session_state.feedbacks = []
