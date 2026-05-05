@@ -132,14 +132,75 @@ PRODUCTS = [
         ]
     },
     # ── ADD NEW PRODUCTS BELOW ──────────────────
-    # {
-    #     "id": "atlas",
-    #     "name": "Atlas",
-    #     "category": "Mouse",
-    #     "description": "Tri-mode wireless gaming mouse.",
-    #     "available": False,
-    #     "questions": []
-    # },
+    {
+        "id": "stellaris",
+        "name": "Stellaris",
+        "category": "Controller",
+        "description": "Tri-mode wireless controller with TMR joysticks, gyro, macro buttons and RGB lighting.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity modes",
+                "scenario": "A customer just bought the Stellaris and asks: 'How do I connect this to my PC? And can I also use it on my Android phone and iPhone?'",
+                "question": "Explain all connectivity options on the Stellaris and how to connect on each platform.",
+                "rubric": "Should mention three modes: Wired USB-C (plug in and press HOME, LED2=XInput/LED3=DInput), 2.4GHz wireless (press X+HOME for 3 seconds to pair), and Bluetooth (different button combos per platform). For PC Bluetooth: XInput=B+HOME, DInput=A+HOME, Gyro=Y+HOME. For Android: XInput=B+HOME, DInput=A+HOME, Gyro=Y+HOME. For iOS: DInput=A+HOME, XInput=B+HOME, Gyro=Y+HOME. Gyro is ONLY available in Bluetooth mode. iOS support is limited."
+            },
+            {
+                "tag": "XInput vs DInput",
+                "scenario": "A customer says: 'I connected the Stellaris via the 2.4GHz dongle but my 2007 game is not detecting it at all. I can see it in Windows joy.cpl but the game completely ignores it.'",
+                "question": "Diagnose why the game is not detecting the controller and walk the customer through the fix.",
+                "rubric": "Old games only support DInput. In 2.4GHz mode, XInput shows LED2 and DInput shows LED3. To switch to DInput in 2.4GHz mode: long-press SELECT+HOME. To switch back to XInput: long-press HOME. Customer must relaunch the game after switching. LED3 staying on confirms DInput is active."
+            },
+            {
+                "tag": "Gyro on PC",
+                "scenario": "A customer says: 'I want to use gyro/motion control on my PC in a game that does not officially support it. I connected via the 2.4GHz dongle but cannot find any gyro option anywhere.'",
+                "question": "Explain the two ways the customer can use gyro on their PC with the Stellaris, including how to make it work in games that do not natively support it.",
+                "rubric": "Two methods: (1) Native Bluetooth Gyro Mode — disconnect dongle, pair via Bluetooth, hold Y+HOME for 3 seconds, LED4 stays on. Works for games with native gyro support. (2) Software on-the-fly gyro — connect via Wired or 2.4GHz, open Cosmic Byte software, assign gyro to any button, choose activation mode (Always On / Press to Activate / Toggle), map gyro output to mimic Left or Right joystick. This method makes gyro work as motion-based joystick input in ANY game even without native gyro support. Key point: gyro via 2.4GHz dongle requires the software configuration — raw gyro is Bluetooth only."
+            },
+            {
+                "tag": "Trigger modes",
+                "scenario": "A customer who plays both racing games and FPS games says: 'The triggers feel too gradual for my shooting game. I want instant button-like triggers. But for my racing game I want the gradual feel back. How do I switch between them?'",
+                "question": "Explain the trigger modes on the Stellaris and how to switch between them.",
+                "rubric": "The Stellaris has a physical trigger mode switch on the controller body. Analog mode (switch flipped inward) = longer travel, pressure-sensitive gradual input, best for racing and simulation. Digital mode (switch flipped outward) = shorter travel, instant response like a button, best for FPS and competitive games. Customer physically flips the switch — no software or button combo needed."
+            },
+            {
+                "tag": "Turbo auto button press",
+                "scenario": "A customer calls: 'My B button keeps pressing itself super fast and repeatedly on its own. The controller is brand new. Is it defective?'",
+                "question": "Diagnose the most likely cause and explain how to resolve it step by step.",
+                "rubric": "Most likely cause is Turbo mode accidentally enabled via TURBO+B. Fix: hold TURBO+B again to disable it for that button. To clear ALL turbo assignments at once: hold TURBO button for 5 seconds. Three speed levels exist: 5, 12 (default), 20 presses per second. Always rule out Turbo before suggesting hardware defect."
+            },
+            {
+                "tag": "Macro buttons",
+                "scenario": "A customer says: 'When I press the MR button on the back of my Stellaris it fires off a sequence of random button presses I never set up. How do I stop this?'",
+                "question": "Explain what is happening and how to fix it.",
+                "rubric": "A macro was recorded on MR, possibly accidentally. To record/overwrite with empty: hold TURBO then hold MR for 2 seconds (recording mode), then press MR to save. Or perform factory reset to clear all macros. Macros can store up to 22 inputs. ML and MR are the two back macro buttons. Factory reset clears all macro definitions completely."
+            },
+            {
+                "tag": "Hardware reset vs factory reset",
+                "scenario": "A customer is confused: 'I see a Reset button on the controller and also heard about a factory reset. What is the difference? My controller is acting strange with random inputs.'",
+                "question": "Explain the difference between hardware reset and factory reset, and advise which one the customer should use for their situation.",
+                "rubric": "Hardware reset (press RESET button next to USB port for 1 second): fixes unresponsive behavior and connection issues only, does NOT delete any user settings, controller goes to sleep after. Factory reset (hold SELECT+L3+R3 simultaneously for 5 seconds while ON): clears ALL custom settings including turbo, macros, RGB, vibration, button swaps, stick modes — re-pairing required. For random inputs recommend factory reset. For connection issues or unresponsive, try hardware reset first."
+            },
+            {
+                "tag": "Battery check and audio jack",
+                "scenario": "A customer asks two things: 'How do I check battery level on the Stellaris?' and 'I plugged my headset into the 3.5mm jack but I cannot hear anything — I am connected via Bluetooth on my phone.'",
+                "question": "Answer both questions completely.",
+                "rubric": "Battery check: press CAPTURE+START — LEDs show level for 3 seconds: LED1=1-25%, LED2=26-50%, LED3=51-75%, LED4=76-100%. Audio jack: 3.5mm only works in PC mode via 2.4GHz wireless or wired USB — NOT in Bluetooth mode, NOT on mobile devices. Customer needs to switch to wired or 2.4GHz on PC to use the headset."
+            },
+            {
+                "tag": "D-pad and button swaps",
+                "scenario": "A customer says: 'In my game I want the D-pad to control movement instead of the left joystick. Also the A and B buttons feel reversed for me — can they be swapped?'",
+                "question": "Explain how to swap D-pad with left stick and how to swap ABXY buttons on the Stellaris.",
+                "rubric": "D-pad and Left Stick swap (PC mode only): hold START+L3 for 3 seconds, motor vibration confirms swap. ABXY swap: hold TURBO+R3 for 3 seconds, motor vibration confirms — A swaps with B and X swaps with Y simultaneously. Both are toggles — repeat the same combo to swap back. Factory reset restores both to default."
+            },
+            {
+                "tag": "Console compatibility and warranty",
+                "scenario": "A customer says: 'I bought the Stellaris to use on my PS5 and it is not working at all. Also I spilled water on it and some buttons are sticky. Will either of these be covered under warranty?'",
+                "question": "Address the console issue and explain the warranty situation for both problems clearly.",
+                "rubric": "Console: Stellaris is NOT supported on any gaming console including PS5. No warranty, service or support for console use. Customer should have verified compatibility before purchasing. Warranty: 1 year for manufacturing defects only. Water damage is explicitly NOT covered. Physical damage is NOT covered. Be clear and honest but polite — neither issue qualifies for warranty support."
+            }
+        ]
+    },
 ]
 
 PASS_MARK = 70
