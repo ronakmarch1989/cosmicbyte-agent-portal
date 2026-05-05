@@ -1027,6 +1027,81 @@ PRODUCTS = [
             }
         ]
     },
+    {
+        "id": "stratos_xenon",
+        "name": "Stratos Xenon",
+        "category": "Dual-Mode (PS-Style)",
+        "description": "PS4-style wireless controller. Wireless on PS4 (Bluetooth), wired on PC (optional wireless dongle sold separately), PS5 (limited), Android, iOS. Upgraded Hall Effect joystick, touchpad, 3.5mm audio jack, mic on/off switch, programmable back buttons (PS4 only), turbo, 1300mAh battery, 8m wireless range.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "PS4 pairing — first time and reconnecting",
+                "scenario": "A customer says: 'I just got my Stratos Xenon. How do I pair it with my PS4 for the first time? And once it is paired, how do I reconnect it the next time I want to play?'",
+                "question": "Walk the customer through first-time PS4 pairing and subsequent reconnection on the Stratos Xenon.",
+                "rubric": "First-time PS4 pairing: connect the controller to the PS4 console using the included USB cable. The controller pairs via USB — once connected it is registered with the PS4. After pairing the controller works wirelessly via Bluetooth on PS4 (up to 8 metres range). Disconnect the cable after pairing to go wireless. Reconnection on subsequent sessions: short-press the Home button — the controller will reconnect automatically to the paired PS4. Auto-sleep: if the controller cannot communicate with PS4 within approximately 15 seconds it enters sleep mode. If no button input for extended inactivity in connected mode it also sleeps. Press Home to wake. The Stratos Xenon is designed primarily for PS4 wireless use — this is its main intended platform."
+            },
+            {
+                "tag": "PC connection — wired and wireless dongle",
+                "scenario": "A customer says: 'I want to use my Stratos Xenon on my PC. I connected the USB cable but some games do not detect it. Also I heard I can use it wirelessly on PC — is that true?'",
+                "question": "Explain PC connectivity on the Stratos Xenon including the wired mode limitations and the wireless dongle option.",
+                "rubric": "PC wired connection: connect the USB cable to the PC. Windows will automatically detect the controller and install drivers — this may take up to 30 seconds. IMPORTANT limitation: the controller works as a PS4-style controller on PC, NOT as an XInput controller by default. Only Windows games that are compatible with PS4 controllers will work directly. For Steam: go to Steam Settings, select Controller, choose PS4 controller type — Steam will automatically convert PS4 inputs to support all Windows games. For non-Steam games: third-party software like DS4Windows is required to use the controller with all Windows games. PC wireless: the controller works wirelessly ONLY on PS4 by default. To use it wirelessly on PC the customer must purchase the Stratos Xenon Wireless Dongle separately from the Cosmic Byte website — with the dongle no extra steps are needed. Agents must be honest that the dongle is a separate purchase and is not included in the box."
+            },
+            {
+                "tag": "PS5 compatibility and connection",
+                "scenario": "A customer says: 'I bought the Stratos Xenon to use on my PS5. I connected it via USB and pressed the Home button and some things work. But some PS5 games ignore it. What is going on?'",
+                "question": "Explain PS5 compatibility and connection process for the Stratos Xenon and set honest expectations.",
+                "rubric": "PS5 connection steps: (1) Connect controller to PS5 via USB cable. (2) Press and hold Home button for over 2 seconds — LED indicator flashes white light indicating the controller has entered connection mode. (3) Wait over 5 seconds — LED changes colour indicating successful connection. After pairing via USB it can be used wirelessly. PS5 compatibility is LIMITED — the Stratos Xenon behaves like a PS4 controller on PS5. PS4 games running on PS5 will generally work. PS5 native games will NOT support this controller as PS5 requires the official DualSense. Cannot be used to start up PS5 or navigate the PS5 system menu fully. Recommend using an official DualSense to boot up PS5 then switching to the Stratos Xenon as a second controller for PS4 games. Agents must NOT promise full PS5 compatibility."
+            },
+            {
+                "tag": "Android and iOS Bluetooth connection",
+                "scenario": "A customer says: 'How do I connect my Stratos Xenon to my Android phone and my iPhone? The light on the controller is flashing — what do I do next?'",
+                "question": "Explain Android and iOS Bluetooth pairing on the Stratos Xenon.",
+                "rubric": "Android and iOS pairing: (1) Press and hold the PS button and Share button simultaneously on the controller to enter pairing mode — the light on the back will start flashing. (2) On the phone/tablet open Bluetooth settings and scan for nearby devices. (3) The controller appears as 'Wireless Controller' in the Available Devices list. (4) Tap 'Wireless Controller' — a confirmation prompt appears. Tap OK. Controller is now connected. If device does not detect controller automatically: go to Bluetooth settings manually and search. If controller cannot connect within the search window it will enter sleep mode after 60 seconds — repeat the pairing process. iOS note: iOS 13+ is required. Only games that support external controllers will work — some iOS games may not. Flashing light = pairing mode. Solid light = connected successfully."
+            },
+            {
+                "tag": "Turbo function setup and cancel",
+                "scenario": "A customer says: 'My A button keeps firing super fast on its own. Also how do I set up Turbo on the Y button and how do I cancel it?'",
+                "question": "Diagnose the auto-firing A button and explain how Turbo works on the Stratos Xenon.",
+                "rubric": "Auto-firing A button: Turbo is already active on A. The Stratos Xenon Turbo is a hold-to-fire type. To cancel: repeat the same steps used to enable — long press Turbo button + A simultaneously for 2 seconds then release. Set Turbo on Y: long press the Turbo button and Y button simultaneously for 2 seconds, then release the Turbo button — Turbo is now active on Y. While Turbo is active, holding Y will fire it rapidly. Cancel Turbo on Y: repeat the same steps — long press Turbo + Y for 2 seconds then release. Turbo works on: A, B, X, Y, L1, L2, R1, R2. Note: the Stratos Xenon Turbo requires a 2-second simultaneous hold to toggle — this is different from single-press turbo systems on other controllers."
+            },
+            {
+                "tag": "Programmable back buttons",
+                "scenario": "A customer says: 'I want to set up the back button on my Stratos Xenon to act as the A button. How do I do it? And I am trying it on my PC but it is not working at all.'",
+                "question": "Explain programmable back button setup and the important platform limitation on the Stratos Xenon.",
+                "rubric": "CRITICAL platform limitation: programmable back buttons ONLY work on PS4 console. They do NOT work on PC, PS5, Android, or iOS — this is the most likely reason the customer's setup on PC is failing. Agents must state this clearly. Setup on PS4: (1) Long press the Turbo button for 5 seconds — LED turns green. (2) Press the back button to program — LED flashes. (3) Press the desired action button (e.g. A) — LED turns off confirming the back button is now mapped to that action. Cancel a programmable back button: (1) Long press Turbo for 5 seconds — LED turns green. (2) Press the target action button TWICE — LED turns off confirming cancellation. Each back button is programmed independently using this process."
+            },
+            {
+                "tag": "Mic switch and audio jack",
+                "scenario": "A customer says: 'There is a switch on the back of my Stratos Xenon labelled Mic. My headset mic is not working. Also I want to use the 3.5mm jack on PC — will it work?'",
+                "question": "Explain the mic switch and 3.5mm audio jack functionality and limitations on the Stratos Xenon.",
+                "rubric": "Mic switch: the Stratos Xenon has a physical mic on/off switch on the back of the controller. Slide left = microphone ON. Slide right = microphone OFF. IMPORTANT limitation: the mic function only works on PS4. If the customer is on PC, PS5, Android, or iOS the mic switch will have no effect. The mic passes audio from a headset connected to the 3.5mm jack. 3.5mm audio jack: supports headsets with a 3.5mm connector. Works on PS4 for both audio output and mic input. On PC (wired): audio output through the jack may work as the controller is detected as a USB audio device in PS4 controller mode — however this is not guaranteed for all PC configurations and mic function is PS4 only. On PS5, Android, iOS: audio jack support varies and mic is PS4 only. If mic is not working: check the physical switch position, ensure headset is fully plugged in, confirm they are on PS4."
+            },
+            {
+                "tag": "Hall Effect joystick and drift",
+                "scenario": "A customer says: 'My Stratos Xenon left joystick is drifting slightly even when I am not touching it. I thought Hall Effect joysticks do not drift. Is mine broken?'",
+                "question": "Explain Hall Effect joysticks on the Stratos Xenon and how to address drift.",
+                "rubric": "The Stratos Xenon features upgraded Hall Effect joysticks — these use magnetic sensors instead of physical contact potentiometers. Hall Effect joysticks are drift-resistant by design because there is no physical wear from contact. However 'drift-resistant' does not mean 'drift-proof forever' — calibration offset can still occur after physical impact, extended use, or if the controller is tilted when powered on. Steps to address drift: (1) Ensure the controller is on a flat, stable surface when powered on — the joystick position at startup is used as the centre reference. (2) Check the game's controller settings for deadzone adjustment — increasing deadzone slightly can eliminate minor drift in-game. (3) If drift is severe and persistent across all games and all connection modes it may indicate a manufacturing defect and the customer can contact support within the 1-year warranty period. Physical damage from dropping is not covered. The Stratos Xenon manual does not include a formal calibration procedure — if drift persists after the above steps, escalate to support."
+            },
+            {
+                "tag": "Battery, charging and care",
+                "scenario": "A customer asks: 'How do I charge my Stratos Xenon? How do I know when it is low on battery? Also I have had it for 6 months and the battery life seems much shorter now — is that covered under warranty?'",
+                "question": "Explain charging, battery indicators, and the warranty position on battery degradation for the Stratos Xenon.",
+                "rubric": "Charging: use the included USB cable to charge. Connect to a USB power source such as a PC USB port. Charging voltage: 4.5-5.5V. Charging current: under 260mA. Charging time: 2.5-3.5 hours for a full charge. Battery: 1300mAh built-in rechargeable lithium-ion (larger than many controllers). Charging indicator: light breathing/glowing indicates charging in progress. Charge in environments between 10°C-30°C for best results — extreme temperatures reduce charging efficiency. Low battery: LED will flash to indicate low battery. When battery is critically low the controller will auto power off. Battery lifespan: battery life naturally decreases with repeated usage and age — this is normal and expected. The manual explicitly states this. Battery degradation over 6 months is considered regular wear and tear and is NOT covered under warranty. Recommend charging fully at least once a year if storing for extended periods. If not using for a long time, turn off the controller to preserve battery."
+            },
+            {
+                "tag": "Wireless range, sleep and power off",
+                "scenario": "A customer says: 'My Stratos Xenon keeps disconnecting when I move around my room. Also I am not sure how to properly turn it off. And sometimes it turns on by itself in my bag.'",
+                "question": "Explain wireless range, auto-sleep, manual power off, and how to prevent accidental power-on on the Stratos Xenon.",
+                "rubric": "Wireless range: maximum 8 metres. If the customer moves beyond 8 metres the connection will drop and the controller may auto power off. Walls, furniture, and other 2.4GHz devices can reduce effective range. Ensure clear line of sight where possible. Keep away from Wi-Fi routers and other wireless devices that may cause interference. Sleep mode: controller enters sleep if it cannot communicate with PS4 within ~15 seconds of searching. In connected mode, significant inactivity triggers sleep. Press Home to wake. Power off: to properly turn off the controller press and hold the PS/Home button for several seconds until the light turns off. Always power off when not in use to preserve battery. Accidental power-on in bag: there is no dedicated lock mode on the Stratos Xenon. To prevent accidental wake-up: power the controller off completely using the Home button hold before placing in a bag. The controller will not turn on unless the Home button is pressed."
+            },
+            {
+                "tag": "Warranty coverage and support",
+                "scenario": "A customer says: 'I dropped my Stratos Xenon and now one of the back buttons does not work. Also I spilled juice on it and it started behaving strangely. I have had it 8 months. What is covered under warranty?'",
+                "question": "Explain warranty coverage honestly for both issues on the Stratos Xenon.",
+                "rubric": "Warranty: 1 year against manufacturing defects only. Two issues to address separately: (1) Dropped controller — back button stopped working: physical damage from dropping is explicitly NOT covered under warranty. The damage is user-caused. (2) Liquid spill — strange behaviour: water/liquid damage is explicitly NOT covered under warranty. Neither issue qualifies for warranty support. Agents should be honest but polite. If the customer believes the back button issue was a pre-existing manufacturing defect unrelated to the drop they could attempt to make a case — but physical impact damage complicates any such claim significantly. Battery wear and tear is also not covered. What IS covered: genuine manufacturing defects within 1 year — e.g. a button that never worked from the box, a joystick that drifted from day one with no physical cause. Support contact: 07969273222 (Mon-Sat 10am-6pm — note this is the same number as Quantum, different from most other CB products which use 7351615161). Email: cc@thecosmicbyte.com. Scan QR code in manual for warranty claim procedure."
+            }
+        ]
+    },
 ]
 
 PASS_MARK = 70
