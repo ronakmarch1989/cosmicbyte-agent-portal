@@ -20,13 +20,28 @@ st.markdown("""
 <style>
     .main { max-width: 700px; margin: 0 auto; }
     .stTextArea textarea { font-size: 14px; }
-    .score-box { padding: 1rem; border-radius: 8px; margin: 0.5rem 0; }
-    .score-good { background: #eaf3de; border-left: 3px solid #4ade80; }
-    .score-ok   { background: #fdf8ec; border-left: 3px solid #eab308; }
-    .score-weak { background: #fdf2f2; border-left: 3px solid #f87171; }
-    .product-card { border: 1px solid #e0e0e0; border-radius: 10px; padding: 1.2rem; margin-bottom: 0.8rem; cursor: pointer; }
-    .pass-badge { background: #eaf3de; color: #27500a; padding: 4px 12px; border-radius: 12px; font-size: 13px; }
-    .fail-badge { background: #fdf2f2; color: #7f1d1d; padding: 4px 12px; border-radius: 12px; font-size: 13px; }
+    .score-box {
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 0.5rem 0;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .score-good {
+        background: rgba(74, 222, 128, 0.15);
+        border-left: 3px solid #4ade80;
+        color: inherit;
+    }
+    .score-ok {
+        background: rgba(234, 179, 8, 0.15);
+        border-left: 3px solid #eab308;
+        color: inherit;
+    }
+    .score-weak {
+        background: rgba(248, 113, 113, 0.15);
+        border-left: 3px solid #f87171;
+        color: inherit;
+    }
     h1 { font-size: 2rem !important; }
     .stProgress > div > div { background-color: #c8410a; }
 </style>
