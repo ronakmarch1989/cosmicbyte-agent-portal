@@ -66,7 +66,7 @@ PRODUCTS = [
     {
         "id": "lumora",
         "name": "Lumora",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode wireless controller with Hall Effect sensors, gyro and RGB.",
         "available": True,
         "questions": [
@@ -136,7 +136,7 @@ PRODUCTS = [
     {
         "id": "ares",
         "name": "Ares",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode wireless controller with 2.4GHz, Bluetooth 5.0 and Wired USB-C. Supports PC (Windows), Android (OTG) and iOS (MFI games). 2026 manufacturing batch features 1000Hz polling rate — older models cannot be upgraded to 1000Hz.",
         "available": True,
         "questions": [
@@ -217,7 +217,7 @@ PRODUCTS = [
     {
         "id": "nexus",
         "name": "Nexus",
-        "category": "2.4GHz Wireless",
+        "category": "Controller",
         "description": "2.4GHz wireless controller powered by 2x AAA batteries. Supports XInput and DirectInput on PC (Windows) and Android (OTG). Dual vibration motors, sensitive triggers, up to 8m wireless range.",
         "available": True,
         "questions": [
@@ -286,7 +286,7 @@ PRODUCTS = [
     {
         "id": "ares_wired",
         "name": "Ares Wired",
-        "category": "Wired",
+        "category": "Controller",
         "description": "USB wired controller for PC. Supports XInput and DirectInput. LED-illuminated ABXY, Turbo/Auto-Turbo, Hall Effect joysticks (2026 batch). Compatible with Windows 7/8/10/11. Plug & Play on Windows 8 and above.",
         "available": True,
         "questions": [
@@ -355,7 +355,7 @@ PRODUCTS = [
     {
         "id": "ares_wireless",
         "name": "Ares Wireless",
-        "category": "2.4GHz Wireless",
+        "category": "Controller",
         "description": "2.4GHz wireless controller with 700mAh rechargeable battery, Hall Effect joysticks and triggers (2026 batch), RGB LED, dual vibration, Turbo/Auto-Turbo. PC only via USB dongle. Up to 8m range.",
         "available": True,
         "questions": [
@@ -430,7 +430,7 @@ PRODUCTS = [
     {
         "id": "ares_pro",
         "name": "Ares Pro",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode wireless controller with Hall Effect joysticks, LED ABXY buttons, M1/M2 macro keys and software support (new models only).",
         "available": True,
         "questions": [
@@ -511,7 +511,7 @@ PRODUCTS = [
     {
         "id": "drakon",
         "name": "Drakon",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Wireless controller with TMR joysticks, 3-level trigger lock, magnetic covers, charging dock, macro buttons and RGB.",
         "available": True,
         "questions": [
@@ -592,7 +592,7 @@ PRODUCTS = [
     {
         "id": "stellaris",
         "name": "Stellaris",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode wireless controller with TMR joysticks, gyro, macro buttons and RGB lighting.",
         "available": True,
         "questions": [
@@ -661,7 +661,7 @@ PRODUCTS = [
     {
         "id": "blitz_tri",
         "name": "Blitz Tri-Mode",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode controller (USB Wired / 2.4GHz / Bluetooth) with TMR joysticks, Hall Effect triggers, 1000Hz polling rate, macro programming, gyro, Dualshock mode (iOS), Steam mode, charging dock support. 600mAh battery. PC primary platform.",
         "available": True,
         "questions": [
@@ -736,7 +736,7 @@ PRODUCTS = [
     {
         "id": "blitz_wireless",
         "name": "Blitz Wireless",
-        "category": "2.4GHz Wireless",
+        "category": "Controller",
         "description": "DISCONTINUED — 2.4GHz wireless + USB wired dual-mode controller. Hall Effect joystick and trigger. 600mAh battery. No Bluetooth, no gyro, no macro. Simpler feature set. Agents should know this model is discontinued when customers ask about buying.",
         "available": True,
         "questions": [
@@ -805,7 +805,7 @@ PRODUCTS = [
     {
         "id": "eclipse",
         "name": "Eclipse",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode controller (2.4GHz / Bluetooth 5.3 / Wired USB-C). Compatible with PC, Android, iOS 13+. 1200mAh battery (11-13hrs). Adjustable joystick resistance roller, trigger travel switch, ABXY layout switch, gyro, macro M1/M2 buttons, KeyLinker app, wireless charging contacts, replaceable D-pad, ~10m range.",
         "available": True,
         "questions": [
@@ -880,7 +880,7 @@ PRODUCTS = [
     {
         "id": "starforge",
         "name": "Starforge",
-        "category": "Tri-Mode Wireless",
+        "category": "Controller",
         "description": "Tri-mode controller (2.4GHz / Bluetooth 5.3 / Wired USB-C). PC (XInput/DInput), Android 8.0+, iOS 13+, Smart TVs, Tesla vehicles. 1200mAh (10-12hrs). Swappable modular joystick modules (4 resistance levels), 4x back macro buttons (M1-M4), RGB light strips, trigger motor vibration, ABXY layout screw switch, gyro, KeyLinker app, Back+Start for XInput/DInput toggle, LS+RS+Home reset.",
         "available": True,
         "questions": [
@@ -955,7 +955,7 @@ PRODUCTS = [
     {
         "id": "quantum",
         "name": "Quantum",
-        "category": "Dual-Mode (PS-Style)",
+        "category": "Controller",
         "description": "Dual-mode (Wired + Wireless Bluetooth) PS4-style controller. Compatible with PS4, PS5 (PS4 games only), Nintendo Switch (wired), PC (PS4/Steam mode wired + XInput wired + BT), iOS 13+, Android. Magnetic drift-free joysticks, magnetic pressure-sensitive triggers, 6-axis gyro, RGB LED, 3.5mm audio jack, touchpad, ML/MR macro buttons, travel switch triggers, speakers, 1000mAh battery.",
         "available": True,
         "questions": [
@@ -1030,7 +1030,7 @@ PRODUCTS = [
     {
         "id": "stratos_xenon",
         "name": "Stratos Xenon",
-        "category": "Dual-Mode (PS-Style)",
+        "category": "Controller",
         "description": "PS4-style wireless controller. Wireless on PS4 (Bluetooth), wired on PC (optional wireless dongle sold separately), PS5 (limited), Android, iOS. Upgraded Hall Effect joystick, touchpad, 3.5mm audio jack, mic on/off switch, programmable back buttons (PS4 only), turbo, 1300mAh battery, 8m wireless range.",
         "available": True,
         "questions": [
@@ -1099,6 +1099,75 @@ PRODUCTS = [
                 "scenario": "A customer says: 'I dropped my Stratos Xenon and now one of the back buttons does not work. Also I spilled juice on it and it started behaving strangely. I have had it 8 months. What is covered under warranty?'",
                 "question": "Explain warranty coverage honestly for both issues on the Stratos Xenon.",
                 "rubric": "Warranty: 1 year against manufacturing defects only. Two issues to address separately: (1) Dropped controller — back button stopped working: physical damage from dropping is explicitly NOT covered under warranty. The damage is user-caused. (2) Liquid spill — strange behaviour: water/liquid damage is explicitly NOT covered under warranty. Neither issue qualifies for warranty support. Agents should be honest but polite. If the customer believes the back button issue was a pre-existing manufacturing defect unrelated to the drop they could attempt to make a case — but physical impact damage complicates any such claim significantly. Battery wear and tear is also not covered. What IS covered: genuine manufacturing defects within 1 year — e.g. a button that never worked from the box, a joystick that drifted from day one with no physical cause. Support contact: 07969273222 (Mon-Sat 10am-6pm — note this is the same number as Quantum, different from most other CB products which use 7351615161). Email: cc@thecosmicbyte.com. Scan QR code in manual for warranty claim procedure."
+            }
+        ]
+    },
+    {
+        "id": "velox",
+        "name": "Velox",
+        "category": "Mouse",
+        "description": "Tri-mode gaming mouse (2.4GHz / Bluetooth 5.3 / Wired USB-C). PixArt PAW3395 sensor, 26000 DPI, 1000Hz polling rate, 650 IPS, 50G acceleration. 39g ultralight, PTFE feet, 230mAh battery, Huano switches (100M clicks). Windows & macOS.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity — all three modes",
+                "scenario": "A new customer asks: 'How do I connect the Velox to my PC via 2.4GHz dongle? And how do I connect it via Bluetooth? Also what happens if I just plug in the USB-C cable?'",
+                "question": "Explain all three connection modes on the Velox and how to set each one up.",
+                "rubric": "Physical mode switch on the bottom of the mouse: Up = 2.4GHz mode. Middle = OFF (wired mode when cable connected). Down = Bluetooth mode. Wired mode: connect USB-C cable to mouse and PC — Green LED stays ON confirming wired mode. No setup required, works immediately. 2.4GHz mode: switch to Up position, plug in USB receiver — auto-connects. If manual pairing needed: switch to 2.4GHz, hold Left Click + Right Click + Scroll Wheel for 3 seconds — Red LED flashes confirming pairing mode, insert receiver — Green LED solid briefly then off = connected. Bluetooth mode: switch to Down position, hold Left Click + Right Click + Scroll Wheel for 3 seconds — Blue LED flashes = pairing mode. On device open Bluetooth, select 'CB Velox' (also may appear as 'blemouse5.3' depending on device — both refer to the Velox). Blue LED turns solid briefly then off = connected. Wireless range: greater than 10 metres. Supported systems: Windows and macOS."
+            },
+            {
+                "tag": "DPI levels and LED colour codes",
+                "scenario": "A customer asks: 'How do I change the DPI on my Velox? And how do I know which DPI level I am on? The light turned pink and I do not know what that means.'",
+                "question": "Explain DPI switching and the complete LED colour map for DPI levels on the Velox.",
+                "rubric": "DPI button is on the top of the mouse. Each press of the DPI button cycles to the next level. Six DPI levels: 800 DPI = Blue LED. 1600 DPI = Green LED. 2400 DPI = Pink LED (DEFAULT — this is why the customer sees pink). 3200 DPI = Yellow LED. 5800 DPI = Cyan LED. 7200 DPI = White LED. When DPI button is pressed the colour-coded LED illuminates for 3 seconds then turns off. Default is 2400 DPI (pink). Sensor: PixArt PAW3395. Max DPI: 26000 (achievable via software — 6 hardware DPI steps shown above). Software downloadable from thecosmicbyte.com allows custom DPI configuration beyond the 6 hardware steps."
+            },
+            {
+                "tag": "LED indicators — mode and battery status",
+                "scenario": "A customer says: 'The light on my Velox is flashing red rapidly. Also sometimes I see a slow blue flash and sometimes a fast blue flash. What do all these lights mean?'",
+                "question": "Explain all LED indicator states on the Velox — mode indicators and battery/charging indicators.",
+                "rubric": "Mode LEDs: Wired mode = Green LED steady ON always. 2.4GHz mode = Red LED (slow flash = trying to reconnect to receiver; fast flash = manual pairing mode active). Bluetooth mode = Blue LED (slow flash = trying to reconnect to last device; fast flash = pairing mode active). DPI levels: flash colour for 3 seconds when DPI button pressed (Blue=800, Green=1600, Pink=2400, Yellow=3200, Cyan=5800, White=7200). Battery/charging LEDs: Red LED flashing rapidly = low battery (below 3.2V) — charge immediately. Green flashing = charging in progress. Green steady = fully charged. Mouse shuts down automatically below 3.1V to protect battery."
+            },
+            {
+                "tag": "Sleep modes and battery life",
+                "scenario": "A customer says: 'My Velox mouse seems to go unresponsive after I stop using it for a while. There is a slight delay when I start moving it again. Also the battery drains faster than I expected — what can I do?'",
+                "question": "Explain the sleep modes and give practical battery life tips for the Velox.",
+                "rubric": "Two sleep modes: Light Sleep = after 1 minute of inactivity — wakes instantly on movement or button press. Deep Sleep = after 20 minutes of inactivity — slight delay on wake-up (this explains the customer's experience). To wake from deep sleep: move the mouse or press any button — the slight delay is normal and expected, not a defect. Battery: 230mAh rechargeable. Low power: below 3.2V = red LED flashes rapidly. Below 3.1V = auto shutdown to protect battery. Tips to extend battery life: ensure mouse enters sleep when not in use (do not disable sleep). Avoid frequently switching between modes. Lower DPI setting reduces sensor power draw. Use a good quality USB-C cable for charging. Do not use while charging with a faulty cable. Charging: 4.0V trickle to 4.2V full charge. Over-voltage protection at 6V. Surge protection at 24V."
+            },
+            {
+                "tag": "2.4GHz not connecting or disconnecting",
+                "scenario": "A customer says: 'My Velox is not being detected by my PC in 2.4GHz mode. I inserted the USB receiver but nothing happens. Also it keeps disconnecting during use.'",
+                "question": "Walk the customer through diagnosing and fixing 2.4GHz connection issues on the Velox.",
+                "rubric": "Step 1: check the bottom mode switch is set to Up (2.4GHz position) — not Middle (off/wired) or Down (Bluetooth). Step 2: ensure USB receiver is fully inserted into a working USB port — try a different port to rule out port issues. Step 3: check for interference — move receiver away from other USB devices, USB 3.0 drives, and Wi-Fi routers which can cause 2.4GHz interference. Step 4: if still not connecting, perform manual re-pair: with mouse in 2.4GHz mode (switch up), hold Left Click + Right Click + Scroll Wheel for 3 seconds until Red LED flashes (pairing mode), then insert the receiver — Green LED solid briefly then off = connected. Step 5: try the receiver in a USB 2.0 port (USB 3.0 ports can cause 2.4GHz interference). Reconnection: Red LED slow flash in 2.4GHz mode = mouse is searching for receiver — it will auto-reconnect when receiver is detected."
+            },
+            {
+                "tag": "Bluetooth pairing not working",
+                "scenario": "A customer says: 'I cannot get my Velox to pair via Bluetooth. I held the buttons and the blue light blinked but I cannot find it in my device's Bluetooth list. Also what is the device name I should look for?'",
+                "question": "Walk the customer through Bluetooth troubleshooting on the Velox and clarify the Bluetooth device name.",
+                "rubric": "Step 1: confirm bottom switch is set to Down (Bluetooth position). Step 2: press any button to wake the mouse if it is in sleep mode — the blue LED should be visible. Step 3: hold Left Click + Right Click + Scroll Wheel for 3 seconds until Blue LED flashes rapidly = pairing mode active. Step 4: on the device open Bluetooth settings and scan. Device name: the mouse may appear as 'CB Velox' OR 'blemouse5.3' — both refer to the same mouse, different pages of the manual reference both names. If customer cannot find it, look for both names. Step 5: if previously paired, remove the old pairing entry from the device's Bluetooth list first, then re-pair. Step 6: ensure the device supports Bluetooth 5.3. Blue LED solid briefly then off = successfully connected. Bluetooth mode slow flash = searching for last paired device (not in pairing mode — must do the 3-button hold to enter active pairing)."
+            },
+            {
+                "tag": "Cursor lagging, skipping or inaccurate tracking",
+                "scenario": "A customer says: 'My Velox cursor is skipping and lagging during gaming. It was smooth before. I am using the 2.4GHz dongle.'",
+                "question": "Diagnose and fix cursor tracking issues on the Velox.",
+                "rubric": "Step 1: check the surface — the PixArt PAW3395 sensor does not work well on glass or highly reflective surfaces. Use a mouse pad or non-reflective flat surface. Step 2: check DPI setting — if DPI is very high (5800 or 7200) and the surface is not ideal, tracking can appear erratic. Try a lower DPI setting using the DPI button. Step 3: check for wireless interference — in 2.4GHz mode, nearby USB 3.0 devices, Wi-Fi routers, and other 2.4GHz devices can cause lag. Move USB receiver closer to mouse or into a USB 2.0 port. Step 4: switch to wired mode temporarily to isolate whether the issue is hardware or wireless — if wired is smooth the problem is wireless interference. Step 5: check receiver is fully inserted. Step 6: try re-pairing (Left+Right+Scroll 3 seconds). Step 7: check if the mouse is in deep sleep wake-up — slight lag immediately after inactivity is normal deep sleep behaviour, not a tracking defect. Sensor specs: PAW3395, 650 IPS tracking speed, 50G acceleration, 26000 DPI max."
+            },
+            {
+                "tag": "Buttons not responding",
+                "scenario": "A customer says: 'The scroll wheel click and one of the side buttons on my Velox are not responding at all. The mouse moves fine.'",
+                "question": "Walk the customer through diagnosing unresponsive buttons on the Velox.",
+                "rubric": "Step 1: test in wired mode first — connect USB-C cable, set switch to Middle position — this isolates whether the issue is hardware or connection-related. If buttons work in wired mode, the problem is wireless. If buttons do not work even in wired mode, it is likely a hardware issue. Step 2: restart the computer and test again — driver or OS issues can occasionally cause specific buttons to stop registering. Step 3: check if any software (game or system) is remapping or blocking those buttons. Step 4: test in a different application — some games may not support all mouse buttons natively. Button specifications: Left Click and Right Click use Huano switches rated for 100 million clicks. Scroll Wheel: scroll + click function. Side Button 1 = Forward. Side Button 2 = Backward. If buttons are genuinely unresponsive in wired mode across multiple applications after restart, this may be a manufacturing defect — advise customer to contact Cosmic Byte support (+91 7351615161)."
+            },
+            {
+                "tag": "Software, DPI customisation and macOS support",
+                "scenario": "A customer asks: 'Is there software for the Velox? I want to set a custom DPI that is not one of the 6 preset levels. Also does it work on Mac?'",
+                "question": "Explain the software availability, custom DPI capabilities, and macOS support on the Velox.",
+                "rubric": "Software: yes, Cosmic Byte Velox software is available for download from thecosmicbyte.com — this is required for advanced customisation. The software allows custom DPI settings beyond the 6 hardware presets (which go up to 7200 DPI via button). Maximum DPI via software: 26000 DPI (the sensor's full capability). macOS support: yes, the Velox officially supports both Windows and macOS. The mouse works as a plug-and-play device on both operating systems for basic use. The software may have Windows-primary support — customer should check the website for macOS software availability. The 6 DPI hardware presets and all three connection modes work on macOS without software. For advanced features the software is recommended. Software also allows button remapping, polling rate adjustment, and other sensor settings."
+            },
+            {
+                "tag": "Charging, warranty and care",
+                "scenario": "A customer says: 'I dropped my Velox and it cracked slightly but still works. Also I have been charging it with my phone's fast charger. And the battery life has gone down a lot in 7 months — is any of this covered under warranty?'",
+                "question": "Address the fast charger issue, physical damage, and battery degradation warranty position for the Velox.",
+                "rubric": "Fast charger: CRITICAL — the Velox has specific charging voltage specs (4.0V trickle, 4.2V full, 6V over-voltage cutoff). Fast chargers can exceed these limits and damage the battery. The mouse has surge protection at 24V but fast chargers may still cause damage outside safe parameters. Recommend immediately switching to a standard 5V USB source or PC USB port. Do not continue using fast charger. Physical damage from dropping: cracked shell from dropping is explicitly NOT covered under warranty. Physical damage voids warranty coverage for that damage. Battery degradation after 7 months: regular wear and tear from usage is NOT covered (though the Velox manual specifically only mentions physical and water damage — agents should note this but cannot guarantee battery wear is covered). Fast charger-induced battery damage would also not be covered as it is user-caused. Warranty: 1 year against manufacturing defects only. Physical damage not covered. Water damage not covered. Tampered products not covered. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
             }
         ]
     },
