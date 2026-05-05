@@ -1679,12 +1679,12 @@ def show_home():
     st.divider()
 
     # Category filter
-    categories = ["All controllers"] + sorted(list(set(p["category"] for p in PRODUCTS)))
+    categories = ["All products"] + sorted(list(set(p["category"] for p in PRODUCTS)))
     selected_category = st.selectbox("🎮 Filter by type", categories, index=0)
 
     st.markdown(f"### Available tests")
 
-    filtered_products = PRODUCTS if selected_category == "All controllers" else [p for p in PRODUCTS if p["category"] == selected_category]
+    filtered_products = PRODUCTS if selected_category == "All products" else [p for p in PRODUCTS if p["category"] == selected_category]
     st.markdown(f"<small>Showing {len(filtered_products)} of {len(PRODUCTS)} controllers</small>", unsafe_allow_html=True)
 
     for product in filtered_products:
