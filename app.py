@@ -133,6 +133,87 @@ PRODUCTS = [
     },
     # ── ADD NEW PRODUCTS BELOW ──────────────────
     {
+        "id": "ares_pro",
+        "name": "Ares Pro",
+        "category": "Controller",
+        "description": "Tri-mode wireless controller with Hall Effect joysticks, LED ABXY buttons, M1/M2 macro keys and software support (new models only).",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Software support and firmware warning",
+                "scenario": "A customer says: 'I downloaded the Cosmic Byte software but it is not detecting my Ares Pro. I also saw a firmware update file on the website — should I use that to fix it?' They bought their controller about a year ago.",
+                "question": "How do you verify if this customer's Ares Pro supports the software, and what is the critical warning about firmware updates they must know?",
+                "rubric": "Step 1 — Model check: ask customer to check the back label. If it says App Support in the top left corner, their model supports the software. If not present, their model does NOT support the software — no workaround, older models work fine as controllers only. Step 2 — CRITICAL firmware warning: two different firmware versions exist. Models WITH software support must ONLY update firmware through the software itself (connect wired, press firmware update button in software) — never use the standalone firmware file. Models WITHOUT software support use the separate standalone firmware file. Mixing these up can cause serious issues. Agents must always confirm which model type before advising any firmware update. Also note: software v1.2.11 added auto shutdown adjustment via software."
+            },
+            {
+                "tag": "Connectivity and LED modes",
+                "scenario": "A customer says: 'I am confused about how to connect my Ares Pro. I want to use it on my PC with the dongle, on my Android phone via Bluetooth, and on my iPhone. Also how do I know which mode I am in?'",
+                "question": "Explain all connection methods and what each LED color means on the Ares Pro.",
+                "rubric": "Four LED colors indicate mode: Orange=XInput PC, Red=DInput PC, Green=Android, Blue=iOS. Wireless dongle: plug dongle into PC, hold Home for 3 seconds when controller is off, motor vibrates once, LED flashes then stays solid. Wired: plug USB-C cable, automatically switches to XInput (Orange LED). Bluetooth PC XInput: hold X+Home for 3 seconds (Orange LED). Bluetooth Android: hold A+Home for 3 seconds (Green LED). Bluetooth iOS: hold B+Home for 3 seconds (Blue LED). Android support is limited and not covered under warranty. Controller is PC-only device — not compatible with any console."
+            },
+            {
+                "tag": "XInput vs DInput switching",
+                "scenario": "A customer says: 'I am using the dongle on PC and my old game from 2006 does not detect the Ares Pro at all. Windows sees it fine but the game ignores it completely.'",
+                "question": "Diagnose the issue and explain how to fix it on the Ares Pro.",
+                "rubric": "Old games only support DInput (Red LED). The Ares Pro defaults to XInput (Orange LED) when connected via dongle or wired. To switch between XInput and DInput in wireless dongle or wired mode: hold Back+Start for 3 seconds. Orange LED = XInput, Red LED = DInput. Customer must relaunch the game after switching. In Bluetooth mode the LED colors indicate the connected platform directly."
+            },
+            {
+                "tag": "Turbo auto button press",
+                "scenario": "A customer calls: 'My B button on the Ares Pro keeps pressing itself super fast repeatedly. The controller is new. Is it broken? Also how do I change how fast the turbo fires?'",
+                "question": "Diagnose the issue, explain how to disable turbo, and how to adjust turbo speed.",
+                "rubric": "Cause: Turbo accidentally enabled on B — activated by pressing B+Turbo. Fix: press B+Turbo again to cancel. Turbo works on A, B, X, Y, L1, L2, R1, R2. Speed adjustment: press Turbo+Right Joystick Up to increase speed (motor vibrates once to confirm), press Turbo+Right Joystick Down to decrease speed (motor vibrates once). Always rule out Turbo before suggesting hardware defect."
+            },
+            {
+                "tag": "M1/M2 macro setup",
+                "scenario": "A customer says: 'When I press the M1 button on the back of my Ares Pro it does nothing at all. I want to set it up to press A when I press M1. How do I do this? And later how do I cancel it?'",
+                "question": "Walk the customer through recording a macro on M1 and how to cancel it.",
+                "rubric": "To set up macro: hold M1+Turbo simultaneously for 3 seconds until purple LED starts flashing. Press the button to assign (e.g. A). Press M1 again to save — controller vibrates once and LED stops flashing confirming success. To use: press M1 during gameplay. Cannot assign macros to Back, Start, Turbo or Home buttons. To cancel: hold M1+Turbo for 3 seconds until purple LED flashes, then press M1 once — controller vibrates once and LED stops flashing confirming cancellation. Same process applies to M2."
+            },
+            {
+                "tag": "LED controls",
+                "scenario": "A customer says: 'The glowing ABXY buttons on my Ares Pro turned off and I cannot figure out how to turn them back on. Also the V-shaped light in the middle is also off.'",
+                "question": "Explain how to control both LED groups on the Ares Pro.",
+                "rubric": "The Ares Pro has two independent LED groups. ABXY LED: press X+Back to toggle on or off. V LED (the V-shaped light): press A+Back to toggle on or off. These are independent so ABXY can be on while V LED is off or vice versa. If both are off, customer simply needs to press the respective combinations to turn them back on. LEDs not lighting up can also indicate low battery — advise customer to charge if toggling does not work."
+            },
+            {
+                "tag": "Joystick and D-pad toggle",
+                "scenario": "A customer says: 'In my game I want to use the D-pad to move my character but it is currently controlled by the left joystick. Can I swap them on the Ares Pro?'",
+                "question": "Explain how to swap the joystick and D-pad functions on the Ares Pro.",
+                "rubric": "To toggle between left joystick and D-pad functions: press L3+Back. This swaps the left joystick and D-pad roles. Pressing L3+Back again swaps them back. This is a simple toggle — no software needed. The function works in all connection modes."
+            },
+            {
+                "tag": "D-pad 4-way and 8-way mode",
+                "scenario": "A customer who plays fighting games says: 'My D-pad sometimes registers diagonal inputs when I only want pure left, right, up or down. Is there a way to lock it to only 4 directions?'",
+                "question": "Explain the D-pad input modes on the Ares Pro and how to switch between them.",
+                "rubric": "The Ares Pro supports 4-Way and 8-Way D-pad input modes. 4-Way mode only allows pure directional inputs (up, down, left, right) — best for fighting and platformer games where accidental diagonals cause problems. 8-Way mode (default) allows all 8 directions including diagonals. To toggle between them: hold D-pad Up, then press Back button. Repeat to toggle back. 4-Way mode eliminates accidental diagonal inputs."
+            },
+            {
+                "tag": "Joystick range modes",
+                "scenario": "A customer who plays precision games asks: 'Is there any way to adjust how sensitive or how far the joystick moves on the Ares Pro? I want more control for aiming.'",
+                "question": "Explain the joystick range modes on the Ares Pro and how to cycle through them.",
+                "rubric": "The Ares Pro has three joystick range modes activated with R3/L3+Turbo. Full Circle (default) = full joystick movement enabled, medium vibration confirms. Small Circle = reduced joystick range for precision control — better for aiming and fine movement, small vibration confirms. Square Mode = square-style input mapping for tight angles, strong vibration confirms. The vibration intensity when switching tells the agent which mode was selected. Customer can cycle through all three by repeating R3/L3+Turbo."
+            },
+            {
+                "tag": "Joystick calibration",
+                "scenario": "A customer says: 'My left joystick on the Ares Pro keeps drifting slightly even when I am not touching it. How do I fix this?'",
+                "question": "Walk the customer through the joystick calibration process on the Ares Pro.",
+                "rubric": "Calibration steps: (1) Power off the controller completely. (2) Hold Back+X+Home for 1 second — LEDs flash green and blue, controller vibrates once confirming calibration mode. (3) Rotate both joysticks clockwise 3 times. (4) Press both triggers fully 3 times. (5) Press Start to finish — green LED lights up and controller vibrates once to confirm. The Ares Pro uses Hall Effect joysticks which are drift-resistant by design but calibration may be needed after extended use or physical impact."
+            },
+            {
+                "tag": "Headset jack and audio",
+                "scenario": "A customer says: 'I plugged my headset into the 3.5mm jack on the Ares Pro but I cannot hear any game audio. I am currently connected via Bluetooth to my PC.'",
+                "question": "Explain why audio is not working and what the customer needs to do.",
+                "rubric": "The 3.5mm headset jack only works in wireless dongle mode and wired USB mode. It is NOT supported in Bluetooth mode. Customer needs to switch from Bluetooth to either wireless dongle or wired connection to use the headset jack. Once switched, the jack supports both audio output and microphone input. Also remind customer that Bluetooth mode does not support the headset jack regardless of platform."
+            },
+            {
+                "tag": "Battery and warranty",
+                "scenario": "A customer says: 'My Ares Pro vibration stopped working completely and the LED is flashing. Also the battery seems to drain much faster than before after 8 months of use. Is this covered under warranty?'",
+                "question": "Diagnose the vibration and LED issue, and explain what the warranty covers for both the battery and vibration concerns.",
+                "rubric": "Flashing LED = low battery — vibration is automatically disabled when battery is low to save power. Customer needs to charge first. Vibration adjustment (updated in software v1.2.11): HOLD R3+Left Joystick Up for 3 seconds to increase (not just a tap — must hold 3 seconds). HOLD R3+Left Joystick Down for 3 seconds to decrease. This was updated to prevent accidental changes during gameplay. Auto shutdown time can also be adjusted via the software on supported models. Warranty: 1 year against manufacturing defects only. Important: regular wear and tear from battery usage is explicitly NOT covered — battery degradation over months is normal wear and tear. Physical damage and water damage also not covered."
+            }
+        ]
+    },
+    {
         "id": "drakon",
         "name": "Drakon",
         "category": "Controller",
