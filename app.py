@@ -133,6 +133,87 @@ PRODUCTS = [
     },
     # ── ADD NEW PRODUCTS BELOW ──────────────────
     {
+        "id": "ares",
+        "name": "Ares",
+        "category": "Controller",
+        "description": "Tri-mode wireless controller with 2.4GHz, Bluetooth 5.0 and Wired USB-C. Supports PC (Windows), Android (OTG) and iOS (MFI games). 2026 manufacturing batch features 1000Hz polling rate — older models cannot be upgraded to 1000Hz.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity modes and LED indicators",
+                "scenario": "A new customer just unboxed their Ares and asks: 'How do I connect this to my PC with the dongle? Also how do I connect via Bluetooth to my Android phone and my iPhone? And how do I know which mode I am in?'",
+                "question": "Explain all three connection methods on the Ares and what each LED colour means.",
+                "rubric": "Four LED colours: Orange=XInput PC, Red=DirectInput PC, Green=Android, Blue=iOS. 2.4GHz wireless dongle (recommended for PC): plug dongle into PC, press and hold Home for 3 seconds to power on, controller vibrates once and LED blinks, when connected LED stays solid. Wired USB-C: connect cable to PC, Windows auto-detects and installs drivers, defaults to XInput. Bluetooth Android: hold A+Home for 3 seconds, Green LED confirms pairing, requires OTG support. Bluetooth iOS: hold B+Home for 3 seconds, Blue LED confirms pairing, supports MFI-enabled games only. Bluetooth PC XInput: hold X+Home for 3 seconds, Orange LED confirms pairing. Must mention clear line of sight between controller and dongle for best 2.4GHz performance."
+            },
+            {
+                "tag": "Platform compatibility and console warning",
+                "scenario": "A frustrated customer says: 'I bought the Ares to use on my PS5 and Xbox Series X. Neither detects the controller at all. What pairing steps do I follow?'",
+                "question": "How do you respond to this customer?",
+                "rubric": "Must clearly and politely state: the Ares is designed exclusively for Windows PC use. It is NOT compatible with PlayStation, Xbox, Nintendo Switch or any gaming console. No warranty or support is provided for console usage. Android support is limited and also not covered under warranty. Should NOT provide any console pairing steps. Must be polite but firm and honest. Can suggest the customer verify compatibility before purchasing in future."
+            },
+            {
+                "tag": "XInput vs DirectInput — old game",
+                "scenario": "A customer says: 'I connected the Ares via the 2.4GHz dongle on my PC. Windows sees it fine but my old 2004 game completely ignores the controller.'",
+                "question": "Diagnose the issue and walk the customer through the fix on the Ares.",
+                "rubric": "Old games only support DirectInput (DInput). The Ares defaults to XInput (Orange LED) in dongle or wired mode. To switch between XInput and DInput in dongle or wired mode: press Back+Start together for 3 seconds. Orange LED = XInput, Red LED = DirectInput. Customer must relaunch the game after switching. Pressing Back+Start again for 3 seconds toggles back to XInput."
+            },
+            {
+                "tag": "Turbo and auto turbo setup",
+                "scenario": "A customer says: 'My A button keeps pressing itself super fast on its own. Also how do I set up Auto Turbo so a button fires continuously without me holding it? And how do I cancel both?'",
+                "question": "Diagnose the auto-press, explain how turbo and auto turbo work, and how to cancel each.",
+                "rubric": "Auto-press cause: Turbo accidentally enabled on A button by holding A then pressing Turbo. Fix: repeat same procedure — hold A then press Turbo — to cancel. Turbo works on A, B, X, Y, L1, L2, R1, R2. Turbo (manual hold required): hold the desired button then press Turbo button. Cancel: repeat same procedure. Auto Turbo (fires continuously without holding): hold desired button then press Auto button. Cancel: repeat same procedure. Auto Turbo fires the button repeatedly without the customer needing to hold anything. Speed adjustment: press Turbo+Right Joystick Up to increase speed, Turbo+Right Joystick Down to decrease speed. Always rule out Turbo before suggesting hardware defect."
+            },
+            {
+                "tag": "D-pad 4-way and 8-way modes",
+                "scenario": "A customer who plays fighting games says: 'My D-pad keeps registering diagonal inputs when I only want to go left, right, up or down. Is there a setting to stop the diagonals?'",
+                "question": "Explain the D-pad input modes on the Ares and how to switch between them.",
+                "rubric": "The Ares supports two D-pad modes. 8-Way mode (default): allows all 8 directional inputs including diagonals. 4-Way mode: only registers pure directional inputs — up, down, left, right — eliminates accidental diagonals, best for fighting and platformer games. To toggle between 4-Way and 8-Way: hold the Up D-pad button then press the Back button. Repeat to toggle back. No software needed."
+            },
+            {
+                "tag": "Joystick and D-pad swap",
+                "scenario": "A customer says: 'In my game the left joystick controls the character movement but I want to use the D-pad for movement instead. Can I swap them on the Ares?'",
+                "question": "Explain how to swap the joystick and D-pad functions on the Ares.",
+                "rubric": "To toggle between left joystick and D-pad functions on the Ares: press L3+Back. This swaps the left joystick and D-pad roles. Pressing L3+Back again toggles them back. Simple toggle, no software needed, works in all connection modes."
+            },
+            {
+                "tag": "LED controls and vibration",
+                "scenario": "A customer says: 'The ABXY buttons on my Ares have stopped glowing. Also the vibration seems off — sometimes it works, sometimes it doesn't. How do I control both?'",
+                "question": "Explain how to control the ABXY LED and vibration on the Ares.",
+                "rubric": "ABXY LED toggle: press X+Back to turn ABXY LEDs on or off. Vibration LED toggle: press A+Back to turn vibration on or off. Vibration strength: press R3+Left Joystick Up to increase, R3+Left Joystick Down to decrease. Important: vibration is automatically disabled when battery is critically low to save power — if vibration suddenly stops, check battery first. Android and iOS do NOT support vibration functions. Game support is also required for vibration to work."
+            },
+            {
+                "tag": "Battery, charging and low battery warnings",
+                "scenario": "A customer says: 'How do I know when my Ares is low on battery? Also the LED is flashing slowly — what does that mean? And the vibration has stopped working completely.'",
+                "question": "Explain all battery and charging indicators on the Ares and diagnose the vibration issue.",
+                "rubric": "Low battery warning: LED flashes slowly — this is the low battery indicator. Charging: LED slowly blinks while charging. Fully charged: LED turns off completely. Critical battery behaviour: controller automatically disables vibration when battery is critically low to save power. This is why vibration has stopped — it is not a defect, just a power-saving feature. Customer needs to charge the controller. Use a standard 5V USB source. Recommend using the included USB-C cable."
+            },
+            {
+                "tag": "Polling rate — 2026 batch",
+                "scenario": "A customer says: 'I heard the Ares now has a 1000Hz polling rate. I have an older Ares from about a year ago. Can I update or upgrade mine to get 1000Hz? And what exactly does polling rate affect?'",
+                "question": "Explain polling rate, clarify which Ares models have 1000Hz, and be honest about whether older models can be upgraded.",
+                "rubric": "Polling rate explanation: polling rate is how often the controller reports its input state to the PC per second. 1000Hz means 1000 reports per second, resulting in 1ms input latency — more responsive and precise. Only the 2026 manufacturing batch of the Ares includes the 1000Hz polling rate upgrade. Older Ares models have a lower polling rate. CRITICAL: older models CANNOT be upgraded to 1000Hz — there is no firmware update, cable, software or any workaround that adds 1000Hz to older hardware. It is a hardware difference. Be honest and clear — do not suggest any workaround. If the customer wants 1000Hz they would need to purchase a new 2026 batch unit."
+            },
+            {
+                "tag": "Controller won't turn on and won't connect",
+                "scenario": "A customer says: 'My Ares won't turn on at all. I pressed Home but nothing happens. Also my friend's Ares connected fine to my PC before but mine won't connect via Bluetooth even after pairing.'",
+                "question": "Walk the customer through diagnosing and fixing both issues.",
+                "rubric": "Won't turn on: ensure battery is charged first — connect via USB-C and charge. To power on: press and hold Home button for 3 seconds. If still not turning on after charging, try reset pin-hole on back. Won't connect via Bluetooth: verify correct pairing mode for the platform — PC XInput=X+Home for 3 seconds (Orange LED), Android=A+Home (Green LED), iOS=B+Home (Blue LED). Ensure Bluetooth is active and visible on the receiving device. Restart the pairing process. Check that the LED is blinking during pairing — solid LED means already connected to another device, which will block new pairing. May need to clear existing Bluetooth pairing from both controller and device before re-pairing."
+            },
+            {
+                "tag": "Reset and troubleshooting unresponsive buttons",
+                "scenario": "A customer says: 'Some buttons on my Ares are not responding at all during gameplay. I have restarted the game and reconnected the controller but it still happens. What do I do?'",
+                "question": "Walk the customer through diagnosing unresponsive buttons and how to perform a reset on the Ares.",
+                "rubric": "Step 1: Check if Turbo or Auto Turbo may have caused unexpected behaviour — disable any turbo assignments. Step 2: check controller is connected properly — LED should be solid, not blinking. Step 3: try switching between XInput and DInput via Back+Start for 3 seconds to see if game responds differently. Step 4: hardware reset — insert a pin into the RESET pin-hole on the back of the controller, hold for 1-2 seconds. This resets the controller without deleting settings. Step 5: re-pair the controller after reset. If issue persists after reset contact Cosmic Byte support — warranty covers manufacturing defects for 1 year. Physical damage and water damage are not covered."
+            },
+            {
+                "tag": "Warranty and what is covered",
+                "scenario": "A customer says: 'My Ares stopped working after 8 months. I also accidentally dropped it and the shell has a crack. Will the warranty cover this? And I am also using it on my Android phone — is that covered?'",
+                "question": "Explain the Ares warranty coverage honestly and completely.",
+                "rubric": "Warranty: 1 year against manufacturing defects only. Physical damage from dropping — including cracked shell — is explicitly NOT covered under warranty. Water damage is also not covered. Tampered products are not covered. Android support: the Ares has limited Android support via OTG, but Android compatibility issues are explicitly not covered under warranty — the controller is classified as a PC-only device. If the controller stopped working due to a genuine manufacturing defect unrelated to the drop, the customer may have a valid claim, but the physical crack complicates matters. Advise customer to contact Cosmic Byte support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, email: cc@thecosmicbyte.com. Scan QR code in manual for warranty claim procedure."
+            }
+        ]
+    },
+    {
         "id": "ares_pro",
         "name": "Ares Pro",
         "category": "Controller",
@@ -443,7 +524,7 @@ def show_home():
     st.markdown("Type your answers in plain language, just like responding to a real customer. Claude grades each answer instantly.")
 
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Questions", "10")
+    col1.metric("Questions", "10–12")
     col2.metric("To pass", "70%")
     col3.metric("Grading", "AI")
     col4.metric("Duration", "~15 min")
