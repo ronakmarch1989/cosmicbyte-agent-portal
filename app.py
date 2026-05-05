@@ -214,6 +214,75 @@ PRODUCTS = [
         ]
     },
     {
+        "id": "nexus",
+        "name": "Nexus",
+        "category": "Controller",
+        "description": "2.4GHz wireless controller powered by 2x AAA batteries. Supports XInput and DirectInput on PC (Windows) and Android (OTG). Dual vibration motors, sensitive triggers, up to 8m wireless range.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity and turning on",
+                "scenario": "A customer just unboxed their Nexus and says: 'How do I get this working on my PC? I inserted the batteries but nothing is happening and I cannot see it in Windows.'",
+                "question": "Walk the customer through the complete setup process to connect the Nexus to their PC for the first time.",
+                "rubric": "Steps in order: (1) Open battery compartment, insert 2x AAA batteries with correct polarity, close securely. (2) Slide the power switch to ON — Green and Red LEDs will flash. (3) Plug the wireless dongle into a USB port on the PC. (4) Once connected successfully, LEDs will remain lit solid (not flashing). (5) Windows 10 is Plug and Play — no drivers needed. If connection fails: try a different USB port, ensure no obstructions between controller and dongle, reinsert dongle and restart PC. Must mention the physical power switch — not just inserting batteries."
+            },
+            {
+                "tag": "LED indicators and mode status",
+                "scenario": "A customer asks: 'The lights on my Nexus are confusing me. Sometimes I see green, sometimes red, sometimes both. What does each LED combination mean?'",
+                "question": "Explain all LED indicator states on the Nexus and what each one means.",
+                "rubric": "Four LED states: Green LED only = XInput mode (PC default). Red LED only = DirectInput mode. Green + Red LEDs both on = PC Analog Mode. LEDs flashing = controller is trying to connect / pairing in progress. LEDs solid = successfully connected. LEDs flashing slowly = low battery. No LEDs = controller is off or battery is dead. Agent must correctly identify all four mode states and the battery/connection states."
+            },
+            {
+                "tag": "XInput vs DirectInput — old game",
+                "scenario": "A customer says: 'I connected the Nexus via the wireless dongle. Windows detects it fine and I can see it in Game Controllers, but my old 2003 game completely ignores it. What is wrong?'",
+                "question": "Diagnose why the old game is not detecting the Nexus and explain exactly how to fix it.",
+                "rubric": "Old games only support DirectInput (Red LED). The Nexus connects to Windows in XInput mode automatically (Green LED). To switch: press and hold the Mode button for more than 5 seconds — this toggles between XInput and DirectInput. Red LED confirms DirectInput is active. Customer must relaunch the game after switching. If still not working, try switching back to XInput and testing again. Always relaunch the game after switching modes."
+            },
+            {
+                "tag": "Platform compatibility and console warning",
+                "scenario": "A customer says: 'I want to use my Nexus on my PS4 and Nintendo Switch. How do I pair it to each console?'",
+                "question": "How do you respond to this customer?",
+                "rubric": "Must clearly and politely state: the Nexus is designed exclusively for Windows PC use. It is NOT compatible with PlayStation, Xbox, Nintendo Switch or any gaming console. No warranty or support is provided for console usage. Android support is available but limited — requires OTG functionality and is not covered under warranty. Should NOT provide any console pairing steps. Be polite but firm. Recommend customer verify compatibility before purchasing in future."
+            },
+            {
+                "tag": "Android connection",
+                "scenario": "A customer asks: 'Can I use my Nexus on my Android phone? If yes, how do I connect it?'",
+                "question": "Explain how to connect the Nexus to an Android device and what limitations apply.",
+                "rubric": "Android connection steps: (1) Ensure Android device is running Android 4.0 or higher. (2) Verify device supports OTG functionality — contact device manufacturer if unsure. (3) Use a compatible OTG cable with the wireless dongle to connect. (4) No additional drivers needed. (5) No mode change required for Android — controller connects automatically. Important limitations: Android compatibility is not covered under warranty. Android support is limited. If connection fails: restart device, try reconnecting, confirm OTG is supported by the device."
+            },
+            {
+                "tag": "Vibration not working",
+                "scenario": "A customer says: 'The vibration on my Nexus has completely stopped working. I was playing fine earlier today and now there is no rumble at all.'",
+                "question": "Diagnose why vibration has stopped and explain how to fix it.",
+                "rubric": "Two most likely causes: (1) Low battery — when battery is low, vibration is automatically disabled to conserve power. Fix: replace both AAA batteries with fresh ones. This is the most common cause. (2) Game compatibility — the game being played may not support vibration feedback. Not all PC games support controller rumble. Fix: test in a game known to support vibration. Always check battery first before assuming hardware fault. The Nexus has dual vibration motors so if both motors stop simultaneously, battery is almost certainly the cause rather than hardware failure."
+            },
+            {
+                "tag": "Controller disconnecting frequently",
+                "scenario": "A customer says: 'My Nexus keeps disconnecting every few minutes during gameplay. The dongle is plugged into the back of my desktop tower. I am sitting about 5 meters away.'",
+                "question": "Diagnose all possible causes of frequent disconnections and tell the customer exactly what to do.",
+                "rubric": "Multiple causes to identify: (1) Signal obstruction — dongle at back of tower has poor line of sight through the case and desk. Move dongle to a front USB port or use a USB extension cable to bring it closer to open space. (2) Distance and interference — 5m is within range but physical barriers reduce effective range. Ensure clear line of sight between controller and dongle. (3) Low battery — replace AAA batteries with fresh ones even if LEDs appear lit. (4) USB port issues — try a different USB port. (5) Other 2.4GHz devices nearby (Wi-Fi routers, other wireless devices) can cause interference. Move dongle away from router. Maximum effective range is 8 meters in open conditions."
+            },
+            {
+                "tag": "Buttons and analog sticks unresponsive",
+                "scenario": "A customer says: 'Several buttons on my Nexus are not responding at all in my game. The analog sticks also feel sluggish. The controller is connected and the LED is solid.'",
+                "question": "Walk the customer through diagnosing and fixing unresponsive buttons and analog sticks.",
+                "rubric": "Diagnostic steps: (1) Check input mode — old games need DirectInput (Red LED), modern games need XInput (Green LED). Hold Mode button 5 seconds to switch. Relaunch game after switching. (2) Test the controller on another game or in Windows Game Controllers (joy.cpl) to rule out hardware issues vs game compatibility. (3) Check for dirt or debris around buttons and analog sticks — clean gently with a dry cloth. Do not use liquids. (4) Check battery — low battery can cause sluggish or intermittent response. Replace AAA batteries. (5) Try reconnecting the dongle to a different USB port. (6) Reinsert dongle and restart PC."
+            },
+            {
+                "tag": "Controller not detected by Windows",
+                "scenario": "A customer says: 'My Nexus is not showing up in Windows at all. The LED is solid green so it seems connected but Windows Game Controllers shows nothing.'",
+                "question": "Walk the customer through all the steps to get Windows to detect the Nexus.",
+                "rubric": "Steps: (1) Ensure Windows 10 is up to date — Nexus is Plug and Play on Windows 10. (2) Disconnect and reconnect the wireless dongle — try a different USB port. (3) Try switching between XInput and DirectInput by holding Mode button 5 seconds, then check again in both Windows Game Controllers and Device Manager. (4) Restart the computer with dongle plugged in. (5) Check Device Manager for any error flags on the controller entry. (6) If solid Green LED means XInput — check Windows Game Controllers (joy.cpl) under XInput devices. DirectInput devices show differently. Note: solid LED confirms wireless connection between controller and dongle but Windows still needs to recognise the USB device from the dongle."
+            },
+            {
+                "tag": "Battery management and storage",
+                "scenario": "A customer asks: 'How do I know when my batteries are running low? Also I am going on holiday for 3 weeks and won't use the controller — what should I do with it?'",
+                "question": "Explain the low battery indicators and proper storage procedure for the Nexus.",
+                "rubric": "Low battery indicators: LED will flash (instead of staying solid) — this is the primary low battery warning. Vibration will also be automatically disabled when battery is low. When either of these happen, replace both AAA batteries immediately with fresh ones for best performance. Storage procedure: (1) Turn off the power switch — slide to OFF. (2) Remove the AAA batteries from the compartment — do not leave batteries in during long periods of non-use as they can leak and damage the controller. (3) Store controller in a dry place within temperature range -10°C to +60°C, humidity 20-80%. Always use fresh batteries when returning to use."
+            }
+        ]
+    },
+    {
         "id": "ares_pro",
         "name": "Ares Pro",
         "category": "Controller",
