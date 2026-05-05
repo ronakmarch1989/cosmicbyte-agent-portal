@@ -802,6 +802,156 @@ PRODUCTS = [
             }
         ]
     },
+    {
+        "id": "eclipse",
+        "name": "Eclipse",
+        "category": "Controller",
+        "description": "Tri-mode controller (2.4GHz / Bluetooth 5.3 / Wired USB-C). Compatible with PC, Android, iOS 13+. 1200mAh battery (11-13hrs). Adjustable joystick resistance roller, trigger travel switch, ABXY layout switch, gyro, macro M1/M2 buttons, KeyLinker app, wireless charging contacts, replaceable D-pad, ~10m range.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity modes and first-time setup",
+                "scenario": "A new customer just unboxed their Eclipse and asks: 'How do I connect this to my PC via 2.4GHz? And how do I connect via Bluetooth to my Android phone and iPhone? What does the logo light colour tell me?'",
+                "question": "Explain all connection methods on the Eclipse and what the logo indicator light colours mean.",
+                "rubric": "Logo light colours: Blue = iOS or Android (Bluetooth). Orange = 2.4G mode. Logo breathes green = charging. Logo flashes red once every 10 minutes = low battery. Logo turns off = fully charged. 2.4GHz first-time setup: set the physical mode switch to 2.4G (middle position), plug USB receiver into device, with controller powered OFF press and hold Pairing button for 3 seconds — logo flashes rapidly, then turns solid and controller vibrates to confirm connection. Bluetooth setup: set mode switch to Bluetooth (left position), with controller powered OFF press and hold Pairing button for 3 seconds — logo flashes rapidly, on device enable Bluetooth and select 'Xbox Wireless Controller', solid logo + vibration confirms pairing. Wired: connect USB-C cable — wired mode activates automatically. Reconnection to last paired device: short-press Home button. Physical mode switch positions: Left=Bluetooth, Middle=2.4G, Right=NS (Switch/XInput Bluetooth)."
+            },
+            {
+                "tag": "ABXY layout switch and button mapping issues",
+                "scenario": "A customer says: 'My A and B buttons seem reversed compared to what my game expects. In some games the confirm button fires the wrong action. How do I fix this?'",
+                "question": "Explain the ABXY layout switch on the Eclipse and how to fix incorrect button mapping.",
+                "rubric": "The Eclipse has a physical ABXY Layout Switch on the front of the controller (noted on the product layout). This toggles between XBOX-style layout and Alternate-style layout. Customer should flip this physical switch to change between the two layouts. This is a hardware switch — no software needed. Additionally, turbo or macro may be causing unexpected button behaviour — check by cancelling turbo (press M + A a third time to cycle through and cancel) or clearing macros (hold M + M1/M2 for 3 seconds then exit without assigning). ABXY LED brightness is separate — adjusted with M + Right Stick Left/Right (4 levels: 0%, 30%, 70%, 100%). Important: gyro calibration must always be performed in XBOX (ABXY) layout mode."
+            },
+            {
+                "tag": "Joystick resistance adjustment and dead zone",
+                "scenario": "A customer says: 'My joystick feels too loose for FPS games — I want it stiffer. Also sometimes there is a slight drift even when I barely touch the stick at the centre.'",
+                "question": "Explain the joystick resistance roller and dead zone adjustment on the Eclipse.",
+                "rubric": "Joystick resistance (tension) adjustment: the Eclipse has a physical resistance adjustment roller/knob at the base of each analog stick — this is a unique hardware feature. To increase stiffness: rotate the roller clockwise. To decrease stiffness (looser): rotate counter-clockwise. Make adjustments gradually and test after each rotation. Stiffer = better for precision FPS aiming. Looser = better for quick flick responses. Dead zone toggle: press and hold both Left Stick (LS) and Right Stick (RS) simultaneously for 5 seconds — controller vibrates to confirm change — toggles between 5% deadzone (default, reduces accidental drift) and 0% deadzone (maximum precision, no filtering). Active zone shape toggle: hold M + LS or RS for 5 seconds to toggle between 10% square zone and 0% circle zone."
+            },
+            {
+                "tag": "Turbo, Auto Turbo and clearing all",
+                "scenario": "A customer says: 'My A button keeps firing super fast on its own. Also how do I set Auto Turbo on X so it fires without holding? How do I adjust speed and clear everything?'",
+                "question": "Diagnose the auto-firing A button, explain Turbo and Auto Turbo setup, speed adjustment and clearing all turbo on the Eclipse.",
+                "rubric": "Turbo cycling on any button works as follows — each press of M + that button cycles through states: Press 1 = Manual Turbo (fires rapidly while held, logo flashes red rapidly). Press 2 = Auto Turbo (fires continuously on single press). Press 3 = Cancel Turbo. Auto-firing A = Auto Turbo is active. Fix: press M + A once more (third press) to cancel. Turbo can be assigned to: A, B, X, Y, LB, LT, RT, D-pad only — RB is NOT in the supported list. Speed adjustment: hold M + Right Stick Up to increase speed, hold M + Right Stick Down to decrease — vibration confirms change. Clear ALL turbo: press M button twice, then hold M for 5 seconds — controller vibrates to confirm all turbo cleared."
+            },
+            {
+                "tag": "Macro M1/M2 programming",
+                "scenario": "A customer says: 'When I press M1 on my Eclipse nothing happens. I want to assign the A button to M1. How do I set it up, and how do I clear it later?'",
+                "question": "Walk the customer through macro programming on the M1/M2 buttons of the Eclipse.",
+                "rubric": "To assign macro to M1 or M2: (1) While controller is connected, hold M + M1 (or M2) for 3 seconds to enter programming mode. (2) Press the desired button to assign — up to 21 programmable buttons available: A/B/X/Y/D-pad/LB/RB/LT/RT/L3/R3/Menu/View/Joysticks. (3) Press M1 (or M2) again to save and exit. If no button is selected during programming, M1/M2 will be blank (cleared). To clear existing macro: hold M + M1 for 3 seconds, then exit without pressing any assignment button — macro is erased. M1 does nothing if no macro has been assigned yet."
+            },
+            {
+                "tag": "Stick and trigger calibration",
+                "scenario": "A customer says: 'My left joystick drifts slightly and my triggers feel like they are not registering at the right point. How do I calibrate them on the Eclipse?'",
+                "question": "Walk the customer through the complete stick and trigger calibration process on the Eclipse.",
+                "rubric": "Stick and Trigger Calibration steps: (1) Power on the controller. (2) Hold View + M + Menu simultaneously for 3 seconds to enter calibration — LED1 and LED3 will flash. (3) Rotate both joysticks clockwise 3 full turns. (4) Fully press both triggers 3 times. (5) Switch triggers to short travel mode using the trigger travel switch on the back, then press them fully 3 more times. (6) Press View button to exit — LED1 and LED3 will stay solid for 5 seconds then power off. This is the only calibration that covers both sticks AND the trigger short/long travel modes — both travel modes must be calibrated. Note: different from gyro calibration. Calibration must be done in XBOX layout mode."
+            },
+            {
+                "tag": "Gyro calibration",
+                "scenario": "A customer says: 'The gyro on my Eclipse is not responding correctly — it drifts when the controller is still on a table. How do I calibrate it?'",
+                "question": "Walk the customer through gyro calibration on the Eclipse, including any important conditions.",
+                "rubric": "Gyro calibration steps: (1) Power off the controller completely. (2) Place the controller flat on a stable, level surface — this is critical for accurate calibration. (3) Hold View + A + B + Home simultaneously to enter gyro calibration — LED1 and LED2 will flash. (4) After 1 second, press Menu to complete calibration — LEDs will turn off confirming success. IMPORTANT conditions: calibration MUST be performed in XBOX (ABXY) layout mode — if the layout switch is set to Alternate, gyro calibration will not work correctly. Controller must be completely still and on a flat surface during calibration. This is separate from stick/trigger calibration."
+            },
+            {
+                "tag": "Trigger travel switch and trigger issues",
+                "scenario": "A customer says: 'For FPS games I want the triggers to fire almost instantly with a light press. But for racing games I want the full gradual pull back. How does the trigger switch work on the Eclipse?'",
+                "question": "Explain the trigger travel switch on the Eclipse and when to use each mode.",
+                "rubric": "The Eclipse has a physical Trigger Travel Switch on the back of the controller — one for LT and one for RT, they can be set independently. Two positions: Long travel mode = full analog range, gradual pressure-sensitive input, best for racing and simulation games requiring precise throttle/brake control. Short travel mode = reduced travel distance, triggers respond almost instantly like a button, best for FPS and competitive games where fast trigger response matters. Customer physically flips the switch — no software needed. During calibration: both long and short travel modes must be calibrated separately — the calibration process specifically requires pressing triggers in long mode first, then switching to short mode and pressing again."
+            },
+            {
+                "tag": "Battery, charging and KeyLinker app",
+                "scenario": "A customer asks: 'How do I know when my Eclipse battery is low? Also what is the KeyLinker app and do I need it?'",
+                "question": "Explain the battery indicators and the KeyLinker app on the Eclipse.",
+                "rubric": "Battery indicators: Low battery = logo light flashes red once every 10 minutes (subtle — agent must know this is the low battery signal). Charging = logo light breathes green (pulsing). Fully charged = logo light turns off completely. Battery: 1200mAh, 11-13 hours playtime. Charging time: 3-4 hours. Input voltage: 5V 500mA. The Eclipse also has wireless charging contacts on the back — it can be charged wirelessly without plugging in a cable (requires compatible wireless charging dock). KeyLinker app: available on Google Play Store and Apple App Store — provides advanced customization and controller adjustments beyond what the hardware buttons allow. Not mandatory for basic use but recommended for users who want deeper configuration. Customer should download it for features like sensitivity curves, button remapping beyond hardware capabilities, etc."
+            },
+            {
+                "tag": "Controller reset, power off and disconnection issues",
+                "scenario": "A customer says: 'My Eclipse is behaving very strangely — LEDs flashing erratically and buttons not responding. Also it keeps disconnecting from Bluetooth. What do I do?'",
+                "question": "Explain the reset process, power off, and how to resolve Bluetooth disconnection issues on the Eclipse.",
+                "rubric": "Power off: hold Home button for 5 seconds. Auto power-off: 10 minutes of inactivity. Factory reset (clears all settings): use a small pin to press the Reset hole on the back of the controller — restores all factory defaults including clearing all macros, turbo, and pairing data. For erratic LED behaviour: hold Home 5 seconds to power off, then press Reset hole with pin, then reconnect. Bluetooth disconnection issues: (1) Delete old pairing entries from the device's Bluetooth list. (2) Set mode switch to Bluetooth (left). (3) Hold Pairing button 3 seconds — logo flashes rapidly. (4) Select 'Xbox Wireless Controller' on device. (5) If still failing, press Reset hole and retry full pairing. 2.4GHz disconnection: ensure dongle is directly in USB port (avoid USB hubs), check for interference, re-hold Pairing button 3 seconds. Vibration at 0% will not indicate anything — check M+Right Stick Up to increase vibration first if customer says vibration stopped."
+            },
+            {
+                "tag": "Warranty and physical features",
+                "scenario": "A customer says: 'I dropped my Eclipse and the D-pad broke off. Also I want to know if the wireless charging feature means I can use any Qi charger. Is my broken D-pad covered under warranty?'",
+                "question": "Address the D-pad question, clarify the wireless charging contacts feature, and explain warranty coverage.",
+                "rubric": "D-pad: the Eclipse comes with a replaceable D-pad in the box (package contents include Replaceable D-Pad x1). The customer may be able to swap in the spare D-pad if it is the same part. However, physical damage from dropping is NOT covered under warranty. Wireless charging contacts: the Eclipse has wireless charging contacts on the back — these are for use with a compatible charging dock/wireless charging surface, not necessarily standard Qi chargers. Customers should check compatibility with their specific charging solution. This is a premium feature not common on most controllers. Warranty: 1 year against manufacturing defects only. Physical damage from dropping is NOT covered. Water damage not covered. Tampered products not covered. Support: +91 7351615161 (Mon-Sat 10am-6pm), cc@thecosmicbyte.com."
+            }
+        ]
+    },
+    {
+        "id": "starforge",
+        "name": "Starforge",
+        "category": "Controller",
+        "description": "Tri-mode controller (2.4GHz / Bluetooth 5.3 / Wired USB-C). PC (XInput/DInput), Android 8.0+, iOS 13+, Smart TVs, Tesla vehicles. 1200mAh (10-12hrs). Swappable modular joystick modules (4 resistance levels), 4x back macro buttons (M1-M4), RGB light strips, trigger motor vibration, ABXY layout screw switch, gyro, KeyLinker app, Back+Start for XInput/DInput toggle, LS+RS+Home reset.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity modes, mode switch and LED indicators",
+                "scenario": "A new customer asks: 'How do I connect my Starforge to my PC via 2.4GHz dongle, and also via Bluetooth to my Android phone and iPhone? The mode switch has multiple positions — what do they do? And what do the indicator lights mean?'",
+                "question": "Explain all connectivity modes, the physical mode switch positions, and LED indicator states on the Starforge.",
+                "rubric": "Physical mode switch positions (bottom of controller): Mobile Mode = Android and iOS wireless. NS Mode = Gyro controller mode. PC Mode = PC Bluetooth wireless. 2.4GHz Mode = PC wireless XInput. 2.4GHz first-time setup: set switch to 2.4G, insert USB receiver, with controller powered OFF hold Pairing button for 3 seconds — LED flashes rapidly, solid LED + vibration = connected. Bluetooth (PC or Mobile): set switch to PC Mode or Mobile Mode, with controller OFF hold Pairing button 3 seconds, on device open Bluetooth and connect to 'Xbox Wireless Controller', solid LED + vibration = paired. Wired: set switch to corresponding device position, connect USB-C cable, hold Back+Start for 3 seconds to toggle XInput/DInput in wired mode. Reconnection: short-press Home. LED status: solid red = low battery. Red slow breathing 0-30% = charging. Ice blue slow breathing 30-100% = charging. Solid ice blue = fully charged. Blinking blue = pairing/searching. Compatible with PC, Android 8.0+, iOS 13+ MFi games, Smart TVs, Tesla vehicles (via 2.4GHz)."
+            },
+            {
+                "tag": "XInput vs DInput switching",
+                "scenario": "A customer says: 'I connected my Starforge via the 2.4GHz dongle but my old 2002 game completely ignores it. Windows detects it fine. How do I switch input modes?'",
+                "question": "Explain how to switch between XInput and DInput on the Starforge and when each is needed.",
+                "rubric": "Old games only support DInput. In wired mode: hold Back + Start for 3 seconds to toggle between XInput and DInput. In 2.4GHz mode: the mode switch must be set to 2.4G — this mode operates as XInput by default on PC. If DInput is needed in 2.4GHz, customer should try the wired connection and use Back+Start to switch. In Bluetooth mode: the mode switch position (PC Mode vs Mobile Mode) determines the platform. Always relaunch the game after switching. Also verify the mode switch is correctly set to PC/2.4G and not accidentally on Mobile or NS mode."
+            },
+            {
+                "tag": "Modular joystick replacement",
+                "scenario": "A customer says: 'I want to swap the joystick modules on my Starforge to a stiffer resistance. How do I do this and what do I need to do afterwards?'",
+                "question": "Walk the customer through the complete joystick module replacement process and post-replacement steps on the Starforge.",
+                "rubric": "Steps: (1) Hold Home for 5 seconds to power off. Disconnect all cables and remove dongle. (2) Gently lift and remove the magnetic top cover on the joystick side — no tools needed, secured with magnets. (3) Use the included puller tool to carefully pull the joystick module upward to detach from socket — plug-and-play, no screws. (4) Take new joystick module (available in 60gf, 70gf, 120gf, 150gf resistance options). Align connector pins with socket, ensure flat edge of joystick base faces inward. (5) Press firmly and evenly until it clicks — firm pressure critical, if not fully seated causes drift. (6) Reattach magnetic cover, ensure it snaps securely. (7) Power on. MANDATORY after replacement: perform full stick and trigger calibration (Back+X+Home 1 second method). Calibration is required every time joystick modules are replaced. Package includes 3 extra joystick sets, 1 puller tool."
+            },
+            {
+                "tag": "Stick and trigger calibration",
+                "scenario": "A customer says: 'After swapping joystick modules my Starforge left stick drifts and the range feels wrong. How do I calibrate it?'",
+                "question": "Walk the customer through the stick and trigger calibration process on the Starforge.",
+                "rubric": "Stick and Trigger Calibration steps (note: different from Eclipse): (1) Power OFF the controller. (2) Press and hold Back + X + Home for 1 second — LED light strips start flashing. (3) Rotate BOTH joysticks clockwise 5 full rotations (more than Eclipse which is 3 rotations). (4) Fully press BOTH triggers 5 times — trigger lock must be at FULL range (long travel) only when doing this step. (5) Press Start button — light strips turn off, confirming successful calibration. Important: calibration must be performed in XBOX (ABXY) layout mode. Calibration required after: joystick module replacement, drift, inconsistent response, incorrect range, or any button registering automatically without being pressed. Unlike Eclipse, the Starforge calibration does NOT require switching to short trigger mode."
+            },
+            {
+                "tag": "Gyro calibration and NS mode",
+                "scenario": "A customer says: 'The gyro on my Starforge keeps drifting when the controller is flat on a table. Also what is NS mode on the mode switch?'",
+                "question": "Explain gyro calibration and NS mode on the Starforge.",
+                "rubric": "Gyro calibration: (1) Power off controller and place flat on a stable surface. (2) Hold Back + A + Home for 3 seconds to enter gyro calibration — left and right indicator lights flash. (3) Press Start — light strips turn off confirming calibration. Controller must be completely still on a flat surface. Calibration must be in XBOX ABXY layout mode. NS mode: the mode switch position labelled NS = Gyro Controller Mode — this is a specific gyro-enabled Bluetooth mode, not Nintendo Switch mode despite the NS label. It enables motion control features when connected to compatible devices via Bluetooth. It is separate from standard PC Bluetooth and Mobile modes."
+            },
+            {
+                "tag": "M1/M2/M3/M4 macro buttons",
+                "scenario": "A customer says: 'My Starforge has four back buttons M1, M2, M3, M4. When I press M2 it fires a random sequence I never set. How do I fix it, set up a new macro, and cancel one?'",
+                "question": "Explain how macros work on all four M buttons of the Starforge and how to fix, set and cancel them.",
+                "rubric": "The Starforge has 4 back macro buttons: M1, M2, M3, M4 — more than most controllers. M2 firing randomly = macro was accidentally recorded on it. To record/replace macro on any M button: (1) While connected, press and hold Fn + M1/M2/M3/M4 for 3 seconds — light strip flashes. (2) Press the button to assign (A/B/X/Y, D-Pad, LB/RB/LT/RT, L3/R3, joystick clicks, +/-). Up to 32 programmable buttons allowed. (3) Press the M button again to save. To cancel/clear macro: press Fn + M1/M2/M3/M4 again — this cancels/clears the macro on that button. Each M button is programmed and cancelled independently using Fn as the modifier. Up to 32 programmable buttons supported (more than Eclipse's 21)."
+            },
+            {
+                "tag": "Turbo, Auto Turbo and turbo speed",
+                "scenario": "A customer says: 'My B button keeps auto-firing rapidly by itself. Also how do I set up turbo on Y, adjust the speed, and clear all turbo?'",
+                "question": "Diagnose the auto-firing B button, explain Turbo/Auto Turbo setup, speed adjustment and clearing all on the Starforge.",
+                "rubric": "The Starforge turbo system cycles with each press of the same combo: Press 1 = Manual Turbo (rapid fire while held). Press 2 = Auto Turbo (fires on single press continuously). Press 3 = Cancel. Auto-firing B = Auto Turbo active. Fix: press Turbo + B one more time to cancel. To enable turbo on Y: press Turbo + Y = Manual Turbo. Press Turbo + Y again = Auto Turbo. Press Turbo + Y once more = cancel. Turbo works on: A, B, X, Y, LB, RB, LT, RT. Speed adjustment: Turbo button + Right Stick Right = increase one level. Turbo button + Right Stick Left = decrease one level. Three levels: 5 presses/sec (slow), 12 presses/sec (default), 20 presses/sec (fast). Clear ALL turbo: hold Turbo button for 5 seconds — vibration confirms all cleared."
+            },
+            {
+                "tag": "RGB lighting, ABXY LED and vibration",
+                "scenario": "A customer says: 'How do I change the RGB colours on my Starforge? Also the ABXY buttons have gone dark. And my vibration seems very weak. How do I adjust all three?'",
+                "question": "Explain RGB strip adjustment, ABXY LED toggle, and vibration adjustment on the Starforge.",
+                "rubric": "RGB light strip: Brightness = press Fn + Left D-pad. Lighting effects/patterns = press Fn + Right D-pad. These control the decorative RGB strips. ABXY LED: to toggle ABXY button lighting on or off — press and HOLD Fn + D-pad Left for 5 seconds — lights switch state (ON to OFF or OFF to ON) after the hold duration. This is different from RGB brightness (which is a short press). Vibration adjustment: five levels — 0% (off), 25%, 50%, 75%, 100%. Increase: hold Fn + Up D-pad. Decrease: hold Fn + Down D-pad. Also ensure vibration is enabled in the game settings. Also check trigger motor vibration mode (separate) — press both triggers + Fn simultaneously for 1 second to cycle through 4 trigger vibration modes."
+            },
+            {
+                "tag": "Trigger motor vibration and ABXY layout switch",
+                "scenario": "A customer says: 'My triggers have a slight buzz/vibration that I never set up. Also my A and B buttons seem swapped compared to other controllers. How do I fix both?'",
+                "question": "Explain trigger motor vibration modes and the ABXY layout switch on the Starforge.",
+                "rubric": "Trigger motor vibration: the Starforge has independent trigger vibration motors — separate from the main controller vibration. To cycle through modes: press BOTH triggers + Fn button simultaneously for 1 second. Four modes indicated by RGB light strip: Mode 1 = Linear vibration (strength increases with trigger depth), RGB1 ice blue 3 seconds. Mode 2 (DEFAULT) = Bluetooth game-native vibration signals, RGB2 ice blue 3 seconds. Mode 3 = Synchronized with large motor vibration, RGB3 ice blue 3 seconds. Mode 4 = Trigger vibration OFF, RGB4 ice blue 3 seconds. The buzz the customer experiences is Mode 1 or 2 active — set to Mode 4 to disable. ABXY layout switch: locate the small screw in the centre of the ABXY buttons on the front. Use the included screwdriver (in package) to rotate the screw clockwise or counterclockwise to switch between layouts — vibration confirms layout change. Restart controller after changing layout."
+            },
+            {
+                "tag": "Controller reset, power functions and connectivity troubleshooting",
+                "scenario": "A customer says: 'My Starforge is completely frozen — no buttons respond, LEDs are stuck. Also Bluetooth keeps dropping. What do I do?'",
+                "question": "Walk the customer through the reset process and Bluetooth troubleshooting on the Starforge.",
+                "rubric": "Controller reset (factory soft reset): (1) Ensure controller is powered OFF. (2) Press and hold LS + RS + Home for 1 second — red light turns on for 1 second then controller auto powers off confirming successful reset. Use reset when: buttons/joysticks stop responding completely, controller fails to connect via Bluetooth or 2.4GHz even after re-pairing, controller stuck in pairing or update mode, RGB/LEDs freeze. After reset: reconnect or re-pair, recalibrate joysticks if needed. Power off manually: hold Home for 5 seconds. Auto power-off: 10 minutes inactivity. Bluetooth dropping: remove previous connection from device Bluetooth list, ensure mode switch on correct position (PC Mode for PC Bluetooth, Mobile Mode for phone), hold Pairing button 3 seconds, select 'Xbox Wireless Controller'. 2.4GHz not connecting: ensure dongle inserted, set switch to 2.4G, hold Pairing button 3 seconds, check for USB hub (avoid) or interference. Firmware: check for latest firmware via Cosmic Byte Starforge Firmware Tool on website — do not disconnect during update."
+            },
+            {
+                "tag": "Warranty, package contents and unique features",
+                "scenario": "A customer asks: 'What is included in the Starforge box? Also I spilled water on it — is it covered? And I heard it works with Tesla cars?'",
+                "question": "List package contents, explain warranty coverage, and confirm the Tesla/Smart TV compatibility claim.",
+                "rubric": "Package contents: Starforge Gaming Controller x1, Magnetic Cover x1, 2.4G USB Receiver x1, Type-C USB Cable (1.5m) x1, User Manual x1, Extra Joystick Sets x3, Puller x1, Screwdriver x1. The screwdriver is for the ABXY layout screw switch. The 3 extra joystick sets cover different resistance levels (60gf, 70gf, 120gf, 150gf available). Puller is for removing joystick modules. Tesla vehicles: yes, the Starforge officially supports Tesla vehicle connectivity via 2.4GHz mode — this is a documented feature. Smart TVs are also supported. Warranty: 1 year against manufacturing defects only. Water damage is explicitly NOT covered. Physical damage not covered. Tampered products not covered. KeyLinker app available for advanced customisation. Wireless range: approximately 10 metres. Battery: 1200mAh, 10-12 hours playtime, 3-4 hours charging time."
+            }
+        ]
+    },
 ]
 
 PASS_MARK = 70
