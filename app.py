@@ -133,6 +133,87 @@ PRODUCTS = [
     },
     # ── ADD NEW PRODUCTS BELOW ──────────────────
     {
+        "id": "drakon",
+        "name": "Drakon",
+        "category": "Controller",
+        "description": "Wireless controller with TMR joysticks, 3-level trigger lock, magnetic covers, charging dock, macro buttons and RGB.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity modes",
+                "scenario": "A new customer asks: 'I want to use the Drakon on my PC via the dongle, but also sometimes on my Android phone via Bluetooth. How do I connect for each and how do I know which mode is active?'",
+                "question": "Explain how to connect the Drakon in 2.4GHz and Bluetooth modes for PC and Android, including how LED indicators confirm the mode.",
+                "rubric": "2.4GHz PC: press X+HOME for 3 seconds, LED2=XInput, LED3=DInput. To switch between X/D in 2.4GHz: hold FNR+HOME for 3 seconds. Bluetooth PC: B+HOME=XInput(LED2), A+HOME=DInput(LED3), Y+HOME=Gyro(LED4). Bluetooth Android: A+HOME=DInput(LED3), B+HOME=XInput(LED2), Y+HOME=Gyro(LED4). All Bluetooth pairings require 3-second long press. iOS supported for XInput(B+HOME) and Gyro(Y+HOME) only, support is limited. LED staying solid confirms connection."
+            },
+            {
+                "tag": "XInput vs DInput — old game",
+                "scenario": "A customer says: 'I connected the Drakon via 2.4GHz dongle on PC. Windows detects it fine but my old 2005 game does not detect the controller at all.'",
+                "question": "Explain why the game is not detecting the controller and how to fix it.",
+                "rubric": "Old games only support DInput. In 2.4GHz mode the controller defaults to XInput (LED2). To switch to DInput: hold FNR+HOME for 3 seconds (LED3 confirms DInput). Customer must relaunch the game after switching. LED2=XInput, LED3=DInput. Switching back to XInput uses the same FNR+HOME combo."
+            },
+            {
+                "tag": "Gyro and on-the-fly gyro",
+                "scenario": "A customer asks: 'I want to use gyro motion control on my PC. I tried the 2.4GHz dongle but gyro does not seem to work. Also can I use gyro in games that do not officially support it?'",
+                "question": "Explain how to use gyro on PC including how to make it work in games without native gyro support.",
+                "rubric": "Native Gyro Mode: only available in Bluetooth mode. Switch from 2.4GHz to Bluetooth, then hold Y+HOME for 3 seconds, LED4 confirms Gyro mode active. On-the-fly gyro via software: connect via Wired or 2.4GHz, open Cosmic Byte software, assign gyro to any button, set activation mode (Always On / Press to Activate / Toggle), map gyro output to mimic Left or Right joystick — this makes gyro work in ANY game even without native support. Both methods must be explained."
+            },
+            {
+                "tag": "3-level trigger lock system",
+                "scenario": "A customer who plays both racing and FPS games says: 'For racing I want gradual trigger pressure. For FPS I want the trigger to fire instantly like a button. But sometimes I want something in between. The Drakon has some kind of trigger switch — how does it work?'",
+                "question": "Explain the 3-level trigger lock system on the Drakon and which setting is best for which type of game.",
+                "rubric": "The Drakon has an independent 3-position physical travel limit switch for each trigger (LT and RT). Position 1 (shortest travel) = Digital signal, ON/OFF like a button, best for FPS and fast-action games. Position 2 (medium travel) = Analog signal, approximately 50% travel, middle ground for mixed gaming. Position 3 (longest travel) = Analog signal, 100% full travel, best for racing and simulation games requiring precise gradual input. Each trigger has its own independent switch so LT and RT can be set differently."
+            },
+            {
+                "tag": "Mouse mode",
+                "scenario": "A customer asks: 'I heard the Drakon has a mouse mode where the joystick works like a mouse cursor. How do I turn this on and use it?'",
+                "question": "Explain how to activate and use Mouse Mode on the Drakon.",
+                "rubric": "Mouse Mode is available in 2.4GHz wireless mode only. To activate: press CAPTURE+R3 for 5 seconds. LED3 and LED4 stay on together to confirm Mouse Mode is active. In this mode: A button = Left Click, B button = Right Click. The right joystick controls cursor movement. To exit Mouse Mode disconnect and reconnect normally. This is a PC-only feature via 2.4GHz."
+            },
+            {
+                "tag": "Turbo auto button press",
+                "scenario": "A customer calls: 'My A button keeps firing super fast repeatedly on its own. The Drakon is brand new. Also how do I change the turbo speed and clear all turbo settings?'",
+                "question": "Diagnose the auto-press issue and explain turbo speed adjustment and how to clear all turbo settings.",
+                "rubric": "Cause: Turbo accidentally enabled on A button (press TURBO then A). Fix: repeat TURBO+A to disable. Three speed levels: Slow=5 shots/sec, Medium=15 shots/sec, Fast=25 shots/sec. To change speed: press FNL+Turbo then move Right Joystick Left (decrease) or Right (increase). To clear ALL turbo settings at once: hold FNR+Turbo for 5 seconds until vibration confirms reset. Always rule out Turbo before suggesting hardware fault."
+            },
+            {
+                "tag": "Macro buttons FNL FNR",
+                "scenario": "A customer says: 'When I press the MR button on the back of the Drakon it fires a sequence of random inputs I never set up. Also what is the difference between FNL and FNR buttons and how do I record a new macro?'",
+                "question": "Explain what FNL and FNR are, why MR is misfiring, and how to record and clear macros.",
+                "rubric": "FNL and FNR are function modifier buttons on the back used to activate secondary functions — they work like shift keys. MR is firing because a macro was accidentally recorded on it. To record new macro on MR: press FNR+MR to enter recording mode, press your sequence (up to 22 inputs including delays), press MR again to save — vibration confirms. To clear: enter macro mode via FNR+MR, press MR immediately with no inputs — vibration confirms deletion. ML uses FNL+ML. Factory reset (L1+R1+L2+R2+L3+R3 simultaneously) clears all macros."
+            },
+            {
+                "tag": "Charging — dock and cable",
+                "scenario": "A customer asks: 'How do I charge the Drakon? I have the charging dock but I am not sure if it is charging properly. Also the RGB lights turned off suddenly while I was playing — did something break?'",
+                "question": "Explain how to charge using both the dock and USB cable, how to confirm charging is working, and why the RGB turned off.",
+                "rubric": "Dock charging: connect dock to USB power, place controller onto magnetic contacts — Dock LED On=Charging, Dock LED Off=Fully charged. Cable charging: connect USB-C to controller and any 5V USB source — LED Blinking=Charging, LED Steady=Fully charged. Use 5V adapters only, avoid fast chargers. RGB turning off automatically is normal behavior — RGB lights turn off automatically when battery is low to preserve battery life. Vibration may also reduce automatically at low battery. Battery life is 8-20 hours depending on usage."
+            },
+            {
+                "tag": "Joystick drift and calibration",
+                "scenario": "A customer says: 'My Drakon left joystick is drifting slightly to the right even when I am not touching it. It started after I dropped the controller.'",
+                "question": "Explain what is likely causing the drift and walk the customer through the calibration process step by step.",
+                "rubric": "Physical impact can cause joystick calibration offset. Calibration steps: (1) Turn OFF controller. (2) Hold CAPTURE then press HOME to power on — LED1 blinks confirming calibration mode. (3) Press A to begin — LED2 blinks. (4) Rotate both joysticks three full circles. (5) Press LT and RT three times each. (6) Press A again to save and exit — LED returns to normal. If drift persists after calibration it may indicate physical damage. Drakon uses TMR joystick system which is drift-resistant under normal use."
+            },
+            {
+                "tag": "Magnetic covers and dongle storage",
+                "scenario": "A customer asks: 'How do I change the top cover on the Drakon? Also I keep losing the 2.4GHz dongle when travelling — is there a way to store it safely with the controller?'",
+                "question": "Explain how to remove and install the magnetic top covers, and where to store the dongle.",
+                "rubric": "Removing cover: locate the lift point near the front edge, insert finger and gently pull upward — magnets release smoothly. Installing cover: align new cover with frame, lower gently, magnetic locks secure automatically. Do not force the magnets. Under the top cover there is a dedicated dongle storage slot — insert the 2.4GHz dongle into this slot when travelling, it clicks into place and will not fall out. The Drakon also comes with 3 magnetic top covers, 2 extra D-pads (Precision and Disc), and 2 extra joystick tops in the package."
+            },
+            {
+                "tag": "Button mapping and customisation",
+                "scenario": "A customer says: 'I want to swap A and B buttons on my Drakon. I also want the D-pad to control character movement instead of the left joystick. And my inputs feel like they are going diagonally wrong — is there a fix for that?'",
+                "question": "Explain how to perform each of these three customisations on the Drakon.",
+                "rubric": "ABXY swap: hold TURBO+R3 for 2 seconds — vibration confirms, A swaps with B and X with Y simultaneously. D-pad and Left Stick swap: hold L3+CAPTURE for 2 seconds — vibration confirms swap. Joystick circle/square angle mode (for diagonal accuracy): hold L3+TURBO for 2 seconds — toggles between Round mode (default) and Square 45-degree mode which improves diagonal accuracy and reduces circle error percentage. All are toggle functions — repeat to swap back. Factory reset restores all to default."
+            },
+            {
+                "tag": "Reset and warranty",
+                "scenario": "A customer has tried everything. The controller is frozen and unresponsive. They also ask about factory reset and whether water damage after a spill is covered under warranty.",
+                "question": "Explain the reset option, what factory reset clears, and the warranty situation for water damage.",
+                "rubric": "Emergency reset (controller frozen/unresponsive): insert pin into RESET hole on back, hold for 1 second — controller restarts normally, no settings deleted. Factory reset (clears all custom settings): hold L1+R1+L2+R2+L3+R3 simultaneously — vibrates 1 second to confirm, restores all Turbo, Vibration and Macro settings to factory defaults. Re-pairing may be required after factory reset. Warranty: 1 year for manufacturing defects only. Water damage is explicitly NOT covered under warranty. Physical damage is also not covered. Be honest but polite."
+            }
+        ]
+    },
+    {
         "id": "stellaris",
         "name": "Stellaris",
         "category": "Controller",
