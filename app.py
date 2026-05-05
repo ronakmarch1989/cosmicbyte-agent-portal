@@ -1171,6 +1171,420 @@ PRODUCTS = [
             }
         ]
     },
+    {
+        "id": "atlas_mouse",
+        "name": "Atlas Mouse",
+        "category": "Mouse",
+        "description": "Tri-mode gaming mouse (Type-C Wired / 2.4G / Bluetooth). PixArt PAW3311 sensor, up to 12000 DPI, 1000Hz polling rate (133Hz in Bluetooth), 5 programmable buttons, Huano switches (20M clicks), 500mAh built-in battery, 57g, PTFE feet. Windows only for software.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity and mode switching",
+                "scenario": "A new customer asks: 'How do I switch between wireless and Bluetooth on my Atlas mouse? And how do I know which mode I am in?'",
+                "question": "Explain how to switch between connection modes and what the LED indicators mean on the Atlas Mouse.",
+                "rubric": "Mode switching: press the M button briefly to toggle between 2.4G and Bluetooth modes. L2 indicator: Green = 2.4G Mode, Blue = Bluetooth Mode. For Bluetooth pairing mode: press and hold the M button for about 2 seconds — L2 indicator will flash blue rapidly. Wired mode: connect the Type-C cable — wired takes priority over all other modes automatically. Agent must mention all three modes and the connection priority rule."
+            },
+            {
+                "tag": "DPI adjustment",
+                "scenario": "A customer says: 'I want to lower the sensitivity on my Atlas Mouse. How do I change the DPI and how do I know which level I am on?'",
+                "question": "Explain DPI adjustment and the DPI indicator colours on the Atlas Mouse.",
+                "rubric": "Press the D button briefly to cycle through 5 DPI levels. L2 indicator colour shows current DPI: 800 DPI = Red. 1600 DPI (default) = Green. 2400 DPI = Blue. 5000 DPI = Purple. 12000 DPI = Yellow. Agent should list all 5 levels and their corresponding colours. Default is 1600 DPI (Green)."
+            },
+            {
+                "tag": "Battery and charging indicators",
+                "scenario": "A customer says: 'My Atlas Mouse light is flashing red. Is that normal? Also how do I know when it is done charging?'",
+                "question": "Explain all L1 indicator states for battery and charging on the Atlas Mouse.",
+                "rubric": "L1 indicator status: Flashing Red = Low Battery — connect to charge. Steady Blue = Charging in progress. Steady Green = Charging Complete. Use the ON/OFF switch to toggle battery power. The mouse has a 500mAh built-in lithium polymer battery. Agent must correctly map each LED state."
+            },
+            {
+                "tag": "Polling rate and Bluetooth limitation",
+                "scenario": "A customer says: 'I read the Atlas Mouse has 1000Hz polling rate but when I use it on Bluetooth it feels less responsive. Why?'",
+                "question": "Explain the polling rate difference between modes on the Atlas Mouse.",
+                "rubric": "The Atlas Mouse supports 1000Hz polling rate maximum — but only in 2.4G or wired mode. In Bluetooth mode the polling rate drops to 133Hz, which is significantly lower and results in less responsive cursor movement. This is a hardware limitation of Bluetooth, not a defect. For competitive gaming, 2.4G wireless or wired mode is strongly recommended for the full 1000Hz experience."
+            },
+            {
+                "tag": "Software and programmable buttons",
+                "scenario": "A customer asks: 'Can I remap the buttons on my Atlas Mouse? Where do I get the software and does it work on Mac?'",
+                "question": "Explain software support and button customisation on the Atlas Mouse.",
+                "rubric": "The 5 mouse keys can be personalised using the Cosmic Byte software. Software is Windows only — macOS is NOT supported for software. Download from www.thecosmicbyte.com. While the mouse itself is compatible with Windows XP+, Android 9.0+, Linux, and macOS for basic use, the software for customisation is Windows exclusive. Agent must clearly state the software limitation for Mac users."
+            },
+            {
+                "tag": "Mouse not responding — troubleshooting",
+                "scenario": "A customer says: 'My Atlas Mouse is completely unresponsive — cursor is not moving and buttons do nothing. I am on 2.4G mode.'",
+                "question": "Walk the customer through diagnosing an unresponsive Atlas Mouse in 2.4G mode.",
+                "rubric": "Step 1: check the ON/OFF switch is in the ON position. Step 2: confirm battery is charged — if L1 flashes red, charge the mouse first. Step 3: for 2.4G mode, confirm the USB receiver is properly connected to the device — try a different USB port. Step 4: re-pair if needed: switch from 2.4G to Bluetooth mode using M button and back to 2.4G. Step 5: if still unresponsive, reset — turn mouse off and disconnect from all connections, wait 10 seconds, reconnect and power back on. Wired mode check: for wired, verify the Type-C cable connection."
+            },
+            {
+                "tag": "Bluetooth connection issues",
+                "scenario": "A customer says: 'I cannot get my Atlas Mouse to pair via Bluetooth. The L2 light is blue but my PC cannot find the mouse.'",
+                "question": "Walk the customer through fixing Bluetooth connection issues on the Atlas Mouse.",
+                "rubric": "Step 1: ensure mouse is in Bluetooth mode — L2 indicator should show Blue (solid = Bluetooth mode). Step 2: to enter pairing mode, press and hold the M button for about 2 seconds until L2 flashes blue rapidly. Step 3: ensure Bluetooth is enabled on the device. Step 4: check if the mouse is already listed in paired devices on the PC — remove the old pairing and reconnect. Step 5: restart both mouse and device, then attempt to pair again. Note: Bluetooth polling rate is limited to 133Hz on the Atlas Mouse."
+            },
+            {
+                "tag": "Cursor movement erratic",
+                "scenario": "A customer says: 'The cursor on my Atlas Mouse is jumping around and not moving smoothly. It is very inconsistent.'",
+                "question": "Diagnose and fix erratic cursor movement on the Atlas Mouse.",
+                "rubric": "Step 1: adjust DPI — if DPI is set too high (5000 or 12000) it can feel erratic. Press D button to cycle to a lower DPI level like 1600 (Green). Step 2: clean the mouse sensor and the surface beneath it to remove dust or debris. Step 3: use the mouse on a suitable non-reflective surface — glass or reflective surfaces cause erratic tracking with the PAW3311 sensor. Step 4: if on 2.4G, check for wireless interference. Step 5: try a different USB port for the receiver."
+            },
+            {
+                "tag": "Warranty and compatibility",
+                "scenario": "A customer asks: 'Does the Atlas Mouse work on Linux? Also what is covered under warranty?'",
+                "question": "Confirm compatibility and explain the Atlas Mouse warranty.",
+                "rubric": "Compatibility: Windows XP and later, Android 9.0 and later, Linux, and macOS — all supported for basic use. Software (for customisation) is Windows only. Warranty: 1 year against manufacturing defects only. Physical damage, water damage, and tampered products are NOT covered. Regular wear and tear from battery usage is also NOT covered. Support: +91 73 5161 5161 (Mon-Sat 10am-6pm), Email: cc@thecosmicbyte.com."
+            },
+            {
+                "tag": "Wired mode and cable",
+                "scenario": "A customer asks: 'If I plug in the USB cable on my Atlas Mouse, does it automatically switch to wired mode? And what cable does it use?'",
+                "question": "Explain wired mode behaviour and cable details on the Atlas Mouse.",
+                "rubric": "Yes — when the USB-C cable is connected, the Atlas Mouse automatically switches to wired mode and wired takes priority over all other modes (Bluetooth and 2.4G). The cable is a 1.8m Paracord Cable with USB extension. While charging via the cable in wired mode, the mouse functions simultaneously — it can be used while charging. The ON/OFF switch controls battery power for wireless modes — in wired mode the cable powers the mouse regardless."
+            }
+        ]
+    },
+    {
+        "id": "aether_mouse",
+        "name": "Aether Mouse",
+        "category": "Mouse",
+        "description": "Tri-mode gaming mouse (2.4G / Bluetooth BLE / Wired USB). PixArt PAW3311 sensor, up to 12000 DPI (6-step), 1000Hz polling, TTC Optical Switches (100M clicks), replaceable 400mAh Li-Ion battery (2 included), 44g without battery / 55g with battery, dual PTFE skates, PD fast charging, 1.8m paracord cable.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity — all three modes",
+                "scenario": "A new customer asks: 'How do I connect the Aether Mouse via 2.4G dongle? And how do I pair it via Bluetooth? Where is the USB dongle stored?'",
+                "question": "Explain all three connection modes and dongle storage on the Aether Mouse.",
+                "rubric": "Wired mode: connect the 1.8m paracord USB cable — automatically switches to wired, plug and play, no drivers required. 2.4G wireless: slide mode switch to 2.4G, plug USB receiver into PC. First-time pairing: press and hold Left + Middle + Right buttons for 3 seconds — green LED flashes indicating pairing mode, insert receiver to complete. Bluetooth mode: slide mode switch to BT — blue LED flashes slowly indicating Bluetooth standby. First-time pairing: press and hold Left + Middle + Right buttons for 3 seconds — blue light flashes rapidly indicating pairing mode, on device search for 'CB Aether'. USB receiver storage: the 2.4G USB dongle is stored inside the battery compartment — remove the battery cover to access it. Bluetooth requires BLE (Bluetooth Low Energy) support on the connecting device."
+            },
+            {
+                "tag": "DPI levels and indicator colours",
+                "scenario": "A customer asks: 'How do I change DPI on the Aether Mouse and what do the LED colours mean for each level?'",
+                "question": "Explain DPI cycling and all DPI LED colour codes on the Aether Mouse.",
+                "rubric": "Press the DPI button to cycle through 6 preset DPI levels. DPI levels and LED colours: 800 DPI = Red. 1600 DPI = Blue. 2400 DPI = Purple. 4800 DPI = Green. 6400 DPI = Yellow. 12000 DPI = Cyan. Agent should note the Aether has 6 DPI steps (more than the Atlas's 5) and list all colours correctly. The DPI range is configurable via software (downloadable from thecosmicbyte.com)."
+            },
+            {
+                "tag": "Replaceable battery and charging",
+                "scenario": "A customer asks: 'The Aether came with two batteries. How do I change the battery and how do I charge it? Does it support fast charging?'",
+                "question": "Explain the replaceable battery system and charging on the Aether Mouse.",
+                "rubric": "The Aether Mouse has a replaceable 400mAh lithium-ion battery system — two 400mAh batteries are included in the box. To replace: open the battery compartment cover (also where the USB dongle is stored), swap the battery. Charging indicator: Red LED blinks slowly when battery is low. Charging: supports PD Fast Charging via USB cable. This is a key differentiator — the Aether is the only mouse in this range with PD fast charging support. Weight: 44g without battery, 55g with battery installed. Note the battery compartment also houses the 2.4G USB dongle."
+            },
+            {
+                "tag": "TTC Optical Switches — benefit and durability",
+                "scenario": "A customer asks: 'What are TTC Optical Switches and why does the Aether use them instead of regular switches? How long do they last?'",
+                "question": "Explain TTC Optical Switches on the Aether Mouse — what they are, their benefits, and rated lifespan.",
+                "rubric": "TTC Optical Switches use light (infrared beam) to register clicks instead of physical metal contact. Benefits: faster actuation (no physical debounce delay), more reliable (no contact wear), resistant to double-click issues common with mechanical switches. Lifespan: rated for 100 million clicks — significantly longer than the Huano switches used in most other models (which are 10-20 million). The Aether's optical switches are a premium feature. Sensor: PixArt PAW3311. The switch type is a key selling point for customers concerned about longevity."
+            },
+            {
+                "tag": "Bluetooth not connecting",
+                "scenario": "A customer says: 'I cannot connect my Aether Mouse via Bluetooth. My device says it does not support BLE. What does that mean?'",
+                "question": "Explain the Bluetooth BLE requirement and troubleshoot connection on the Aether Mouse.",
+                "rubric": "BLE stands for Bluetooth Low Energy. The Aether Mouse requires BLE support on the connecting device — standard Bluetooth devices that do not support BLE will NOT be able to pair. Most modern smartphones, tablets, and laptops manufactured after 2012 support BLE. Older devices may not. Troubleshooting steps: ensure mode switch is set to BT. Press and hold Left + Middle + Right buttons for 3 seconds — blue LED flashes rapidly confirming pairing mode. On the device, search and select 'CB Aether'. If already paired with another device: remove that pairing first then reconnect. Ensure device Bluetooth supports BLE — if not, the customer must use wired or 2.4G mode instead."
+            },
+            {
+                "tag": "2.4G not connecting",
+                "scenario": "A customer says: 'My Aether Mouse is not working in 2.4G mode even though the dongle is plugged in.'",
+                "question": "Walk the customer through 2.4G troubleshooting on the Aether Mouse.",
+                "rubric": "Step 1: confirm USB receiver is plugged into a working USB port on the PC. Step 2: confirm mode switch is set to 2.4G. Step 3: re-pair — press and hold Left + Middle + Right buttons for 3 seconds (green LED flashes), then insert the receiver. Step 4: try a different USB port — USB 3.0 can cause 2.4GHz interference; try USB 2.0. Step 5: check battery level — if red LED blinks slowly, charge the mouse first. Step 6: check if the USB dongle stored in the battery compartment is the correct one for this mouse."
+            },
+            {
+                "tag": "Sleep and wake function",
+                "scenario": "A customer says: 'My Aether Mouse stops responding after I leave it idle. I have to click multiple times to wake it. Is this normal?'",
+                "question": "Explain the sleep and wake function on the Aether Mouse.",
+                "rubric": "The Aether Mouse enters sleep mode automatically after a period of inactivity to conserve battery. This is normal behaviour — not a defect. To wake: move the mouse or click any button. A slight delay on wake-up is normal and expected. The sleep function is especially important given the replaceable battery design — it preserves battery life between swaps. There is no way to disable sleep mode. If the mouse takes more than 2-3 seconds to wake consistently or does not wake at all, that could indicate a low battery issue — check the charge level."
+            },
+            {
+                "tag": "Cursor erratic or unresponsive",
+                "scenario": "A customer says: 'The cursor on my Aether Mouse skips and lags. I cleaned the sensor but it is still happening in 2.4G mode.'",
+                "question": "Diagnose cursor tracking issues on the Aether Mouse beyond just sensor cleaning.",
+                "rubric": "After sensor cleaning: Step 1 — check PTFE feet (dual skates) — if worn or dirty they can affect smooth movement and indirectly tracking feel. Clean PTFE feet. Step 2 — check surface: use a proper mouse pad or smooth non-reflective surface. PAW3311 sensor does not perform well on glass or reflective surfaces. Step 3 — adjust DPI: very high DPI settings can appear erratic. Try cycling to a lower level. Step 4 — check for wireless interference in 2.4G mode: move receiver away from USB 3.0 devices and Wi-Fi routers. Step 5 — check battery: low battery can cause erratic wireless behaviour — charge or swap battery. Step 6 — try re-pairing in 2.4G mode."
+            },
+            {
+                "tag": "Programmable buttons and software",
+                "scenario": "A customer asks: 'Can I remap all 6 buttons on the Aether Mouse? Is there macOS software?'",
+                "question": "Explain programmable buttons and software support on the Aether Mouse.",
+                "rubric": "All 6 buttons (including the DPI switch) are fully programmable using the Cosmic Byte software. Software supports: button remapping, macro configuration, performance profiles. Software compatible with: Windows 2000 / XP / Vista / 7 / 8 / 10. macOS support: Bluetooth mode requires BLE support, but the dedicated configuration software is Windows-primary. Customers should check thecosmicbyte.com for macOS software availability. Basic use (movement, clicks) works on macOS without software; full customisation requires Windows software."
+            },
+            {
+                "tag": "Warranty and specifications",
+                "scenario": "A customer asks: 'What are the dimensions of the Aether Mouse? Also I dropped it and the cover cracked — is that covered under warranty?'",
+                "question": "Confirm key specs and explain warranty on the Aether Mouse.",
+                "rubric": "Dimensions: 125mm (L) × 63mm (W) × 38mm (H). Weight: 44g without battery, 55g with battery. Sensor: PixArt PAW3311. Warranty: 1 year against manufacturing defects only. Physical damage from dropping (cracked cover) is NOT covered. Water damage not covered. Tampered products not covered. The Aether has a replaceable top/bottom cover made of ABS plastic — the cracked cover is physical damage from dropping and is the customer's responsibility. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
+            }
+        ]
+    },
+    {
+        "id": "umbra_mouse",
+        "name": "Umbra Mouse",
+        "category": "Mouse",
+        "description": "Tri-mode gaming mouse (USB Type-C wired / 2.4GHz dongle / Bluetooth 5.0). PixArt A3104 sensor, DPI levels 400/800/1200/1600/2400/4000, up to 1000Hz polling (125Hz on Bluetooth), Huano switches (10M clicks), 300mAh rechargeable Li-ion battery, 53g, honeycomb body, PTFE feet, 1.8m paracord cable with magnetic ring.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity — all three modes",
+                "scenario": "A new customer asks: 'How do I connect the Umbra Mouse to my PC using the dongle? How do I pair via Bluetooth? And what happens when I plug in the cable?'",
+                "question": "Walk the customer through all three connection modes on the Umbra Mouse.",
+                "rubric": "Wired mode (USB Type-C): plug the 1.8m paracord cable into mouse and PC — automatically switches to wired mode. Power switch on mouse does not need to be on for wired mode. 2.4GHz wireless: unplug USB cable, slide power switch to top position (2.4G symbol) — indicator flashes green then turns off once connected. First-time / re-pair: press and hold Left Click + Right Click + Scroll Wheel for 3 seconds — green LED blinks rapidly, once paired light turns off. Insert USB dongle to complete. Bluetooth mode: slide power switch to bottom position (Bluetooth symbol) — on device search for and connect to 'CB Umbra'. Re-pair: press and hold Left Click + Right Click + Scroll Wheel for 3 seconds — blue LED blinks rapidly. Once paired, blue light turns off."
+            },
+            {
+                "tag": "DPI levels",
+                "scenario": "A customer asks: 'How many DPI levels does the Umbra Mouse have and how do I switch between them?'",
+                "question": "Explain DPI levels and switching on the Umbra Mouse.",
+                "rubric": "The Umbra Mouse has 6 DPI levels: 400 / 800 / 1200 / 1600 / 2400 / 4000 DPI. Press the DPI Switch button to cycle through them. The Umbra uses the PixArt A3104 sensor — different from the PAW3311 in the Atlas and Aether. The sensor has a tracking speed of 45 IPS and 15G acceleration. Agent should note the maximum DPI is 4000 — lower than some other models in the range."
+            },
+            {
+                "tag": "Indicator lights — what each means",
+                "scenario": "A customer says: 'My Umbra Mouse has different coloured lights and I am confused about what they all mean. The red light is blinking slowly right now.'",
+                "question": "Explain all indicator light states on the Umbra Mouse.",
+                "rubric": "Indicator light states: Low Battery = Red light flashes slowly. Charging = Solid blue light (stays on while charging). Fully Charged = Blue light turns off. 2.4GHz Pairing Mode = Green light blinks fast. Bluetooth Pairing Mode = Blue light blinks fast. When connected in either wireless mode the light turns off — absence of light after pairing is confirmation of connection, not a problem. Red light flashing slowly currently = low battery, customer should charge immediately."
+            },
+            {
+                "tag": "Polling rate and Bluetooth limitation",
+                "scenario": "A customer says: 'I heard the Umbra Mouse has 1000Hz polling but it feels slower when I use Bluetooth. Is something wrong?'",
+                "question": "Explain polling rate differences across modes on the Umbra Mouse.",
+                "rubric": "The Umbra Mouse supports different polling rates per mode: Wired and 2.4GHz modes: 125Hz / 250Hz / 500Hz / 1000Hz (adjustable). Bluetooth mode: 125Hz only — this is fixed and cannot be increased in Bluetooth mode. The reduced responsiveness in Bluetooth mode is expected and not a defect. For competitive gaming requiring 1000Hz, wired or 2.4GHz mode is strongly recommended. The polling rate adjustment for wired/2.4GHz modes can be done via software."
+            },
+            {
+                "tag": "Wired mode not working",
+                "scenario": "A customer says: 'My Umbra Mouse is not working in wired mode. The cable is plugged in but nothing happens.'",
+                "question": "Troubleshoot wired mode on the Umbra Mouse.",
+                "rubric": "Key point for wired mode: the power switch does NOT need to be in ON position for wired mode — wired mode works regardless of power switch position. Step 1: ensure the USB Type-C cable is properly connected to both the mouse and computer. Step 2: check the power switch — for wired mode it should actually be off (or in any position), as wired mode works independently. Step 3: try a different USB port. Step 4: try a different USB Type-C cable if available. Step 5: restart the computer and reconnect. The 1.8m paracord cable has a magnetic ring — ensure the ring is not interfering with the connection near the port."
+            },
+            {
+                "tag": "Mouse not waking from sleep",
+                "scenario": "A customer says: 'My Umbra Mouse went idle and now it will not wake up even when I move it.'",
+                "question": "Explain sleep/wake behaviour and how to troubleshoot it on the Umbra Mouse.",
+                "rubric": "The Umbra Mouse enters sleep mode after a period of inactivity to save power. To wake: move the mouse or press any button. If it still does not respond: check the battery level — if low (red LED flashing slowly) the mouse may not have enough charge to wake. Charge the mouse. In wireless mode, check the power switch position — ensure it is in 2.4G or BT position (not off). In wired mode, disconnect and reconnect the cable. If mouse still does not wake after charging, perform a connection reset by switching power modes."
+            },
+            {
+                "tag": "Bluetooth connection problems",
+                "scenario": "A customer says: 'I cannot connect my Umbra Mouse via Bluetooth. I set the switch to Bluetooth but cannot find it on my device.'",
+                "question": "Walk the customer through Bluetooth troubleshooting on the Umbra Mouse.",
+                "rubric": "Step 1: slide power switch to the bottom position (Bluetooth symbol). Step 2: wake the mouse if in sleep mode — press any button. Step 3: on the device search for 'CB Umbra' in Bluetooth settings. Step 4: if not finding it, press and hold Left Click + Right Click + Scroll Wheel for 3 seconds to enter active pairing mode — blue LED blinks rapidly. Step 5: if already paired with another device, the mouse may be trying to reconnect to that device first — remove the old pairing from the device's Bluetooth list and re-pair. Step 6: ensure device Bluetooth supports Bluetooth 5.0. Once paired, blue light turns off confirming connection."
+            },
+            {
+                "tag": "Cursor lagging",
+                "scenario": "A customer says: 'The Umbra Mouse cursor keeps lagging and skipping. I am on 2.4GHz mode.'",
+                "question": "Diagnose cursor lag on the Umbra Mouse in 2.4GHz mode.",
+                "rubric": "Step 1: check surface — use mouse on a smooth non-reflective surface or mouse pad. PixArt A3104 does not track well on glass or reflective surfaces. Step 2: check for wireless interference — USB 3.0 drives, Wi-Fi routers near receiver cause 2.4GHz lag. Move receiver to a USB 2.0 port. Step 3: check battery — low battery causes erratic wireless behaviour. Red LED flashing = low battery, charge first. Step 4: check DPI setting — if set very low (400) or if DPI is mismatched to surface, it can feel laggy. Try 1600 or 2400 DPI. Step 5: if cursor only lags after being idle, that may be the sleep wake-up delay — normal behaviour. Step 6: re-pair the 2.4GHz connection if issues persist."
+            },
+            {
+                "tag": "Buttons not responding",
+                "scenario": "A customer says: 'Some buttons on my Umbra Mouse are not working at all.'",
+                "question": "Walk the customer through diagnosing unresponsive buttons on the Umbra Mouse.",
+                "rubric": "Step 1: test in wired mode first — this isolates hardware from connection issues. Step 2: restart the PC and reconnect the mouse. Step 3: if using Bluetooth or 2.4GHz, ensure it is properly paired. Step 4: check if software has remapped buttons — open configuration software and reset to default settings. Step 5: test on another computer to rule out software conflicts. Step 6: if a button is unresponsive across all modes and on multiple computers, it may be a hardware issue — Huano switches rated 10 million clicks could be a hardware defect if the mouse is relatively new. Contact support. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
+            },
+            {
+                "tag": "Warranty and physical design",
+                "scenario": "A customer asks: 'Why does the Umbra Mouse have holes in the body? Also I spilled water on it — is that covered under warranty?'",
+                "question": "Explain the honeycomb design and warranty on the Umbra Mouse.",
+                "rubric": "Honeycomb design: the holes in the Umbra's body are a deliberate lightweight design choice. The honeycomb shell significantly reduces weight (53g) while maintaining structural integrity — it allows for faster mouse movements during gaming and reduces hand fatigue in long sessions. The ABS plastic shell with honeycomb pattern is the defining aesthetic of the Umbra. Warranty: 1 year against manufacturing defects only. Water/liquid damage is NOT covered under warranty — the honeycomb holes make the Umbra particularly susceptible to liquid ingress. Physical damage not covered. Tampered products not covered. The water spill incident is not covered. Contact: +91 7351615161."
+            }
+        ]
+    },
+    {
+        "id": "firestorm_mouse",
+        "name": "Firestorm Mouse",
+        "category": "Mouse",
+        "description": "RGB wired gaming mouse. Sensor: 3327, DPI 200–12400, 1000Hz polling, 220 IPS, 30G acceleration, Huano switches (10M clicks), 67g without cable, 1.5m paracord cable with cable management loop, honeycomb body with replaceable top cover, 11 RGB effects, 7 programmable buttons, Windows software only.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Setup and first connection",
+                "scenario": "A new customer asks: 'How do I set up my Firestorm Mouse for the first time? I just unboxed it.'",
+                "question": "Walk the customer through first-time setup of the Firestorm Mouse.",
+                "rubric": "Steps: (1) Unpack and remove any plastic film from the mouse feet. (2) Connect mouse to PC using the USB cable. (3) Windows will detect the mouse within 5-30 seconds automatically. (4) Download software from www.thecosmicbyte.com for full customisation. (5) When installing software: disable antivirus temporarily — antivirus may block installation as the software may not be in their database yet. (6) Once software is installed, restart the PC. (7) Mouse is now ready. Customise functions, macros, RGB, and DPI via the software. Wired only — the Firestorm is not wireless."
+            },
+            {
+                "tag": "DPI settings and RGB indicator",
+                "scenario": "A customer asks: 'What DPI levels does the Firestorm Mouse support? How do I know which DPI I am on? And what is the default?'",
+                "question": "Explain DPI range, adjustment, and the DPI LED indicator on the Firestorm Mouse.",
+                "rubric": "DPI range: 200 to 12400 DPI. The DPI button cycles through preset levels and the LED colour changes with each DPI level. Each DPI level changes the indicator LED colour — if the colour does not change when pressing the DPI button, the button may be unresponsive. Custom DPI levels between 200 and 12400 can be set via the Cosmic Byte Firestorm software. Default DPI levels and their LED colours are configured in the software. Agent should note the sensor is model 3327 (different from PAW3311 in other mice). Polling rate is 1000Hz."
+            },
+            {
+                "tag": "RGB lighting — customisation and troubleshooting",
+                "scenario": "A customer says: 'The RGB on my Firestorm Mouse is not lighting up. Also how do I change the lighting effects?'",
+                "question": "Explain RGB customisation and troubleshoot RGB issues on the Firestorm Mouse.",
+                "rubric": "The Firestorm Mouse has 11 RGB effects. To customise: use the Cosmic Byte Firestorm software (Windows only) — downloadable from thecosmicbyte.com. If RGB is not working: Step 1 — cycle through RGB effects using mode button if available, or check software settings. Step 2 — ensure RGB is not set to 'Off' or 'Static Black' in software. Step 3 — reinstall or update the Firestorm software/driver. If software is not detecting the mouse: ensure correct software version for the Firestorm model. Run as Administrator (right-click > Run as Administrator). Reinstall — download latest from cosmicbyte.com. The 11 RGB modes are a key feature — honeycomb body allows light to shine through."
+            },
+            {
+                "tag": "Replaceable top cover",
+                "scenario": "A customer asks: 'What is the replaceable top cover on the Firestorm Mouse? How does it work?'",
+                "question": "Explain the replaceable top cover feature on the Firestorm Mouse.",
+                "rubric": "The Firestorm Mouse has a honeycomb design shell that is removable and replaceable. A plain solid cover is included as an alternative to the honeycomb top. To change the look: the top cover can be swapped between honeycomb (default) and plain cover. The honeycomb design makes the mouse very lightweight and allows RGB to shine through. The plain cover gives a cleaner aesthetic without holes. This is a unique feature of the Firestorm — it offers two distinct visual styles in one mouse. Weight with any cover: 67g without cable."
+            },
+            {
+                "tag": "Software not detecting mouse",
+                "scenario": "A customer says: 'I installed the Firestorm software but it says the mouse is not detected. The mouse itself works fine in games.'",
+                "question": "Troubleshoot the Firestorm software not detecting the mouse.",
+                "rubric": "The mouse working in games but not being detected by software is a common issue. Steps: Step 1 — confirm correct software version for the Firestorm model (not a different Cosmic Byte mouse software). Step 2 — run the software as Administrator: right-click the software icon and select 'Run as Administrator'. Step 3 — try a different USB port. Step 4 — uninstall and download the latest version from www.cosmicbyte.com. Step 5 — check if antivirus is blocking the software — disable antivirus temporarily and reopen. Step 6 — restart PC after reinstalling. Note: software is Windows only — it will not work on macOS or Linux."
+            },
+            {
+                "tag": "Cursor not moving or mouse freezing",
+                "scenario": "A customer says: 'My Firestorm Mouse cursor freezes and sometimes does not move at all.'",
+                "question": "Diagnose cursor freezing on the Firestorm Mouse.",
+                "rubric": "Step 1: surface — use a proper mousepad or non-reflective clean surface. Sensor 3327 tracks poorly on glass or reflective surfaces. Step 2: check for dust or debris on the sensor lens — clean gently. Step 3: try a different USB port (preferably USB 3.0 or 2.0 direct on motherboard, not a hub). Step 4: use software to adjust the polling rate (1000Hz recommended) and test responsiveness. Step 5: restart PC — sometimes a reboot resolves device recognition issues. Step 6: test on another PC to isolate hardware vs software issues. The Firestorm is wired only, so wireless interference is not a factor."
+            },
+            {
+                "tag": "Buttons not responding or remapped unexpectedly",
+                "scenario": "A customer says: 'Some buttons on my Firestorm Mouse are not doing what they should. The side buttons seem to do random things.'",
+                "question": "Diagnose and fix button issues on the Firestorm Mouse.",
+                "rubric": "Most likely cause: buttons have been remapped via the Firestorm configuration software. Step 1: open the Firestorm configuration software. Step 2: check if buttons are remapped to unexpected functions. Step 3: restore default settings in the software. Step 4: reassign buttons as needed. If software-level reset does not fix it: Step 5 — uninstall and reinstall software. Step 6 — test mouse buttons on another computer to rule out hardware issues. Step 7 — if a button is physically stuck or feels different from the others, this could be a mechanical issue — contact support. The Firestorm has 7 programmable buttons total."
+            },
+            {
+                "tag": "Mouse lag or input delay",
+                "scenario": "A customer says: 'My Firestorm Mouse feels laggy during gaming. There is a noticeable delay between my movements and the cursor.'",
+                "question": "Diagnose and fix mouse lag on the Firestorm Mouse.",
+                "rubric": "Step 1: set polling rate to 1000Hz via the Cosmic Byte software — this gives the minimum possible latency (1ms). Step 2: close background applications that may be causing high CPU usage — high system load increases input processing time. Step 3: check the USB cable for damage or fraying — a damaged cable can cause intermittent lag. Step 4: try a different USB port (preferably a direct motherboard USB port, not a hub). Step 5: check the surface and sensor — debris on sensor or reflective surface causes tracking issues that can appear as lag. The Firestorm is wired only so wireless interference is not a factor — lag in wired mice is almost always USB, surface, or software related."
+            },
+            {
+                "tag": "Cable and paracord design",
+                "scenario": "A customer asks: 'What is special about the paracord cable on the Firestorm Mouse? Can I use an extension?'",
+                "question": "Explain the cable design and cable management loop on the Firestorm Mouse.",
+                "rubric": "The Firestorm Mouse uses a 1.5m paracord cable. Paracord cable properties: extremely lightweight compared to standard rubber cables, very flexible with minimal drag — this makes the mouse feel similar to a wireless mouse. The cable has a cable management loop for routing the cable cleanly on a desk. The lightweight cable is a key feature — it reduces the resistance and drag felt when moving the mouse quickly. No wireless option exists — the Firestorm is wired only. USB extension cables can be used if 1.5m is too short, but additional cable weight/drag may reduce the wireless-like feel benefit of the paracord."
+            },
+            {
+                "tag": "Warranty and compatibility",
+                "scenario": "A customer asks: 'Does the Firestorm Mouse work on Mac? Also I spilled water on it — is that covered?'",
+                "question": "Explain compatibility and warranty on the Firestorm Mouse.",
+                "rubric": "Compatibility: the Firestorm Mouse is plug-and-play on Windows for basic use. Software is Windows only — macOS users can use the mouse but cannot access software customisation features (RGB, DPI presets, button remapping). There is no macOS software listed. Warranty: 1 year against manufacturing defects only. Water/liquid damage is NOT covered. Physical damage is NOT covered. Tampered products not covered. The water spill incident is user-caused and not covered. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
+            }
+        ]
+    },
+    {
+        "id": "ignis_mouse",
+        "name": "Ignis Mouse",
+        "category": "Mouse",
+        "description": "Tri-mode gaming mouse (2.4GHz / Bluetooth / Wired USB-C). PixArt 3311 sensor, DPI 400–12000 hardware (up to 24000 via software), 1000Hz polling, Huano switches (20M clicks), 400mAh built-in rechargeable battery, ~52 hour battery life, 53.6g, F-Switch encoder, stealth design (no RGB), 1.5m ultralight paracord cable. Mode toggle on bottom.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Mode switching",
+                "scenario": "A new customer asks: 'How do I switch between 2.4GHz, Bluetooth, and wired on my Ignis Mouse? There is a switch on the bottom.'",
+                "question": "Explain the mode toggle and all three connection modes on the Ignis Mouse.",
+                "rubric": "Bottom switch positions: Left = 2.4GHz Wireless Mode. Centre = Power OFF. Right = Bluetooth Mode. Wired mode: connect the USB-C paracord cable — wired mode activates automatically when cable is connected and battery begins charging simultaneously. 2.4GHz: slide switch left, plug in USB receiver. If mouse does not respond: press and hold Left + Right + Scroll for 3 seconds to re-sync. Bluetooth: slide switch right. Press and hold Left + Right + Scroll for 3 seconds to enter pairing mode — indicator blinks. Pair with device — appears as 'CB Ignis'. Agent must mention all three mode positions and the re-sync procedure."
+            },
+            {
+                "tag": "DPI cycling",
+                "scenario": "A customer asks: 'How do I change the DPI on my Ignis Mouse? I cannot find a DPI button on top.'",
+                "question": "Explain DPI adjustment on the Ignis Mouse — noting the button location.",
+                "rubric": "The DPI button on the Ignis Mouse is located on the bottom of the mouse — not on top like most mice. Press it to cycle through 6 DPI preset levels: 400 / 800 / 1600 / 3200 / 6400 / 12000 DPI. Via software: DPI can go up to 24000 DPI. The bottom placement of the DPI button is a deliberate design choice to maintain the stealth/clean look on top. Agent must clarify the DPI button location — this is commonly confusing for customers. Software available from thecosmicbyte.com for advanced DPI settings."
+            },
+            {
+                "tag": "Battery life and charging",
+                "scenario": "A customer asks: 'How long does the Ignis Mouse battery last? And how do I know when it is charging vs fully charged?'",
+                "question": "Explain battery life and charging indicators on the Ignis Mouse.",
+                "rubric": "Battery life: approximately 52 hours on a full charge — one of the longest battery lives in the Cosmic Byte mouse range. Battery capacity: 400mAh built-in rechargeable. Charging time: 2–3 hours. LED charging indicator: Steady Red = Charging in progress. Steady Green = Fully charged. To charge: connect the USB-C cable — wired mode activates and battery charges simultaneously. The 52-hour battery life is a key selling point. Mode switch centre position = OFF (to conserve battery when not in use)."
+            },
+            {
+                "tag": "Stealth design — no RGB",
+                "scenario": "A customer says: 'I cannot find any RGB settings on my Ignis Mouse and there is no light on it. Is it broken?'",
+                "question": "Explain the Ignis Mouse design philosophy regarding RGB.",
+                "rubric": "The Ignis Mouse is a deliberate stealth/zero RGB design. It has NO LED lighting on top during use — this is intentional, not a defect. The only LEDs are the charging indicator (Red/Green). The design is described as 'Zero RGB for a stealth professional look' — it prioritises clean aesthetics without lights. There is no RGB setting to find or adjust. This is a key differentiator for customers who want a minimalist gaming mouse without lighting distractions. Agent must clearly reassure the customer this is by design."
+            },
+            {
+                "tag": "2.4GHz not working",
+                "scenario": "A customer says: 'My Ignis Mouse is not responding in 2.4G mode. The receiver is plugged in.'",
+                "question": "Troubleshoot 2.4GHz connection on the Ignis Mouse.",
+                "rubric": "Step 1: confirm bottom switch is in the left position (2.4GHz). Centre position = OFF, right = Bluetooth. Step 2: ensure USB receiver is firmly plugged into a working USB port. Step 3: re-sync — press and hold Left + Right + Scroll buttons for 3 seconds — this re-syncs the mouse to the receiver. Step 4: try a different USB port — avoid USB 3.0 if possible as it can cause 2.4GHz interference. Step 5: check battery level — steady red light means charging is needed. Step 6: try another computer with the same receiver to test if the issue is PC or mouse specific."
+            },
+            {
+                "tag": "Bluetooth not pairing",
+                "scenario": "A customer says: 'I cannot pair my Ignis Mouse via Bluetooth. I slid the switch to the right but nothing shows up on my phone.'",
+                "question": "Walk the customer through Bluetooth pairing on the Ignis Mouse.",
+                "rubric": "Step 1: slide bottom switch to the RIGHT position (Bluetooth mode). Step 2: press and hold Left + Right + Scroll buttons for 3 seconds — mouse enters pairing mode (indicator blinks). Step 3: on your device, open Bluetooth settings and scan. Step 4: select 'CB Ignis' from the list. Step 5: if previously paired with another device, remove that pairing from both devices first. Step 6: if indicator is not blinking, mouse may be in sleep mode — press any button first to wake, then repeat pairing steps. Note: Bluetooth is not recommended for low-latency gaming — for gaming use 2.4GHz or wired mode."
+            },
+            {
+                "tag": "Cursor lagging",
+                "scenario": "A customer says: 'My Ignis Mouse cursor keeps skipping and lagging. I use it on 2.4GHz.'",
+                "question": "Diagnose cursor lag on the Ignis Mouse.",
+                "rubric": "Step 1: check the surface — use the mouse on a smooth non-reflective surface or a mouse pad. PixArt 3311 sensor performs poorly on glass or reflective surfaces. Step 2: check battery level — low battery causes erratic wireless performance. Charge if needed (red LED when charging). Step 3: check for interference — move receiver away from USB 3.0 devices and Wi-Fi routers. Use a USB 2.0 port for the receiver. Step 4: re-sync in 2.4GHz mode (hold Left + Right + Scroll for 3 seconds). Step 5: turn off the mouse when not in use (centre switch position) to avoid background reconnection drain. Step 6: avoid leaving mouse in pairing mode unnecessarily — drains battery."
+            },
+            {
+                "tag": "Battery draining too fast",
+                "scenario": "A customer says: 'My Ignis Mouse battery drains within a day. I thought it was supposed to last 52 hours.'",
+                "question": "Diagnose battery drain and give tips on the Ignis Mouse.",
+                "rubric": "52-hour battery life is measured under typical usage conditions. Possible causes for faster drain: (1) Mouse is left on when not in use — always switch to centre (OFF) position when not in use. (2) Mouse is being left in Bluetooth pairing mode — pairing mode drains battery faster than connected mode. (3) Heavy continuous use — 52 hours is an estimate, actual varies with usage intensity. (4) Battery is degrading due to age or repeated full discharge cycles — this is normal wear. Tips: turn off the mouse (centre switch) when not in use. Avoid complete discharge regularly. Charge with USB-C cable — wired mode charges simultaneously with use. Do not leave in pairing mode longer than needed."
+            },
+            {
+                "tag": "Software and customisation",
+                "scenario": "A customer asks: 'Can I customise the Ignis Mouse? What does the software let me do?'",
+                "question": "Explain software support and customisation on the Ignis Mouse.",
+                "rubric": "Yes, the Ignis Mouse has software support. Software allows: DPI customisation (including access to up to 24000 DPI beyond the 6 hardware presets), macro recording, button function customisation. Software is available for download from thecosmicbyte.com. Compatible with Windows XP, Vista, 7/8/10/11. macOS is not listed as a supported OS for the software — basic use works on any OS but full customisation is Windows. The mouse has no RGB to customise by design (stealth). The DPI button on the bottom cycles 6 hardware preset levels without software."
+            },
+            {
+                "tag": "Warranty and compatibility",
+                "scenario": "A customer asks: 'I accidentally dropped my Ignis Mouse in water. Is that covered under warranty? Also what operating systems does it work on?'",
+                "question": "Explain warranty and OS compatibility on the Ignis Mouse.",
+                "rubric": "Compatibility: Windows XP, Vista, 7/8/10/11 — basic plug-and-play on all. Software is Windows specific. Warranty: 1 year against manufacturing defects only. Water/liquid damage is NOT covered — the Ignis dropped in water is a user-caused incident and is not covered. Physical damage not covered. Tampered products not covered. The customer's incident is unfortunately not covered under warranty. Recommend checking if the mouse still functions after drying thoroughly for 24-48 hours in a dry environment. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
+            }
+        ]
+    },
+    {
+        "id": "raptor_mouse",
+        "name": "Raptor Mouse",
+        "category": "Mouse",
+        "description": "Dual-mode gaming mouse (2.4G wireless + USB wired). PixArt 3212 sensor, DPI 800–4800, 500Hz polling, 30 IPS tracking, Huano switches (10M clicks), 96g without cable, 1.6m braided cable, PTFE feet (0.58mm), 11 RGB effects, 6 buttons, ABS surface. No Bluetooth.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity — dual mode setup",
+                "scenario": "A new customer asks: 'How do I connect my Raptor Mouse to my PC? Does it have Bluetooth?'",
+                "question": "Explain the connection modes on the Raptor Mouse and clarify what modes are available.",
+                "rubric": "The Raptor Mouse is DUAL mode only — NOT tri-mode. It does NOT have Bluetooth. Two modes available: Wired (USB cable) and 2.4GHz wireless (USB dongle). Wired setup: unpack, connect the 1.6m braided USB cable to PC — Windows detects within 5-30 seconds. Wireless 2.4GHz setup: plug the USB dongle securely into PC/laptop, switch the mouse to '2.4G' mode using the slider switch on the bottom. If not detected, try a different USB port. Agent must clearly state there is no Bluetooth option on the Raptor — customers expecting tri-mode connectivity need to be informed of this key difference."
+            },
+            {
+                "tag": "DPI range and adjustment",
+                "scenario": "A customer asks: 'What DPI levels does the Raptor Mouse support? How do I change them?'",
+                "question": "Explain DPI range and adjustment on the Raptor Mouse.",
+                "rubric": "DPI range: 800 to 4800 DPI. The DPI is adjustable using a button near the scroll wheel — press to cycle through DPI levels. The Raptor has a lower maximum DPI (4800) compared to other models in the range — it uses the PixArt 3212 sensor. Polling rate is 500Hz (lower than the 1000Hz of most other models). Maximum tracking speed is 30 IPS. The Raptor is positioned as an entry-level wireless gaming mouse. Agent should note the 500Hz polling rate is the maximum — not adjustable to 1000Hz."
+            },
+            {
+                "tag": "RGB lighting",
+                "scenario": "A customer asks: 'How do I change the RGB on my Raptor Mouse? It has different colours when I received it.'",
+                "question": "Explain RGB functionality on the Raptor Mouse.",
+                "rubric": "The Raptor Mouse features 11 RGB effects on the mouse back and logo. The RGB creates a fashionable modern appearance. RGB mode can be cycled through the available effects. The mouse has RGB on both the back body and the logo — these can display different colours and patterns depending on the selected mode. There is no dedicated software listed for the Raptor Mouse for RGB customisation on the thecosmicbyte.com website (unlike the Firestorm which has dedicated software). Customers should check the Cosmic Byte website for any available Raptor software updates."
+            },
+            {
+                "tag": "Mouse not connecting in 2.4G",
+                "scenario": "A customer says: 'My Raptor Mouse is not being detected by my PC in 2.4G mode.'",
+                "question": "Troubleshoot 2.4G connection on the Raptor Mouse.",
+                "rubric": "Step 1: ensure USB dongle is firmly plugged into a working USB port — try a different port. Step 2: switch the mouse slider to '2.4G' mode (not wired/off position). Step 3: power on the mouse — check the power switch on the bottom is in the ON position. Step 4: if still not detected, try the dongle in a different USB port. Step 5: restart the PC with the dongle connected. Step 6: ensure the mouse is charged — charge for at least 30 minutes if battery is low. A red LED may indicate charging status. Step 7: avoid using the dongle through a USB hub — connect directly to PC USB port for best results."
+            },
+            {
+                "tag": "Mouse not powering on",
+                "scenario": "A customer says: 'My Raptor Mouse will not turn on at all. Nothing happens when I try to use it.'",
+                "question": "Walk the customer through diagnosing a Raptor Mouse that won't power on.",
+                "rubric": "Step 1: check battery/charge — connect the USB cable and charge for at least 30 minutes. Step 2: ensure the power switch (located on the bottom) is in the ON position. Step 3: for wireless mode, ensure the slider switch is set to '2.4G' (not the off position). Step 4: for wired mode, connect the USB cable — wired mode should work regardless of power switch position. Step 5: try a different USB cable or port. Step 6: after charging, attempt to power on again. If nothing works after full charge attempt, it may indicate a battery or hardware issue — contact support."
+            },
+            {
+                "tag": "Cursor not moving or lagging",
+                "scenario": "A customer says: 'My Raptor Mouse cursor moves but it is very jerky and inconsistent.'",
+                "question": "Diagnose jerky cursor movement on the Raptor Mouse.",
+                "rubric": "Step 1: ensure the mouse is on a clean, flat, non-reflective surface or mouse pad. Avoid glass or transparent surfaces. Step 2: check for dust or dirt on the sensor — clean the sensor lens gently. Step 3: increase the DPI setting using the DPI button — low DPI on a large screen can feel jerky. Step 4: if on 2.4G wireless, check for signal interference — USB 3.0 hard drives and Wi-Fi routers interfere with 2.4GHz. Move dongle or switch USB port. Step 5: try changing USB port for the dongle. Step 6: in wired mode, try a different cable or port. Note: Raptor's polling rate is 500Hz (not 1000Hz) — this is lower than other models which is inherent to this mouse."
+            },
+            {
+                "tag": "Mouse disconnecting randomly",
+                "scenario": "A customer says: 'My Raptor Mouse keeps disconnecting during gaming on wireless mode.'",
+                "question": "Diagnose random disconnections on the Raptor Mouse.",
+                "rubric": "Step 1: check battery level — low battery is the most common cause of random disconnections. Charge the mouse fully. Step 2: ensure the USB dongle is not obstructed or blocked by other devices. Step 3: check for interference sources — USB 3.0 hard drives, Wi-Fi routers, other 2.4GHz devices near the dongle cause dropouts. Step 4: move the dongle to a front USB port for better line of sight to the mouse. Step 5: ensure the dongle is not in a USB hub — use a direct motherboard USB port. Step 6: check maximum wireless range — the Raptor's specifications show 30 IPS tracking speed, designed for desk-range use. Step 7: try the dongle in a USB 2.0 port (USB 3.0 causes 2.4GHz interference)."
+            },
+            {
+                "tag": "Buttons not working",
+                "scenario": "A customer says: 'The extra buttons on my Raptor Mouse are not doing anything.'",
+                "question": "Diagnose unresponsive buttons on the Raptor Mouse.",
+                "rubric": "Step 1: reconnect the mouse — disconnect and reconnect in the current mode. Step 2: restart the PC and try again. Step 3: check for physical obstructions or dirt under the buttons — clean gently. Step 4: test in both wired and wireless modes to isolate if it is connection-related. Step 5: test on another computer to rule out PC-side software conflicts. Step 6: the Raptor has 6 buttons total. If specific buttons are completely unresponsive across all modes and computers, this may indicate a hardware defect — contact Cosmic Byte support. Switch lifespan is 10 million clicks (Huano)."
+            },
+            {
+                "tag": "Charging and cable",
+                "scenario": "A customer asks: 'How do I charge the Raptor Mouse? What type of cable does it use?'",
+                "question": "Explain charging and cable details for the Raptor Mouse.",
+                "rubric": "The Raptor Mouse uses a 1.6m braided cable. The braided cable provides durability and prevents external damage — more robust than standard rubber cables. To charge: connect the USB cable to the mouse and a USB power source. A red LED may indicate charging in progress — check LED status when connected. In wired mode the mouse functions while the cable is connected. The Raptor Mouse does NOT use a Type-C paracord like other models — it uses a braided cable which is heavier and more traditional. Battery: the Raptor has an internal battery for wireless use. Unlike the Aether, the battery is not user-replaceable."
+            },
+            {
+                "tag": "Warranty and specifications",
+                "scenario": "A customer asks: 'My Raptor Mouse got wet in the rain. Is that covered? Also can it reach 1000Hz polling?'",
+                "question": "Address the warranty question and confirm the Raptor Mouse's polling rate specification.",
+                "rubric": "Polling rate: the Raptor Mouse has a maximum polling rate of 500Hz — it does NOT support 1000Hz. This is a hardware specification of the PixArt 3212 sensor and cannot be upgraded. Customers expecting 1000Hz should look at the Atlas, Aether, Ignis, or Velox models. Warranty: 1 year against manufacturing defects only. Water/rain damage is NOT covered under warranty — physical and water damage are explicitly excluded. The customer's rain damage is not covered. Weight: 96g without cable — heavier than tri-mode models. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
+            }
+        ]
+    },
 ]
 
 PASS_MARK = 70
