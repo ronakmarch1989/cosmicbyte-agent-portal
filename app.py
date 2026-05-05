@@ -658,6 +658,150 @@ PRODUCTS = [
             }
         ]
     },
+    {
+        "id": "blitz_tri",
+        "name": "Blitz Tri-Mode",
+        "category": "Controller",
+        "description": "Tri-mode controller (USB Wired / 2.4GHz / Bluetooth) with TMR joysticks, Hall Effect triggers, 1000Hz polling rate, macro programming, gyro, Dualshock mode (iOS), Steam mode, charging dock support. 600mAh battery. PC primary platform.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity modes and LED indicators",
+                "scenario": "A new customer asks: 'I want to use my Blitz Tri-Mode on my PC via the dongle, on my Android phone, and on my iPhone. How do I connect for each and how do I know which mode I am in from the LEDs?'",
+                "question": "Explain all connection methods and LED indicator meanings on the Blitz Tri-Mode.",
+                "rubric": "Wired PC: plug USB-C cable, press HOME — LED2 stays on (XInput). To switch to DInput wired: long-press HOME — LED3 stays on. 2.4GHz PC: press X+HOME for 3 seconds — LED2 (XInput) or LED3 (DInput). Switch DInput in 2.4GHz: long-press SELECT+HOME. Mouse mode (wired or 2.4GHz): hold CAPTURE+R3 for 5 seconds — LED3+LED4 stay on; A=left click, B=right click, right stick=cursor. Repeat CAPTURE+R3 to exit. Bluetooth PC XInput: B+HOME — LED2. Bluetooth PC DInput: A+HOME — LED3. Bluetooth Gyro: Y+HOME — LED4. Bluetooth Android XInput: B+HOME — LED2. Bluetooth Android DInput: A+HOME — LED3. Bluetooth Android Gyro: Y+HOME — LED4. Bluetooth iOS XInput: B+HOME — LED2. Bluetooth iOS Dualshock: TURBO+HOME — LED1. Bluetooth iOS Gyro: Y+HOME — LED4. iOS requires Bluetooth-only pairing and app must support external controllers. Consoles NOT supported."
+            },
+            {
+                "tag": "XInput vs DInput — old game",
+                "scenario": "A customer says: 'I connected the Blitz Tri-Mode via the 2.4GHz dongle on PC. Windows detects it fine but my old 2003 game completely ignores it.'",
+                "question": "Diagnose and fix the issue for the Blitz Tri-Mode.",
+                "rubric": "Old games only support DInput (LED3). Blitz Tri-Mode defaults to XInput (LED2) in 2.4GHz mode. To switch to DInput in 2.4GHz: long-press SELECT+HOME — LED3 stays on confirming DInput. Customer must relaunch the game after switching. In wired mode: long-press HOME to toggle between XInput (LED2) and DInput (LED3). Always relaunch game after switching modes."
+            },
+            {
+                "tag": "Steam mode",
+                "scenario": "A customer says: 'I play most of my games on Steam and the Blitz Tri-Mode is not being detected properly in Steam even though Windows sees it. Is there a special Steam mode?'",
+                "question": "Explain Steam Mode on the Blitz Tri-Mode — what it is, when to use it, and exactly how to activate it.",
+                "rubric": "Steam Mode is a special wired-only boot mode for Steam compatibility. Steps: (1) Ensure controller is fully powered OFF. (2) Press and hold R3 (right stick click down). (3) While holding R3, plug the USB-C cable into the PC. (4) Controller boots directly into Steam-compatible mode. CRITICAL: Steam Mode is wired only — it cannot be activated wirelessly. After activating, restart Steam if it was already open. This mode is specifically for Steam game detection issues."
+            },
+            {
+                "tag": "Gyro setup and Bluetooth-only limitation",
+                "scenario": "A customer says: 'I want to use gyro motion control on my PC with the Blitz Tri-Mode. I am using the 2.4GHz dongle but I cannot find any gyro option. Also can I use gyro in games that do not natively support it?'",
+                "question": "Explain how gyro works on the Blitz Tri-Mode and why it is not working via the dongle.",
+                "rubric": "Native Gyro Mode is ONLY available in Bluetooth mode — it does NOT work in 2.4GHz or wired modes. Customer must disconnect dongle and pair via Bluetooth: press Y+HOME for 3 seconds, LED4 stays on confirming gyro mode. For games without native gyro support: connect via wired or 2.4GHz, open Cosmic Byte software (downloadable from thecosmicbyte.com), assign gyro to a button, set activation mode (Always On / Press to Activate / Toggle), map gyro output to mimic left or right joystick — this makes gyro work as joystick input in any game. Software method works over wired/2.4GHz. Both methods should be explained."
+            },
+            {
+                "tag": "Turbo, Auto Fire and speed adjustment",
+                "scenario": "A customer says: 'My A button keeps firing super fast on its own. Also how do I set Auto Fire on X? And how do I change the turbo speed and clear all turbo assignments at once?'",
+                "question": "Diagnose the auto-firing A button, explain Auto Fire setup, speed adjustment and clearing all turbo on the Blitz Tri-Mode.",
+                "rubric": "Auto-firing A: Turbo enabled on A. Enable Turbo: hold TURBO + desired button. To toggle to Auto Fire on same button: press TURBO + same button again. Cancel individual: hold CLEAR + button. Clear ALL turbo: hold TURBO for 5 seconds. Three speed levels: Level 1=5 presses/sec, Level 2=12 presses/sec (default), Level 3=20 presses/sec. Adjust speed: hold TURBO, push right stick Right to increase one level, Left to decrease one level. Turbo works on A, B, X, Y, LB, RB, LT, RT."
+            },
+            {
+                "tag": "Macro programming",
+                "scenario": "A customer says: 'I want to record a macro on my Blitz Tri-Mode — a sequence of button presses that fires with one press. How do I record, execute and clear a macro?'",
+                "question": "Walk the customer through recording, executing, and clearing a macro on the Blitz Tri-Mode.",
+                "rubric": "Record macro: hold TURBO for 3 seconds (enter macro recording mode), perform the button sequence (up to 22 inputs), press TURBO to save. Execute macro: double-press TURBO during gameplay. Clear macro: enter macro mode (hold TURBO 3 seconds), then press TURBO immediately without recording any buttons — this clears the stored macro. Supports up to 22 inputs per macro. Agent must correctly distinguish between the Turbo function and the Macro function — macros are separate from turbo assignments."
+            },
+            {
+                "tag": "Vibration adjustment and battery check",
+                "scenario": "A customer asks: 'How do I reduce the vibration on my Blitz Tri-Mode? It is too strong. Also how do I check the battery level without stopping my game?'",
+                "question": "Explain vibration adjustment and the battery level check on the Blitz Tri-Mode.",
+                "rubric": "Vibration adjustment: hold TURBO, push right stick Up to increase, Down to decrease. Four levels: 100%, 70% (default), 40%, 0% (off). Battery level check: press TURBO+START simultaneously — LEDs show level: LED1 only = 1-25%, LED1+2 = 26-50%, LED1+2+3 = 51-75%, all four LEDs = 76-100%. Charging: use 5V/1A charger or PC USB port only. Fast chargers damage battery and void warranty. Charging time: 2.5-3 hours. Battery life: 7-15 hours depending on mode and usage."
+            },
+            {
+                "tag": "Stick calibration and D-pad modes",
+                "scenario": "A customer says: 'My left joystick on the Blitz Tri-Mode drifts slightly even when I am not touching it. Also I play fighting games and my D-pad keeps registering diagonals — can I lock it to 4 directions?'",
+                "question": "Walk the customer through stick calibration and explain the D-pad direction modes on the Blitz Tri-Mode.",
+                "rubric": "Stick calibration: (1) Power off controller. (2) Hold CAPTURE+HOME. (3) Press A — LED2 turns on. (4) Rotate both joysticks in full circles 3 times reaching maximum range. (5) Press each trigger fully 3 times. (6) Press A again to save and exit — calibration complete. D-pad 4-way vs 8-way: default is 8 directions. To switch between 4-way and 8-way: press SELECT+D-pad Right for 3 seconds. Short vibration = 4-way mode, Long vibration = 8-way mode. 4-way eliminates diagonal inputs — best for fighting games."
+            },
+            {
+                "tag": "Power functions and controller lock",
+                "scenario": "A customer asks: 'How do I properly turn off the Blitz Tri-Mode? Also I put it in my bag and it kept turning on by itself and draining the battery. Is there a way to prevent this?'",
+                "question": "Explain all power functions and the controller lock feature on the Blitz Tri-Mode.",
+                "rubric": "Power ON: press HOME for 0.5-1 second. Power OFF manually: hold HOME for 5 seconds. Auto sleep: 5 minutes of inactivity while connected. Controller reset (if frozen): hold HOME for 8 seconds. Factory reset (clears all settings): hold SELECT+L3+R3 for 5 seconds. Controller lock (prevents accidental button wake-up in bag): hold SELECT+R3 (right stick click) for 5 seconds until all four LEDs light up — this locks the button wake-up feature. To unlock: plug in a USB charger. This is the critical feature for the bag issue. Must distinguish between reset (HOME 8s) and factory reset (SELECT+L3+R3 5s)."
+            },
+            {
+                "tag": "ABXY swap, stick shape mode and D-pad swap",
+                "scenario": "A customer says: 'I want to swap A and B buttons, also swap the D-pad with the left joystick. And I heard there is a square mode for the joystick — what does that do?'",
+                "question": "Explain all three customisation options on the Blitz Tri-Mode.",
+                "rubric": "ABXY swap: hold TURBO+R3 for 3 seconds — A and B swap, X and Y swap simultaneously. Toggle — repeat to restore. D-pad and Left Stick swap: hold START+L3 for 3 seconds — swaps D-pad and left joystick functions. Toggle — repeat to restore. Stick shape mode (L3+TURBO): toggles between Circle Mode (default — full circular range) and 45-Degree Square Mode (constrains movement to square grid, improving diagonal accuracy for competitive games). Factory reset restores all to default."
+            },
+            {
+                "tag": "Charging dock, reset types and warranty",
+                "scenario": "A customer says: 'I bought a charging dock separately for my Blitz Tri-Mode. Also the controller is behaving strangely — should I do a reset or factory reset? And I dropped it cracking the shell — is that covered?'",
+                "question": "Explain charging dock usage, the difference between reset and factory reset, and warranty coverage.",
+                "rubric": "Charging dock: the Blitz Tri-Mode supports charging dock (sold separately) — place controller onto dock contacts, dock charges via USB power source. Standard cable charging: USB-C to 5V/1A adapter or PC USB port. Fast chargers NOT supported — damages battery and voids warranty. Controller reset (HOME 8 seconds): fixes freezes and input issues without deleting settings. Factory reset (SELECT+L3+R3 for 5 seconds): clears ALL custom settings — turbo, macros, button swaps, vibration levels, D-pad modes. Use factory reset for strange button behaviour first. Warranty: 1 year manufacturing defects only. Physical damage from dropping (cracked shell) is NOT covered. Water damage not covered. Tampered products not covered."
+            }
+        ]
+    },
+    {
+        "id": "blitz_wireless",
+        "name": "Blitz Wireless",
+        "category": "Controller",
+        "description": "DISCONTINUED — 2.4GHz wireless + USB wired dual-mode controller. Hall Effect joystick and trigger. 600mAh battery. No Bluetooth, no gyro, no macro. Simpler feature set. Agents should know this model is discontinued when customers ask about buying.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity and first-time setup",
+                "scenario": "A customer says: 'I just got a Blitz Wireless controller. How do I connect it to my PC via the dongle for the first time? The LED is flashing and nothing is connecting.'",
+                "question": "Walk the customer through first-time setup and connection on the Blitz Wireless.",
+                "rubric": "First-time dongle pairing: press HOME button for 3-5 seconds to enter pairing mode — LED flashes and controller pairs with dongle for the first time. Once connected: LED1 and LED2 stay on (XInput mode). To connect after first pairing: press HOME for 1 second. Wired mode: connect USB-C cable, press HOME to start using — without pressing HOME the controller only charges, it will NOT function as a controller. Default connection priority: if both dongle and cable are connected simultaneously, controller uses dongle for input and cable for charging. Auto power off: if LED blinks and no dongle found within 1 minute, controller turns off automatically. Connected idle: auto power off after 5 minutes of inactivity."
+            },
+            {
+                "tag": "XInput and DInput modes",
+                "scenario": "A customer says: 'My Blitz Wireless is connected via the dongle but my old 2004 game does not detect it. I can see it in Windows but the game ignores it.'",
+                "question": "Diagnose the issue and explain how to switch to DInput on the Blitz Wireless.",
+                "rubric": "Old games require DInput (LED3+LED4 stay on). Blitz Wireless defaults to XInput when connected (LED1+LED2). To switch to DInput in wireless dongle mode: press HOME button for 2 seconds — LED3 and LED4 will stay on confirming DInput mode. Customer must relaunch the game after switching. To switch back to XInput: press HOME for 2 seconds again to toggle. Note: this controller is 2.4GHz + wired only — there is no Bluetooth mode on the Blitz Wireless."
+            },
+            {
+                "tag": "Android connection and mouse mode",
+                "scenario": "A customer asks: 'Can I connect my Blitz Wireless to my Android phone? And I heard there is a mouse mode — how does that work?'",
+                "question": "Explain Android connection and mouse mode on the Blitz Wireless.",
+                "rubric": "Android connection: plug the USB dongle into Android device using an OTG converter (not included — customer needs a Type-C OTG converter). Press HOME for 1 second. LED flashes then LED3 stays on when connected to Android. Device must support OTG. Mouse mode (Android and PC, wired or 2.4GHz only): press CAPTURE+R3 simultaneously — LED3 and LED4 remain on confirming mouse mode. In mouse mode: right stick controls cursor, A=left click, B=right click. Mouse mode does NOT work in Bluetooth mode — but the Blitz Wireless has no Bluetooth anyway. To exit mouse mode: press CAPTURE+R3 again."
+            },
+            {
+                "tag": "Turbo — enable, auto-turbo and clear all",
+                "scenario": "A customer says: 'My B button keeps auto-firing. Also I want to set up turbo on A so it fires fast while I hold it. How do I clear all turbo settings at once? And how do I change turbo speed?'",
+                "question": "Diagnose the B button issue, explain Turbo and Auto-Turbo setup, clearing all, and speed adjustment on the Blitz Wireless.",
+                "rubric": "Auto-firing B: Turbo enabled on B. To activate Turbo (fires fast while held): press and hold TURBO button + desired button (A/B/X/Y/LB/RB/LT/RT). To activate Auto-Turbo (fires continuously without holding): press and hold TURBO + the same button that already has Turbo assigned — this upgrades it to Auto-Turbo. Cancel individual: press and hold TURBO + the assigned button again to toggle off. Clear ALL turbo assignments: hold TURBO+SELECT for 5 seconds — controller vibrates confirming all cleared. Three speed levels: Slow=5 shots/sec (LEDs flash slowly), Medium=12 shots/sec (default, LEDs flash medium), Fast=20 shots/sec (LEDs flash fast). Increase speed: press TURBO + pull right stick Right. Decrease speed: press TURBO + pull right stick Left."
+            },
+            {
+                "tag": "Vibration adjustment",
+                "scenario": "A customer says: 'The vibration on my Blitz Wireless is too strong and distracting. How do I reduce it or turn it off completely?'",
+                "question": "Explain how to adjust vibration on the Blitz Wireless.",
+                "rubric": "Four vibration levels: None (off), Weak, Medium, Strong. To adjust: controller must be connected to PC. Press TURBO + pull right stick Up to increase one level. Press TURBO + pull right stick Down to decrease one level. To turn off completely: decrease until None/off level is reached. Adjustment must be done while connected — no software needed."
+            },
+            {
+                "tag": "D-pad 4-way and 8-way and battery check",
+                "scenario": "A customer who plays fighting games says: 'My D-pad keeps registering diagonals. Also how do I check how much battery is left without stopping my game?'",
+                "question": "Explain the D-pad direction modes and battery check on the Blitz Wireless.",
+                "rubric": "D-pad default is 8 directions. To switch between 4-way and 8-way: press SELECT+D-pad Right for 3 seconds. Short vibration = 4-way mode (only up/down/left/right, no diagonals). Long vibration = 8-way mode. Repeat to toggle back. 4-way mode eliminates accidental diagonal inputs — best for fighting and platformer games. Battery level check: press TURBO+START simultaneously. LEDs show level: LED1=1-25%, LED1+2=26-50%, LED1+2+3=51-75%, all four LEDs=76-100%."
+            },
+            {
+                "tag": "Joystick calibration and drift",
+                "scenario": "A customer says: 'My left joystick on the Blitz Wireless drifts slightly upward even when I am not touching it. How do I fix this?'",
+                "question": "Walk the customer through the joystick calibration process on the Blitz Wireless.",
+                "rubric": "Calibration steps (note: different from Blitz Tri-Mode): (1) With controller powered off, press the UP D-pad button then press HOME button. (2) LED1 illuminates. (3) Press A to enter calibration mode — LED2 turns on. (4) Rotate each joystick in full circles three times, reaching maximum range. (5) Press each trigger fully with normal pressure three times. (6) Press A again to confirm and exit — calibration complete. The Blitz Wireless has Hall Effect joysticks which are drift-resistant by design — drift may indicate calibration offset rather than physical wear. If drift persists after calibration, contact support."
+            },
+            {
+                "tag": "Controller lock and power management",
+                "scenario": "A customer says: 'I put my Blitz Wireless in my bag and it kept turning on by itself draining the battery. Also how do I properly turn it off and what happens if it freezes?'",
+                "question": "Explain power off, auto-sleep, the lock feature and reset on the Blitz Wireless.",
+                "rubric": "Manual power off: hold HOME button for 5 seconds. Auto sleep: 5 minutes of inactivity while connected. If searching for dongle with no success: auto powers off after 1 minute. Controller lock (prevents accidental button wake-up in bag): hold SELECT+R3 (right stick click down) for 5 seconds until all four LEDs light up — locks button wake-up feature. To unlock: plug in a USB charger. Reset (if frozen or not functioning correctly): hold HOME for 8 seconds to force reset. Must distinguish: power off (HOME 5s) vs reset (HOME 8s) vs lock (SELECT+R3 5s)."
+            },
+            {
+                "tag": "Charging and discontinued status",
+                "scenario": "A customer says: 'My Blitz Wireless is not charging properly. I am using a fast charger. Also a friend wants to buy one — where can they get it?'",
+                "question": "Diagnose the charging issue and be honest about the discontinued status of the Blitz Wireless.",
+                "rubric": "Charging: use the included USB-A to USB-C cable with a PC USB port or standard 5V/1A charger. Fast chargers and mobile chargers WILL damage the battery and void the warranty — this is the cause of the charging issue. Charging indicators: while charging in connected mode, the mode LEDs blink slowly. Fully charged in connected mode: LEDs stay steady. While charging in disconnected mode: all four LEDs blink slowly. Fully charged in disconnected mode: all four LEDs stay steady. Charging time: 2-3 hours. Battery life: 7-15 hours depending on usage. Discontinued status: the Blitz Wireless is a discontinued model and is no longer sold new by Cosmic Byte. Agent should be honest — if a friend wants to buy a Blitz controller, they should look at the current Blitz Tri-Mode which is the active model with more features. Warranty: 1 year manufacturing defects only. Physical and water damage not covered."
+            },
+            {
+                "tag": "Blitz Wireless vs Blitz Tri-Mode — key differences",
+                "scenario": "A customer says: 'I have a Blitz Wireless and my colleague has a Blitz Tri-Mode. He says his has features mine does not. What is the difference and why do some troubleshooting steps not work on mine?'",
+                "question": "Clearly explain the key differences between the Blitz Wireless and Blitz Tri-Mode so the agent can set correct expectations.",
+                "rubric": "Key differences agents must know: Connectivity: Blitz Wireless = 2.4GHz dongle + USB wired only. Blitz Tri-Mode = 2.4GHz + USB Wired + Bluetooth (three modes). Gyro: Blitz Wireless = NO gyro. Blitz Tri-Mode = gyro via Bluetooth. Macro: Blitz Wireless = NO macro programming. Blitz Tri-Mode = full macro support (hold TURBO 3s to record). iOS Dualshock mode: Blitz Wireless = NOT available. Blitz Tri-Mode = TURBO+HOME for Dualshock mode. Steam Mode: Blitz Wireless = NOT available. Blitz Tri-Mode = hold R3 while plugging USB. Charging dock: Blitz Wireless = NOT supported. Blitz Tri-Mode = supported (sold separately). Joystick tech: Blitz Wireless = Hall Effect joystick + Hall Effect trigger. Blitz Tri-Mode = TMR joystick + Hall Effect trigger. Availability: Blitz Wireless = DISCONTINUED. Blitz Tri-Mode = current active model. Agents should use the correct manual for each — steps from Tri-Mode manual will NOT work on Wireless model."
+            }
+        ]
+    },
 ]
 
 PASS_MARK = 70
