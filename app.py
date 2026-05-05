@@ -66,7 +66,7 @@ PRODUCTS = [
     {
         "id": "lumora",
         "name": "Lumora",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode wireless controller with Hall Effect sensors, gyro and RGB.",
         "available": True,
         "questions": [
@@ -136,7 +136,7 @@ PRODUCTS = [
     {
         "id": "ares",
         "name": "Ares",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode wireless controller with 2.4GHz, Bluetooth 5.0 and Wired USB-C. Supports PC (Windows), Android (OTG) and iOS (MFI games). 2026 manufacturing batch features 1000Hz polling rate — older models cannot be upgraded to 1000Hz.",
         "available": True,
         "questions": [
@@ -217,7 +217,7 @@ PRODUCTS = [
     {
         "id": "nexus",
         "name": "Nexus",
-        "category": "Controller",
+        "category": "2.4GHz Wireless",
         "description": "2.4GHz wireless controller powered by 2x AAA batteries. Supports XInput and DirectInput on PC (Windows) and Android (OTG). Dual vibration motors, sensitive triggers, up to 8m wireless range.",
         "available": True,
         "questions": [
@@ -286,7 +286,7 @@ PRODUCTS = [
     {
         "id": "ares_wired",
         "name": "Ares Wired",
-        "category": "Controller",
+        "category": "Wired",
         "description": "USB wired controller for PC. Supports XInput and DirectInput. LED-illuminated ABXY, Turbo/Auto-Turbo, Hall Effect joysticks (2026 batch). Compatible with Windows 7/8/10/11. Plug & Play on Windows 8 and above.",
         "available": True,
         "questions": [
@@ -355,7 +355,7 @@ PRODUCTS = [
     {
         "id": "ares_wireless",
         "name": "Ares Wireless",
-        "category": "Controller",
+        "category": "2.4GHz Wireless",
         "description": "2.4GHz wireless controller with 700mAh rechargeable battery, Hall Effect joysticks and triggers (2026 batch), RGB LED, dual vibration, Turbo/Auto-Turbo. PC only via USB dongle. Up to 8m range.",
         "available": True,
         "questions": [
@@ -430,7 +430,7 @@ PRODUCTS = [
     {
         "id": "ares_pro",
         "name": "Ares Pro",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode wireless controller with Hall Effect joysticks, LED ABXY buttons, M1/M2 macro keys and software support (new models only).",
         "available": True,
         "questions": [
@@ -511,7 +511,7 @@ PRODUCTS = [
     {
         "id": "drakon",
         "name": "Drakon",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Wireless controller with TMR joysticks, 3-level trigger lock, magnetic covers, charging dock, macro buttons and RGB.",
         "available": True,
         "questions": [
@@ -592,7 +592,7 @@ PRODUCTS = [
     {
         "id": "stellaris",
         "name": "Stellaris",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode wireless controller with TMR joysticks, gyro, macro buttons and RGB lighting.",
         "available": True,
         "questions": [
@@ -661,7 +661,7 @@ PRODUCTS = [
     {
         "id": "blitz_tri",
         "name": "Blitz Tri-Mode",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode controller (USB Wired / 2.4GHz / Bluetooth) with TMR joysticks, Hall Effect triggers, 1000Hz polling rate, macro programming, gyro, Dualshock mode (iOS), Steam mode, charging dock support. 600mAh battery. PC primary platform.",
         "available": True,
         "questions": [
@@ -736,7 +736,7 @@ PRODUCTS = [
     {
         "id": "blitz_wireless",
         "name": "Blitz Wireless",
-        "category": "Controller",
+        "category": "2.4GHz Wireless",
         "description": "DISCONTINUED — 2.4GHz wireless + USB wired dual-mode controller. Hall Effect joystick and trigger. 600mAh battery. No Bluetooth, no gyro, no macro. Simpler feature set. Agents should know this model is discontinued when customers ask about buying.",
         "available": True,
         "questions": [
@@ -805,7 +805,7 @@ PRODUCTS = [
     {
         "id": "eclipse",
         "name": "Eclipse",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode controller (2.4GHz / Bluetooth 5.3 / Wired USB-C). Compatible with PC, Android, iOS 13+. 1200mAh battery (11-13hrs). Adjustable joystick resistance roller, trigger travel switch, ABXY layout switch, gyro, macro M1/M2 buttons, KeyLinker app, wireless charging contacts, replaceable D-pad, ~10m range.",
         "available": True,
         "questions": [
@@ -880,7 +880,7 @@ PRODUCTS = [
     {
         "id": "starforge",
         "name": "Starforge",
-        "category": "Controller",
+        "category": "Tri-Mode Wireless",
         "description": "Tri-mode controller (2.4GHz / Bluetooth 5.3 / Wired USB-C). PC (XInput/DInput), Android 8.0+, iOS 13+, Smart TVs, Tesla vehicles. 1200mAh (10-12hrs). Swappable modular joystick modules (4 resistance levels), 4x back macro buttons (M1-M4), RGB light strips, trigger motor vibration, ABXY layout screw switch, gyro, KeyLinker app, Back+Start for XInput/DInput toggle, LS+RS+Home reset.",
         "available": True,
         "questions": [
@@ -949,6 +949,81 @@ PRODUCTS = [
                 "scenario": "A customer asks: 'What is included in the Starforge box? Also I spilled water on it — is it covered? And I heard it works with Tesla cars?'",
                 "question": "List package contents, explain warranty coverage, and confirm the Tesla/Smart TV compatibility claim.",
                 "rubric": "Package contents: Starforge Gaming Controller x1, Magnetic Cover x1, 2.4G USB Receiver x1, Type-C USB Cable (1.5m) x1, User Manual x1, Extra Joystick Sets x3, Puller x1, Screwdriver x1. The screwdriver is for the ABXY layout screw switch. The 3 extra joystick sets cover different resistance levels (60gf, 70gf, 120gf, 150gf available). Puller is for removing joystick modules. Tesla vehicles: yes, the Starforge officially supports Tesla vehicle connectivity via 2.4GHz mode — this is a documented feature. Smart TVs are also supported. Warranty: 1 year against manufacturing defects only. Water damage is explicitly NOT covered. Physical damage not covered. Tampered products not covered. KeyLinker app available for advanced customisation. Wireless range: approximately 10 metres. Battery: 1200mAh, 10-12 hours playtime, 3-4 hours charging time."
+            }
+        ]
+    },
+    {
+        "id": "quantum",
+        "name": "Quantum",
+        "category": "Dual-Mode (PS-Style)",
+        "description": "Dual-mode (Wired + Wireless Bluetooth) PS4-style controller. Compatible with PS4, PS5 (PS4 games only), Nintendo Switch (wired), PC (PS4/Steam mode wired + XInput wired + BT), iOS 13+, Android. Magnetic drift-free joysticks, magnetic pressure-sensitive triggers, 6-axis gyro, RGB LED, 3.5mm audio jack, touchpad, ML/MR macro buttons, travel switch triggers, speakers, 1000mAh battery.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "PS4 connection — first time and reconnect",
+                "scenario": "A customer just unboxed their Quantum and asks: 'How do I connect this to my PS4 for the first time? And once it is paired, how do I reconnect it next time without repeating the whole process?'",
+                "question": "Walk the customer through first-time PS4 connection and how to reconnect on subsequent sessions.",
+                "rubric": "First-time PS4 connection: (1) Connect the USB cable from the Quantum controller to the PS4 console. (2) Press the Home/PS button — LED turns solid indicating successful connection. (3) Disconnect the cable — the controller will now work wirelessly via Bluetooth. The controller can also be used in wired mode while charging simultaneously. Reconnection (subsequent sessions): press and hold the Home/PS button for about 1 second — the controller will automatically connect to the console. Auto-sleep: if the controller cannot establish communication with PS4 within 15 seconds it enters sleep mode. In connected mode, 10 minutes of inactivity triggers sleep. Press PS button to wake up. Power off: hold PS button for 8-10 seconds until light turns off."
+            },
+            {
+                "tag": "PS5 compatibility — what works and what does not",
+                "scenario": "A customer says: 'I bought the Quantum to use on my PS5 as my main controller. Some games work but others do not detect it at all. Is it fully compatible with PS5?'",
+                "question": "Explain the PS5 compatibility situation for the Quantum clearly and set correct expectations.",
+                "rubric": "The Quantum has VERY LIMITED PS5 compatibility — agents must be honest and clear about this. It behaves like a PS4 controller on PS5. Only PS4 games running on PS5 will support the Quantum. PS5 native games will NOT support the Quantum. The controller cannot be used to start up or navigate the PS5 system menu the same way as an original PS5 controller. Recommended use: use an original PS5 DualSense controller to start up the PS5, then use the Quantum as a backup/second controller for PS4 games on PS5. Agents must NOT promise full PS5 compatibility — this would be misleading. The Quantum is primarily designed for PS4."
+            },
+            {
+                "tag": "PC connection — PS4 mode vs XInput mode",
+                "scenario": "A customer says: 'I connected my Quantum to my PC via USB but some games do not detect it. Also I want to use it on Steam. What modes are available and how do I switch?'",
+                "question": "Explain the PC connection modes on the Quantum — PS4 Controller mode vs XInput mode — and how to switch between them.",
+                "rubric": "PC Wired default mode: connect USB cable — controller defaults to PS4 Controller mode, recognised by PC as 'Wireless Controller' with blue LED. This mode supports PC Steam platform and the headphone/audio jack function. To switch to XInput mode (wired only): long-press Share + Options buttons together for 3 seconds — switches to XInput mode. XInput mode works better with most modern PC games that expect an Xbox-style controller. PC Bluetooth mode: press Share + Home/PS button when controller is off until LED blinks — search for 'Dualshock 4 controller' in Bluetooth settings and pair. IMPORTANT: Bluetooth on PC only works as PS4 Controller mode — XInput mode is NOT available via Bluetooth on PC. Bluetooth PC mode is detected as 'Wireless Controller' with blue light. For Steam games, the default PS4 wired mode is recommended as Steam natively supports DualShock 4."
+            },
+            {
+                "tag": "Nintendo Switch connection",
+                "scenario": "A customer says: 'I want to use the Quantum on my Nintendo Switch. How do I connect it and are there any limitations?'",
+                "question": "Explain Nintendo Switch connectivity on the Quantum and any limitations.",
+                "rubric": "Nintendo Switch — Wired connection: connect USB-C cable from Quantum to the Switch console (or dock), press the Home/PS button — LED turns solid confirming successful connection. Wired connection supports the headphone jack function. Bluetooth on Switch (via Change Grip/Order): Method 1 — first complete wired connection, then disconnect cable — controller works wirelessly. Method 2 — go to Switch Controllers menu > Change Grip/Order, with controller powered off hold Options + PS button until 4 LEDs flash quickly, release and wait for connection. Reconnect on Switch: press and hold Home/PS button for 1 second to auto-reconnect. Up to 2 players supported simultaneously. Limitation: the Quantum does not have all Switch-native features — it works as a compatible generic controller."
+            },
+            {
+                "tag": "iOS and Android Bluetooth connection",
+                "scenario": "A customer asks: 'How do I connect my Quantum to my iPhone and my Android phone? And I heard the lights are different colours for each — what do the colours mean?'",
+                "question": "Explain iOS and Android Bluetooth connection and LED colour indicators for each.",
+                "rubric": "iOS connection: supports iOS 13.0 and above. With controller powered off, press Share + PS/Home button until LED flashes white. Open iOS Bluetooth settings, find 'DUALSHOCK 4 Wireless Controller' and connect. LED turns PINK when connected to iOS. If the phone cannot find the controller within 60 seconds, it enters sleep mode. Limited functionality note: some iOS games may not support external controllers — Bluetooth devices work with limited functionality on iOS and some games may not work as expected. Android connection: with controller powered off, press Share + PS/Home button until LED flashes white. Open Android Bluetooth settings, find 'Wireless controller' and connect. LED turns WHITE when connected to Android. If cannot connect within 60 seconds, enters sleep mode. Power off when connected to Android: press and hold PS button for 10 seconds. LED colour summary: Blue = PS4/PC mode. Pink = iOS connected. White = Android connected or pairing mode."
+            },
+            {
+                "tag": "Turbo function — enable, auto, speed and clear all",
+                "scenario": "A customer says: 'My Cross button keeps auto-firing rapidly on its own. How do I stop it? Also how do I set up Turbo on Triangle and adjust the speed? And how do I clear all turbo at once?'",
+                "question": "Diagnose the auto-firing Cross button and explain all turbo controls on the Quantum.",
+                "rubric": "Auto-firing Cross = Turbo or Auto Turbo is active. The Quantum turbo cycles with each press of Turbo + button: Press 1 = Manual Turbo (fires fast while button held). Press 2 = Auto Turbo (fires on single press continuously). Press 3 = Disabled. Fix: press Turbo + Cross once more to cycle to disabled. Supported buttons: Triangle, Square, Circle, Cross, L1, L2, R1, R2, L3, R3. Setup Turbo on Triangle: press Turbo + Triangle simultaneously = Manual Turbo. Press Turbo + Triangle again = Auto Turbo. Press again = cancel. Three speed levels: 5 shots/sec (slow, LED flashes slowly), 15 shots/sec (medium, LED flashes at moderate rate), 25 shots/sec (fast, LED flashes quickly). Increase speed: when turbo is on, hold Turbo + right joystick Up. Decrease speed: hold Turbo + right joystick Down. Clear ALL turbo: press and hold Share + Turbo for 1 second until controller vibrates — all turbo functions cleared."
+            },
+            {
+                "tag": "ML/MR macro buttons",
+                "scenario": "A customer says: 'I pressed ML on the back of my Quantum and it fired a sequence of buttons I never set up. How do I clear it? And how do I record a new macro with a timed sequence?'",
+                "question": "Explain macro recording, execution, timing and clearing on the ML/MR buttons of the Quantum.",
+                "rubric": "The Quantum has two back macro buttons: ML and MR. Each can store 1-12 function button presses. Programmable buttons: Cross, Triangle, Square, Circle, R1, R2, L1, L2, D-pad Up/Down/Left/Right. Record macro: (1) While controller is on, press and hold Turbo button for 3 seconds — LED flashes slowly and controller vibrates (entered macro programming mode). (2) Press the buttons in the desired sequence — the macro RECORDS the time interval between presses (e.g. press B, wait 1 second, press A, wait 3 seconds, press X = macro fires with those exact delays). (3) Press ML or MR to save — LED stays steady and controller vibrates to confirm. Execute: press ML or MR during gameplay. Macro persists after disconnect — controller remembers last macro setting automatically. Clear macro: enter macro mode (hold Turbo 3s, LED flashes), then press ML or MR immediately — LED turns steady = macro cleared for that button."
+            },
+            {
+                "tag": "RGB LED adjustment and travel switch triggers",
+                "scenario": "A customer asks: 'How do I change the RGB colours and brightness on my Quantum? Also there are two switch buttons on the back — what do they do for the triggers?'",
+                "question": "Explain RGB LED controls and the travel switch trigger buttons on the Quantum.",
+                "rubric": "RGB Brightness: 6 levels — 0%, 20%, 40%, 60%, 80%, 100%. Increase brightness: hold Options button + press D-pad Up. Decrease brightness: hold Options + press D-pad Down. RGB Mode/Effects: hold Options button + press D-pad Left or Right to cycle through different RGB LED effects. The controller always remembers the last RGB effect selected. Travel Switch Buttons: the Quantum has two physical Travel Switch buttons on the back — one for LT (L2) and one for RT (R2). These toggle trigger travel distance between long and short mode. Long travel = full analog pressure-sensitive input, best for racing/simulation. Short travel = instant response, best for FPS. Each trigger can be set independently. This is the same trigger lock concept as other premium controllers — no software needed, physical switch."
+            },
+            {
+                "tag": "Charging, battery indicators and power off",
+                "scenario": "A customer says: 'How do I charge my Quantum? What do the different light colours and patterns mean during charging? And the controller suddenly turned off mid-game — why?'",
+                "question": "Explain charging, all battery indicator states, and why the controller may auto power off on the Quantum.",
+                "rubric": "Charging: use the included USB-A to USB-C cable. Connect to a computer USB-A port or standard USB power source. Do NOT use wall adapters/chargers — the manual explicitly states adapters can damage the battery. Charging in OFF state: light breathes orange. Fully charged: light turns off completely. Low battery warning (connected mode): when battery voltage drops below 3.5V the LED flashes three times rapidly. When voltage drops below 3.4V the controller automatically turns off — this is why it turned off mid-game. Customer must charge immediately. Power off manually: hold PS/Home button for 8-10 seconds until controller light turns off. Auto sleep/power off: 15 seconds without PS4 connection in search mode = sleep. 10 minutes of inactivity in connected mode = sleep. Goes beyond 10 metres connection distance = auto power off. Battery: 1000mAh."
+            },
+            {
+                "tag": "Unique hardware features — touchpad, gyro, speakers, audio jack",
+                "scenario": "A customer asks: 'Does the Quantum have a touchpad like a real PS4 controller? Also I heard it has speakers and gyro — how do these work? And does the 3.5mm jack work on PC?'",
+                "question": "Explain the touchpad, gyro, speaker, and audio jack functionality on the Quantum.",
+                "rubric": "Touchpad: yes, the Quantum has a functioning touchpad — it works as a clickable touchpad in PS4 games that use it. This is a differentiating feature not found on most third-party controllers. 6-axis gyro sensor: the Quantum has a built-in 6-axis gyro/motion sensor — works in PS4 games that support motion control (e.g. aiming, steering). This is hardware-level and works automatically when the game requests it. Speakers: the Quantum has built-in speakers — works in PS4 games that output audio through the controller speaker (e.g. in-game sounds, notifications). This is another genuine PS4 feature replicated. 3.5mm audio jack: the 3.5mm jack for headphones works in PS4 Controller mode (default wired or Bluetooth). In wired mode on PC it works in PS4/Steam mode. In XInput mode on PC the audio jack is NOT guaranteed to work. On Nintendo Switch wired mode the jack also functions. Magnetic joysticks and magnetic triggers: the Quantum uses magnetic (Hall Effect equivalent) technology for both joysticks and triggers — drift-free by design."
+            },
+            {
+                "tag": "Warranty, reset and when to contact support",
+                "scenario": "A customer says: 'My Quantum is behaving strangely with random button presses. Also I spilled some water on it and now it sometimes does not connect. What do I do and is any of this covered under warranty?'",
+                "question": "Walk the customer through the reset process and explain warranty coverage honestly for both issues.",
+                "rubric": "Reset: for abnormal behaviour press the reset button on the FRONT of the controller (small reset button/hole). This performs a factory reset and clears all saved configurations. After reset the customer will need to re-pair the controller to their device. Random button presses: first check if Turbo or Macro is accidentally active — clear all turbo (Share+Turbo 1 second) and check ML/MR macros. If still random, perform factory reset. Water damage: the Quantum is not waterproof. Water damage is explicitly NOT covered under warranty. Agent must be honest — if the connectivity issue is caused by water damage, the customer cannot claim warranty for it. Warranty: 1 year against manufacturing defects only. Physical damage not covered. Water damage not covered. Regular wear and tear from battery usage not covered. Support phone: 07969273222 (different from most other Cosmic Byte products which use 7351615161 — agent must note this). Email: cc@thecosmicbyte.com. FAQ: support.thecosmicbyte.com."
             }
         ]
     },
@@ -1044,9 +1119,17 @@ def show_home():
         st.session_state.agent_name = name.strip()
 
     st.divider()
-    st.markdown("### Available tests")
 
-    for product in PRODUCTS:
+    # Category filter
+    categories = ["All controllers"] + sorted(list(set(p["category"] for p in PRODUCTS)))
+    selected_category = st.selectbox("🎮 Filter by type", categories, index=0)
+
+    st.markdown(f"### Available tests")
+
+    filtered_products = PRODUCTS if selected_category == "All controllers" else [p for p in PRODUCTS if p["category"] == selected_category]
+    st.markdown(f"<small>Showing {len(filtered_products)} of {len(PRODUCTS)} controllers</small>", unsafe_allow_html=True)
+
+    for product in filtered_products:
         with st.container():
             col_info, col_btn = st.columns([3, 1])
             with col_info:
