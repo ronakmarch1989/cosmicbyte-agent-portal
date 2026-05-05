@@ -283,6 +283,150 @@ PRODUCTS = [
         ]
     },
     {
+        "id": "ares_wired",
+        "name": "Ares Wired",
+        "category": "Controller",
+        "description": "USB wired controller for PC. Supports XInput and DirectInput. LED-illuminated ABXY, Turbo/Auto-Turbo, Hall Effect joysticks (2026 batch). Compatible with Windows 7/8/10/11. Plug & Play on Windows 8 and above.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "First-time setup and connection",
+                "scenario": "A customer just bought the Ares Wired and says: 'I plugged it into my PC but nothing is happening. Windows is not detecting it at all. What do I do?'",
+                "question": "Walk the customer through the complete setup process for the Ares Wired on PC.",
+                "rubric": "Steps: (1) Plug the USB cable into a USB port — recommended: use the rear USB port on the desktop for more stable power. (2) No driver installation required for Windows 8, 10 and 11 — Plug and Play. Windows 7 may require manual configuration. (3) Controller auto-detects as XInput mode (Blue LED). (4) Check Device Manager under 'Game Controllers' if not detected. (5) If still not detected: try a different USB port, avoid USB hubs, restart PC. (6) Do not use low-quality USB extension cables. Must mention rear USB port recommendation and no drivers needed for Windows 8+."
+            },
+            {
+                "tag": "LED indicators and input modes",
+                "scenario": "A customer asks: 'My Ares Wired shows different coloured lights at different times. Blue, Red, Yellow, Green — what does each one mean?'",
+                "question": "Explain all LED indicator states on the Ares Wired and what each colour means.",
+                "rubric": "Four LED mode states: Blue = XInput mode (default, PC). Red = DirectInput mode. Yellow = PC Analog mode. Green = Android mode. These LEDs indicate the current input protocol the controller is using. Blue is the default when plugged into Windows. Red is needed for older/legacy games. Yellow is PC Analog. Green appears when connected to Android via OTG. Agent must correctly map all four colours to their modes."
+            },
+            {
+                "tag": "XInput vs DirectInput — old game",
+                "scenario": "A customer says: 'I plugged in my Ares Wired and Windows detects it fine. But my old 2002 game completely ignores it. I can see it in joy.cpl but the game does not respond to any inputs.'",
+                "question": "Diagnose the issue and walk the customer through the fix on the Ares Wired.",
+                "rubric": "Old games only support DirectInput (Red LED). The Ares Wired defaults to XInput (Blue LED) on Windows. To switch modes: press and hold the HOME button for 5 seconds — this cycles between XInput and DirectInput. Red LED confirms DirectInput is active. Customer must relaunch the game after switching. If the game still does not respond, switch back and try XInput — some games use XInput despite appearing old. Always relaunch the game after switching modes."
+            },
+            {
+                "tag": "Hall Effect joysticks — 2026 batch",
+                "scenario": "A customer says: 'I heard the Ares Wired now has Hall Effect joysticks. My controller is from last year. Does mine have Hall Effect? And what is the difference from normal joysticks?'",
+                "question": "Explain Hall Effect joysticks, which Ares Wired models have them, and be honest about older models.",
+                "rubric": "Hall Effect explanation: Hall Effect joysticks use magnetic sensors instead of physical contact potentiometers. This means they do not wear out from friction, are highly drift-resistant by design, have longer lifespan, and provide more precise input. The 2026 manufacturing batch of the Ares Wired has been upgraded to Hall Effect joysticks AND Hall Effect analog triggers. Older Ares Wired models have standard joysticks which are more prone to drift over time. IMPORTANT: There is no upgrade path — older hardware cannot be converted to Hall Effect. If a customer has an older model with drift issues, joystick drift from wear is not covered under warranty as it is considered wear and tear. If the customer wants Hall Effect they would need to purchase a 2026 batch unit."
+            },
+            {
+                "tag": "Turbo and Auto Turbo",
+                "scenario": "A customer says: 'My A button keeps firing super fast on its own. Also I want to set up Auto Turbo on my X button so it fires repeatedly without me holding it. How does this work and how do I stop the A button?'",
+                "question": "Diagnose the auto-firing A button and explain how Turbo and Auto Turbo work on the Ares Wired.",
+                "rubric": "Auto-firing A cause: Turbo accidentally enabled on A. Fix: press A then press the Turbo button again to cancel — same process used to enable is used to disable. Turbo (fires fast while held): press desired button (A/B/X/Y/L1/L2/R1/R2) then press Turbo button. To cancel: repeat same process. Auto Turbo (fires continuously without holding): press desired button then press the AUTO button. To cancel: repeat same process. Key distinction: Turbo requires the player to hold the button, Auto Turbo fires on its own without holding. Always rule out Turbo and Auto Turbo before suggesting hardware defect."
+            },
+            {
+                "tag": "LED controls — ABXY and V LED",
+                "scenario": "A customer says: 'The glowing ABXY buttons have turned off on my Ares Wired. Also the V-shaped light strip in the middle is also dark. How do I turn them back on?'",
+                "question": "Explain how to control both LED groups on the Ares Wired.",
+                "rubric": "The Ares Wired has two independent LED groups. ABXY LED: press X+Back to toggle on or off. V LED (the V-shaped centre light strip): press A+Back to toggle on or off. These are completely independent — ABXY can be on while V LED is off and vice versa. Customer simply needs to press the correct combination to toggle each one back on. Note: these are toggle functions so pressing once turns off, pressing again turns on."
+            },
+            {
+                "tag": "Joystick and D-pad swap",
+                "scenario": "A customer says: 'In my game I want the D-pad to control my character movement but the left joystick is currently controlling movement and I cannot change it in the game settings. Can I swap them on the controller itself?'",
+                "question": "Explain how to swap joystick and D-pad functions on the Ares Wired.",
+                "rubric": "To swap left joystick and D-pad functions: press L3+Back button. This switches the function between the left stick and D-pad. Pressing L3+Back again swaps them back. Simple toggle, works immediately, no software needed."
+            },
+            {
+                "tag": "Console compatibility warning",
+                "scenario": "A customer says: 'I bought the Ares Wired to use on my PS5. I plugged it in via USB but the PS5 does not detect it at all. Is there a special mode or adapter I can use?'",
+                "question": "How do you respond to this customer?",
+                "rubric": "Must clearly and politely state: the Ares Wired is strictly designed for PC use only. It is NOT compatible with PlayStation, Xbox, Nintendo Switch or any gaming console. No warranty or support is provided for console usage. Any attempt to use via adapters, converters or third-party tools is also not covered under warranty. Should NOT suggest any workaround or adapter. Be honest and polite — recommend the customer verify compatibility before future purchases. Android support is limited via OTG and also not covered under warranty."
+            },
+            {
+                "tag": "Controller not detected or buttons unresponsive",
+                "scenario": "A customer says: 'My Ares Wired was working fine yesterday. Today I plugged it in and Windows shows it in Device Manager but several buttons are not working in my game.'",
+                "question": "Walk the customer through diagnosing and fixing both the detection and unresponsive button issues.",
+                "rubric": "Step 1: check input mode — switch between XInput and DirectInput by holding HOME for 5 seconds. Blue=XInput for modern games, Red=DirectInput for older games. Relaunch game after switching. Step 2: test in Windows Game Controllers panel (Win+R → joy.cpl) to see if all buttons register outside the game — this isolates whether it is a hardware or game-compatibility issue. Step 3: enable controller in in-game settings — some games require manual controller activation. Step 4: reconnect the controller — unplug and replug. Step 5: try a different USB port (prefer rear port, avoid USB hubs). Step 6: restart PC. Step 7: if still unresponsive, use the reset pinhole on the rear with a pin."
+            },
+            {
+                "tag": "Joystick drift and warranty",
+                "scenario": "A customer says: 'My Ares Wired left joystick drifts to the right even when I am not touching it. I have had the controller for about 10 months. Is this a manufacturing defect covered under warranty?'",
+                "question": "Explain what is causing the drift, what the customer can try to fix it, and be honest about warranty coverage.",
+                "rubric": "Joystick drift diagnosis: (1) Reconnect the controller — sometimes helps with connection-related false drift. (2) Check calibration in Windows: Control Panel → Devices → Game Controller Settings. Recalibrate the joystick. (3) Ensure the stick is not physically damaged or dirty. 2026 batch Ares Wired has Hall Effect joysticks which are drift-resistant by design — if this is a 2026 unit, drift may indicate a genuine defect worth escalating. Older models with standard joysticks: drift after 10 months of use is considered normal wear and tear and is explicitly NOT covered under warranty. The manual states regular wear and tear is not covered. If the controller is within 1 year and the customer believes it is a manufacturing defect (not wear), advise them to contact support and mention the batch. Physical damage is also not covered."
+            }
+        ]
+    },
+    {
+        "id": "ares_wireless",
+        "name": "Ares Wireless",
+        "category": "Controller",
+        "description": "2.4GHz wireless controller with 700mAh rechargeable battery, Hall Effect joysticks and triggers (2026 batch), RGB LED, dual vibration, Turbo/Auto-Turbo. PC only via USB dongle. Up to 8m range.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "First-time setup and connection",
+                "scenario": "A customer just unboxed their Ares Wireless and says: 'How do I get this connected to my PC? There is a USB dongle in the box. What do I do?'",
+                "question": "Walk the customer through the complete first-time setup process for the Ares Wireless on PC.",
+                "rubric": "Steps: (1) Insert USB wireless receiver (dongle) into a USB port on the PC — for best performance use a USB extension cable to position it in open space, away from the back of a tower. (2) Press the Home button to power on the controller. (3) Controller connects automatically in XInput mode (Blue LED stays solid). (4) Plug and Play — no drivers needed. If connection does not establish automatically: check if both controller and dongle LEDs are blinking continuously — this means they need re-pairing. Re-pairing steps: plug receiver into PC, press Home button, then press Home button twice quickly — LEDs stop blinking and controller is paired. Must mention the dongle extension cable tip and the re-pairing procedure."
+            },
+            {
+                "tag": "LED indicators and mode states",
+                "scenario": "A customer asks: 'My Ares Wireless shows Blue sometimes, then Red, then Yellow. What do each of these mean? And how do I know if it is actually connected versus just trying to connect?'",
+                "question": "Explain all LED indicator states on the Ares Wireless including connection status.",
+                "rubric": "Five LED mode states: Blue = XInput mode (default, PC). Red = DirectInput mode. Yellow = PC Analog mode. Green = Android mode. Auto/others = automatic. Connection status: LEDs blinking = controller is trying to connect or needs pairing. LED solid = successfully connected. Low battery: LED flashes and vibration is disabled. Charging: LED blinks slowly. Fully charged: LED turns off. Agent must distinguish between mode LEDs and status LEDs — the same LED shows both mode colour and connection/charging state depending on context."
+            },
+            {
+                "tag": "Re-pairing the dongle",
+                "scenario": "A customer says: 'My Ares Wireless was working but now both the controller light and the dongle light are blinking constantly and it will not connect. I tried turning it off and on but nothing works.'",
+                "question": "Explain what is happening and walk the customer through re-pairing the controller with the dongle.",
+                "rubric": "Blinking on both controller and dongle simultaneously means the pairing between them has been lost — they need to be re-paired. Re-pairing steps: (1) Plug the USB receiver into the PC. (2) Press the Home button on the controller to power on. (3) Press the Home button twice quickly (double-press). (4) LEDs will stop blinking — controller is now paired and connected. This is different from simply turning on — the double-press of Home initiates the pairing handshake. If pairing still fails: try reset pinhole on rear, then repeat pairing steps."
+            },
+            {
+                "tag": "XInput vs DirectInput — old game",
+                "scenario": "A customer says: 'My old 2001 game does not detect my Ares Wireless at all via the dongle. Windows sees it fine with a Blue LED but the game ignores it completely.'",
+                "question": "Diagnose the issue and explain how to fix it on the Ares Wireless.",
+                "rubric": "Old games only support DirectInput (Red LED). The Ares Wireless defaults to XInput (Blue LED). To switch: press and hold the HOME button for 5 seconds — this cycles between XInput and DirectInput. Red LED confirms DirectInput is active. Customer must relaunch the game after switching. If game still does not detect: try switching back to XInput and testing — some older games actually use XInput. Always relaunch game after every mode switch."
+            },
+            {
+                "tag": "Powering off the controller",
+                "scenario": "A customer asks: 'How do I turn off the Ares Wireless when I am done gaming? I do not want it draining the battery when I am not using it.'",
+                "question": "Explain how to power off the Ares Wireless and any other battery-saving tips.",
+                "rubric": "To power off: press and hold B + Back button for 5 seconds. Controller will shut down. To power on: press Home button. Battery saving tips: always power off when not in use using B+Back. The controller may auto-sleep after extended inactivity but manually powering off is recommended. Low battery warning: LED flashes and vibration automatically disables — charge promptly when this happens. Use only 5V/1A charger or PC USB port — fast chargers are NOT supported and can damage the battery and void the warranty. This is a critical point agents must know."
+            },
+            {
+                "tag": "Hall Effect joysticks and triggers — 2026 batch",
+                "scenario": "A customer says: 'I saw that the Ares Wireless now has Hall Effect joysticks AND Hall Effect triggers. My controller is about a year old. Does mine have these? And why does it matter for triggers?'",
+                "question": "Explain Hall Effect joysticks and triggers, confirm which batch has them, and be honest about older models.",
+                "rubric": "Hall Effect joysticks: use magnetic sensors, no physical friction wear, drift-resistant by design, high precision. Hall Effect triggers: same magnetic sensor technology applied to analog triggers — provides consistent pressure sensitivity, no wear from repeated trigger pulls, longer lifespan and more accurate analog input. The 2026 manufacturing batch of the Ares Wireless has both Hall Effect joysticks AND Hall Effect analog triggers. Older models have standard joystick and trigger mechanisms which can wear and drift over time. CRITICAL: there is no upgrade path — older hardware cannot be retrofitted. Wear and tear on older joysticks/triggers is NOT covered under warranty. If a customer wants Hall Effect on both joysticks and triggers they need a 2026 batch unit."
+            },
+            {
+                "tag": "Charging and fast charger warning",
+                "scenario": "A customer says: 'My Ares Wireless is not charging. I am using a 65W USB-C fast charger. The LED is not showing any charging indicator. Did the controller break?'",
+                "question": "Diagnose the charging issue and explain what charger the customer must use.",
+                "rubric": "CRITICAL: Fast charging is NOT supported on the Ares Wireless. Using a fast charger (like a 65W charger) can damage the battery and void the warranty — this is explicitly stated in the manual. Customer must use only a 5V/1A charger or a standard PC USB port for charging. Charging indicators: LED blinks slowly while charging, LED turns OFF when fully charged. Fix: switch to a 5V/1A adapter or PC USB port, use a good quality USB-C cable, check the charging port for debris. If the battery was already exposed to fast charging repeatedly it may be damaged — in that case warranty would not cover it as it is user-caused damage. Agent must proactively warn customer never to use fast chargers again."
+            },
+            {
+                "tag": "Turbo and Auto Turbo",
+                "scenario": "A customer says: 'My B button fires super fast on its own. Also how do I set up Auto Turbo on the Y button so it keeps firing without me holding it?'",
+                "question": "Diagnose the B button issue and explain Turbo and Auto Turbo setup on the Ares Wireless.",
+                "rubric": "Auto-firing B: Turbo accidentally enabled. Fix: press B then Turbo button again to cancel — same enable process cancels it. Turbo (fast fire while button held): press desired button (A/B/X/Y/L1/L2/R1/R2) then press Turbo button. To cancel: repeat same process. Auto Turbo (fires continuously without holding): press desired button then press AUTO button. To cancel: repeat same process. Supported on: A, B, X, Y, L1, L2, R1, R2. Key distinction: Turbo requires holding the button, Auto Turbo fires independently. Always rule out Turbo/Auto before suggesting hardware fault."
+            },
+            {
+                "tag": "LED controls and vibration",
+                "scenario": "A customer says: 'The ABXY buttons stopped glowing and the V-shaped light is also off. Also the vibration has completely stopped during gameplay.'",
+                "question": "Explain how to control the LEDs and diagnose the vibration issue on the Ares Wireless.",
+                "rubric": "ABXY LED toggle: press X+Back to turn on or off. V LED (centre V-strip) toggle: press A+Back to turn on or off. These are independent toggles. Vibration issue: first check battery level — vibration is automatically disabled when battery is low to conserve power. Charge the controller first. If vibration still does not work after charging: ensure the game supports vibration feedback — not all PC games support rumble. Android does not support vibration. Also check the customer has not accidentally toggled vibration if the model supports that. If vibration is completely absent across all games with full battery it may be a hardware defect."
+            },
+            {
+                "tag": "Disconnections and range issues",
+                "scenario": "A customer says: 'My Ares Wireless keeps disconnecting every few minutes. The USB dongle is plugged into the back of my PC tower and I sit about 5-6 meters away. I also have a Wi-Fi router right next to my PC.'",
+                "question": "Diagnose all causes of disconnection and tell the customer exactly what to do.",
+                "rubric": "Multiple causes to identify and address: (1) Dongle position — at the back of a tower it has poor line of sight through the case. Move dongle to a front USB port or use a USB extension cable to bring it into open space. This is the most common fix. (2) Distance — 5-6m is within the 6-8m range but obstacles dramatically reduce effective range. Clear line of sight is critical. (3) Wi-Fi router interference — Wi-Fi routers operate on 2.4GHz, same band as the dongle. Move dongle away from router. (4) USB 3.0 ports can cause 2.4GHz interference — if dongle is near a USB 3.0 hard drive or port, move it. (5) Low battery — replace/charge even if LED appears lit. (6) Restart controller and re-pair if needed. Maximum effective range is 8m in open, interference-free conditions."
+            },
+            {
+                "tag": "Warranty — battery, physical, and fast charger damage",
+                "scenario": "A customer says: 'My Ares Wireless battery drains really fast after 9 months. I have been using a fast charger to charge it. Also I dropped it and cracked the shell. What is covered under warranty?'",
+                "question": "Explain the warranty coverage honestly for all three issues the customer mentioned.",
+                "rubric": "Three issues to address separately: (1) Battery drain after 9 months: regular wear and tear from battery usage is explicitly NOT covered under warranty. Battery degradation over time is normal. Additionally, if the customer used a fast charger, this can damage the battery — fast charging voids warranty coverage for battery issues. (2) Fast charger damage: using unsupported chargers is user-caused damage and not covered. Manual explicitly warns that fast charging is not supported and can damage battery and void warranty. (3) Physical damage from dropping: cracked shell from a drop is explicitly NOT covered under warranty. Water damage and tampered products are also not covered. Warranty covers only manufacturing defects for 1 year. Contact: +91 7351615161, cc@thecosmicbyte.com."
+            }
+        ]
+    },
+    {
         "id": "ares_pro",
         "name": "Ares Pro",
         "category": "Controller",
