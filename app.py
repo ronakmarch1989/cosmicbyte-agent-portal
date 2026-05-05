@@ -2,6 +2,9 @@ import streamlit as st
 import anthropic
 import json
 import time
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
 # ─────────────────────────────────────────────
@@ -393,6 +396,21 @@ def show_result():
     existing.append(result_entry)
     st.session_state.all_results = existing
 
+    # Send email (only once per result)
+    email_key = f"email_sent_{result_entry['name']}_{result_entry['product']}_{result_entry['date']}"
+    if email_key not in st.session_state:
+        st.session_state[email_key] = True
+        with st.spinner("Sending results to manager..."):
+            sent = send_result_email(
+                st.session_state.agent_name,
+                product["name"],
+                earned, max_score, pct, passed,
+                qs,
+                st.session_state.scores,
+                st.session_state.feedbacks,
+                st.session_state.answers
+            )
+
     # Hero
     st.markdown(f"## Results — {st.session_state.agent_name}")
     st.markdown(f"### {product['name']} Knowledge Test")
@@ -450,6 +468,62 @@ def show_result():
             st.session_state.current_grade = None
             st.session_state.screen = "quiz"
             st.rerun()
+
+
+# ─────────────────────────────────────────────
+#  SEND RESULT EMAIL
+# ─────────────────────────────────────────────
+def send_result_email(agent_name, product_name, earned, max_score, pct, passed, qs, scores, feedbacks, answers):
+    try:
+        gmail = st.secrets["GMAIL_ADDRESS"]
+        app_password = st.secrets["GMAIL_APP_PASSWORD"]
+
+        subject = f"[Cosmic Byte] {agent_name} — {product_name} Test — {'PASSED ✅' if passed else 'FAILED ❌'} ({pct}%)"
+
+        body = f"""
+COSMIC BYTE — AGENT TEST RESULT
+================================
+Agent:    {agent_name}
+Product:  {product_name}
+Date:     {datetime.now().strftime("%d %b %Y %H:%M")}
+Score:    {earned} / {max_score}
+Result:   {pct}% — {"PASSED ✅" if passed else "FAILED ❌"}
+================================
+
+QUESTION BY QUESTION BREAKDOWN:
+"""
+        for i, q in enumerate(qs):
+            sc = scores[i] if i < len(scores) else 0
+            fb = feedbacks[i] if i < len(feedbacks) else ""
+            ans = answers[i] if i < len(answers) else ""
+            lbl = "Strong" if sc >= 8 else "Partial" if sc >= 5 else "Weak"
+            body += f"""
+Q{i+1}: {q['tag']} — {sc}/10 ({lbl})
+Question: {q['question']}
+Agent answer: {ans}
+Feedback: {fb}
+{"─" * 50}"""
+
+        body += f"""
+
+{"Well done! Strong knowledge demonstrated." if passed else "Score below 70%. Recommend reviewing the manual before retaking."}
+
+— Cosmic Byte Agent Training Portal
+"""
+
+        msg = MIMEMultipart()
+        msg['From'] = gmail
+        msg['To'] = gmail
+        msg['Subject'] = subject
+        msg.attach(MIMEText(body, 'plain'))
+
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(gmail, app_password)
+            server.send_message(msg)
+
+        return True
+    except Exception as e:
+        return False
 
 # ─────────────────────────────────────────────
 #  ROUTER
