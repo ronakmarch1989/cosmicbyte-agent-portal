@@ -1,3 +1,175 @@
+"""
+==============================================================================
+COSMIC BYTE — AGENT TEST PORTAL  —  app version: 1.1.0
+==============================================================================
+
+What this file is:
+  - Streamlit quiz UI for testing customer support agents on product knowledge
+  - Claude Haiku 4.5 grades each free-form answer against a per-question rubric
+  - Per-product question banks for each Cosmic Byte controller / mouse line
+  - Email digest of results to the manager, including per-question timing
+    flags and the test-taker's IP for cross-referencing against the support
+    portal CSV log
+
+Key dicts and constants (search for these to navigate):
+  - PRODUCTS               -> list of products with id, name, category,
+                              description, available, questions list
+  - PASS_MARK              -> percent score required to pass (currently 70)
+  - FAST_THRESHOLD_S       -> seconds under which an answer is flagged ⚡fast
+                              in the result email; lives inline in
+                              show_result and send_result_email
+
+Companion file:
+  - support_portal_v2.py   -> the customer-facing Claude-powered support
+                              portal. From v2.10.0 it logs a "Client IP"
+                              column on every conversation row, which is
+                              what the cross-reference workflow joins
+                              against the "Test IP" line in the email
+                              digest produced by this file.
+
+------------------------------------------------------------------------------
+EDIT PROTOCOL  (READ THIS BEFORE EDITING THE FILE)
+------------------------------------------------------------------------------
+Every edit should follow the same versioning discipline used in
+support_portal_v2.py so changes are traceable in the changelog below.
+
+PRE-EDIT CHECKLIST:
+  [ ] 1. Confirm you can ast.parse the file as-is (input is valid Python).
+  [ ] 2. Read the latest 1-2 changelog entries to see what was just done.
+  [ ] 3. Decide your version bump:
+            X (major)  - rewrite, breaking change, restructure
+            Y (minor)  - new section, new product, new feature
+            Z (patch)  - bug fix, wording tweak, small addition
+
+POST-EDIT CHECKLIST:
+  [ ] 1. Bump __version__ on the line below this docstring to the new vX.Y.Z.
+  [ ] 2. Update "app version: X.Y.Z" on the title line of this docstring.
+  [ ] 3. Add a new entry at the TOP of the changelog with today's actual date
+         (not a placeholder), the new version, "-- Author", and 1-N bullets
+         describing what changed and why.
+  [ ] 4. Run ast.parse again. If it fails, fix and re-run. Do not deliver a
+         file that doesn't parse.
+
+NOTES ON THE FORMAT:
+  - The docstring uses triple-double-quotes. Do NOT type a literal sequence
+    of three double-quote characters anywhere inside this docstring -- it
+    will close the docstring early and break the file. If you need to refer
+    to triple-quoted strings, use the words "triple-quote" or "the closing
+    quotes" in prose.
+
+CHANGELOG FORMAT:
+  vX.Y.Z (YYYY-MM-DD) -- author
+       - bullet describing change
+
+------------------------------------------------------------------------------
+CHANGELOG (newest entry first)
+------------------------------------------------------------------------------
+
+v1.1.0 (2026-05-07) -- Claude
+  - Y-bump: replace per-question timing with grader-side AI-style
+    detection. User correction: agents are allowed to consult and
+    paste from the product manual during the test; what is NOT
+    allowed is using an AI tool to generate the answer. Timing
+    flagged anyone using the manual at all, which punishes the
+    behavior we want to permit. Removed.
+
+  Removed (relative to v1.0.0):
+
+  1. session_state.question_starts and session_state.question_times.
+     Reset blocks in the Start and Retake handlers no longer touch
+     these keys.
+
+  2. The timer-start block in show_quiz (set the start ts the first
+     time an unanswered question rendered).
+
+  3. The elapsed-capture and append in the submit handler.
+
+  4. The "-- 32s" / "-- 14s ⚡fast" suffix on each question's
+     expander header in show_result, plus the FAST_THRESHOLD_S
+     constant and the secs / time_lbl plumbing.
+
+  5. The Timing line and ⚡FAST per-question markers in
+     send_result_email; the question_times kwarg removed from the
+     signature.
+
+  Added:
+
+  6. grade_answer now asks Claude Haiku to ALSO judge whether the
+     answer reads as AI-generated rather than written or
+     manual-pasted by the agent. The prompt explicitly tells the
+     grader that manual-paste is allowed (clipped technical tone,
+     wording matching the rubric, no customer-facing softening) and
+     AI-generation is not (conversational framing, em-dashes,
+     parallel bullets, generic warmth, polished prose covering
+     every rubric point at once). Returns ai_likely: bool alongside
+     score and feedback.
+
+  7. session_state.ai_flags: list[bool], parallel to scores /
+     answers / feedbacks. Reset in Start and Retake handlers.
+
+  8. Result page: each question's expander shows "🤖 AI-style"
+     after the score label when the grader flagged the answer.
+
+  9. send_result_email: new ai_flags kwarg. Top of the body has an
+     AI-style summary line (count of flagged questions) when any
+     are flagged; per-question lines append "🤖 AI-STYLE" to the
+     header for flagged questions.
+
+  Caveats (please read before acting on a flag):
+     - Grader flags are advisory, not verdicts. Haiku grading
+       Haiku output gets the easy cases but will produce false
+       positives on agents who write fluent paragraph answers and
+       false negatives on agents who post-process AI output to
+       sound less polished.
+     - The right move is to combine the flag with the support-
+       portal IP cross-reference from v1.0.0. A flagged answer
+       AND a portal query from the same IP within the test window
+       is the strong signal.
+
+v1.0.0 (2026-05-07) -- Claude
+  - Initial versioned release. The file existed before this in unversioned
+    form; this entry codifies its state at v1.0.0 and starts the changelog
+    so future changes are traceable on the same protocol as
+    support_portal_v2.py. No code behavior changes in this bump -- only
+    the docstring header, __version__ constant, and startup print were
+    added.
+
+  Scope at v1.0.0 (the cheat-detection work that landed in this file
+  before versioning was introduced):
+
+  1. Per-question timing tracking. session_state has question_starts
+     (idx -> unix timestamp, set when each unanswered question first
+     renders -- not on back/forward navigation) and question_times (list
+     of seconds, parallel to scores / answers / feedbacks). On submit,
+     elapsed seconds since first render are captured. The result page
+     shows "-- 32s" or "-- 14s ⚡fast" (under FAST_THRESHOLD_S = 20s)
+     in each question's expander header. The email digest carries a
+     Timing line with the average and a list of any sub-threshold
+     questions, plus per-question seconds in the per-question breakdown.
+
+  2. Client IP capture. Helper _get_client_ip() reads X-Forwarded-For
+     from st.context.headers (set by Streamlit Cloud and most managed
+     proxies) with a fallback to X-Real-IP, degrading to "" on bare-
+     metal deployments without a proxy or on Streamlit < 1.36. The IP
+     is captured once into session_state during init_state and emitted
+     in the email body as a "Test IP:" line. When unavailable the email
+     shows an explicit "(unavailable -- check Streamlit deployment proxy
+     config)" so the gap is loud, not silent.
+
+  Operational:
+     The Test IP plus per-question submission times in the result email
+     are the join key against the support-portal CSV (which has a
+     "Client IP" column as of support_portal_v2.py v2.10.0). Workflow:
+     agent submits the test, the email tells you their IP and the
+     timestamp of each answer, you filter the portal CSV for that IP in
+     the surrounding window. Any portal query within ~60 seconds before
+     a fast-flagged answer is the evidence trail.
+
+==============================================================================
+"""
+
+__version__ = "1.1.0"
+
 import streamlit as st
 import anthropic
 import json
@@ -7,6 +179,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
+
+# Print version on startup so it appears in deployment logs (Streamlit Cloud,
+# Render, etc.). Helps confirm which version is actually live after a deploy.
+print(f"[agent_test_portal] starting up — app version {__version__}", flush=True)
 
 # ─────────────────────────────────────────────
 #  CLIENT IP HELPER
@@ -1633,8 +1809,7 @@ def init_state():
         "all_results": [],
         "grading": False,
         "current_grade": None,
-        "question_starts": {},   # {question_idx: unix_ts} — set when an unanswered question first renders
-        "question_times": [],    # seconds-taken parallel to scores/answers/feedbacks
+        "ai_flags": [],          # parallel to scores/answers/feedbacks; True if grader judged answer AI-generated
         "client_ip": _get_client_ip(),  # captured once per session for cross-ref with support portal log
     }
     for k, v in defaults.items():
@@ -1665,13 +1840,44 @@ Grade out of 10:
 - 3-4: Some relevant content but significant gaps
 - 0-2: Incorrect or too vague
 
+ALSO judge whether the answer reads as AI-GENERATED rather than written by the
+agent or pasted from a product manual. IMPORTANT context for this judgement:
+agents ARE allowed to consult and copy from the product manual during the
+test. Agents are NOT allowed to use AI tools (ChatGPT, Claude, Gemini, etc.)
+to write the answer for them. You are looking specifically for AI generation,
+NOT for "looks like the agent used a reference."
+
+Set ai_likely: true when the answer shows AI tells:
+- Conversational AI framing ("Great question!", "Let me walk you through",
+  "I'd be happy to help", "Feel free to reach out", "I hope this helps")
+- Heavy em-dashes, parallel bullet structure, "Step 1: / Step 2:" formatted
+  like documentation an AI assistant produces
+- Customer-facing warmth wrapped around the facts (rather than just the
+  facts on their own)
+- Hedging an agent would not write ("I should note that", "It's worth
+  mentioning", "Please be aware that")
+- Polished prose AND comprehensive coverage of every rubric point at once
+  (an agent typing or pasting tends to either be terse OR cover only the
+  parts they remember/found)
+
+Set ai_likely: false when the answer looks like manual paste or human writing:
+- Clipped, technical tone listing button combos and model numbers
+- Wording that closely mirrors the rubric (likely because the rubric and
+  the answer both come from the same manual)
+- Lists of facts without softening or customer warmth
+- Short, terse, or has natural human gaps, typos, or informal phrasing
+- Mixes correct technical content with small inaccuracies or omissions
+
+When uncertain, default to ai_likely: false. False positives on honest agents
+who write fluent prose are worse than false negatives.
+
 Reply with ONLY raw JSON, no markdown, starting with {{ and ending with }}:
-{{"score":7,"feedback":"What was good and what was missing from their answer."}}"""
+{{"score":7,"feedback":"What was good and what was missing from their answer.","ai_likely":false}}"""
 
     try:
         message = client.messages.create(
             model="claude-haiku-4-5-20251001",
-            max_tokens=300,
+            max_tokens=400,
             messages=[{"role": "user", "content": prompt}]
         )
         raw = message.content[0].text.strip()
@@ -1681,11 +1887,12 @@ Reply with ONLY raw JSON, no markdown, starting with {{ and ending with }}:
             result = json.loads(match.group())
             return {
                 "score": max(0, min(10, round(float(result.get("score", 5))))),
-                "feedback": result.get("feedback", "No feedback provided.")
+                "feedback": result.get("feedback", "No feedback provided."),
+                "ai_likely": bool(result.get("ai_likely", False)),
             }
-        return {"score": 5, "feedback": raw}
+        return {"score": 5, "feedback": raw, "ai_likely": False}
     except Exception as e:
-        return {"score": 0, "feedback": f"Grading error: {str(e)}"}
+        return {"score": 0, "feedback": f"Grading error: {str(e)}", "ai_likely": False}
 
 # ─────────────────────────────────────────────
 #  HOME SCREEN
@@ -1737,8 +1944,7 @@ def show_home():
                         st.session_state.earned = 0
                         st.session_state.possible = 0
                         st.session_state.current_grade = None
-                        st.session_state.question_starts = {}
-                        st.session_state.question_times = []
+                        st.session_state.ai_flags = []
                         st.session_state.screen = "quiz"
                         st.rerun()
                 else:
@@ -1793,13 +1999,6 @@ def show_quiz():
     # Answer input — disabled if already graded
     already_answered = cur < len(st.session_state.answers)
     answer_val = st.session_state.answers[cur] if already_answered else ""
-
-    # Start the per-question timer the first time this question renders unanswered.
-    # Used to flag suspiciously fast submissions (likely copy-pasted from another
-    # tab / AI). Navigation back-and-forth does not reset the timer because the
-    # idx is only written once.
-    if not already_answered and cur not in st.session_state.question_starts:
-        st.session_state.question_starts[cur] = time.time()
 
     answer = st.text_area(
         "Your answer",
@@ -1857,16 +2056,10 @@ def show_quiz():
                             product["name"]
                         )
 
-                    # Capture how long this question took (from first render of
-                    # the unanswered state to "Check answer" click). Sub-20s on a
-                    # multi-paragraph rubric is a strong cheat signal.
-                    start_t = st.session_state.question_starts.get(cur, time.time())
-                    elapsed = max(0, int(time.time() - start_t))
-
                     st.session_state.answers.append(answer.strip())
                     st.session_state.scores.append(result["score"])
                     st.session_state.feedbacks.append(result["feedback"])
-                    st.session_state.question_times.append(elapsed)
+                    st.session_state.ai_flags.append(bool(result.get("ai_likely", False)))
                     st.session_state.earned += result["score"]
                     st.session_state.possible += 10
                     st.rerun()
@@ -1910,7 +2103,7 @@ def show_result():
                 st.session_state.scores,
                 st.session_state.feedbacks,
                 st.session_state.answers,
-                st.session_state.question_times,
+                st.session_state.ai_flags,
                 st.session_state.get("client_ip", ""),
             )
 
@@ -1942,21 +2135,15 @@ def show_result():
 
     # Review
     st.markdown("### Question by question review")
-    # 20s threshold: an honest answer to any of these multi-paragraph rubric
-    # questions takes longer to read+type than this. Sub-20s is a soft cheat flag.
-    FAST_THRESHOLD_S = 20
     for i, q in enumerate(qs):
         sc = st.session_state.scores[i] if i < len(st.session_state.scores) else 0
         fb = st.session_state.feedbacks[i] if i < len(st.session_state.feedbacks) else ""
         ans = st.session_state.answers[i] if i < len(st.session_state.answers) else ""
-        secs = st.session_state.question_times[i] if i < len(st.session_state.question_times) else None
+        ai_flag = st.session_state.ai_flags[i] if i < len(st.session_state.ai_flags) else False
         level = "score-good" if sc >= 8 else "score-ok" if sc >= 5 else "score-weak"
         lbl = "Strong" if sc >= 8 else "Partial" if sc >= 5 else "Weak"
-        time_lbl = ""
-        if secs is not None:
-            flag = " ⚡fast" if secs < FAST_THRESHOLD_S else ""
-            time_lbl = f" — {secs}s{flag}"
-        with st.expander(f"Q{i+1}: {q['tag']} — {sc}/10 ({lbl}){time_lbl}"):
+        ai_lbl = " 🤖 AI-style" if ai_flag else ""
+        with st.expander(f"Q{i+1}: {q['tag']} — {sc}/10 ({lbl}){ai_lbl}"):
             st.markdown(f"**{q['question']}**")
             st.markdown(f"*Your answer:* {ans}")
             st.markdown(f"""<div class="score-box {level}">{fb}</div>""", unsafe_allow_html=True)
@@ -1981,8 +2168,7 @@ def show_result():
             st.session_state.earned = 0
             st.session_state.possible = 0
             st.session_state.current_grade = None
-            st.session_state.question_starts = {}
-            st.session_state.question_times = []
+            st.session_state.ai_flags = []
             st.session_state.screen = "quiz"
             st.rerun()
 
@@ -1990,25 +2176,26 @@ def show_result():
 # ─────────────────────────────────────────────
 #  SEND RESULT EMAIL
 # ─────────────────────────────────────────────
-def send_result_email(agent_name, product_name, earned, max_score, pct, passed, qs, scores, feedbacks, answers, question_times=None, client_ip=""):
+def send_result_email(agent_name, product_name, earned, max_score, pct, passed, qs, scores, feedbacks, answers, ai_flags=None, client_ip=""):
     try:
         gmail = st.secrets["GMAIL_ADDRESS"]
         app_password = st.secrets["GMAIL_APP_PASSWORD"]
 
         subject = f"[Cosmic Byte] {agent_name} — {product_name} Test — {'PASSED ✅' if passed else 'FAILED ❌'} ({pct}%)"
 
-        # Timing summary (top of body) — flags suspiciously fast submissions
-        # which strongly correlate with copy-paste from another tab / AI tool.
-        question_times = question_times or []
-        FAST_THRESHOLD_S = 20
-        timing_block = ""
-        if question_times:
-            avg_s = round(sum(question_times) / len(question_times))
-            fast_qs = [i + 1 for i, t in enumerate(question_times) if t < FAST_THRESHOLD_S]
-            timing_block = f"""Timing:   avg {avg_s}s/question"""
-            if fast_qs:
-                timing_block += f" — ⚠ {len(fast_qs)} fast submission(s) under {FAST_THRESHOLD_S}s: Q{', Q'.join(str(n) for n in fast_qs)}"
-            timing_block += "\n"
+        # AI-style summary — count of grader-flagged answers. Advisory only:
+        # Haiku grading Haiku output gets the easy cases but produces both
+        # false positives (fluent paragraph writers) and false negatives
+        # (post-processed AI output). Cross-reference with the support-portal
+        # IP log for high-confidence cases.
+        ai_flags = ai_flags or []
+        ai_block = ""
+        if ai_flags:
+            flagged_qs = [i + 1 for i, f in enumerate(ai_flags) if f]
+            if flagged_qs:
+                ai_block = f"AI-style: ⚠ {len(flagged_qs)} answer(s) flagged as AI-generated by grader: Q{', Q'.join(str(n) for n in flagged_qs)}\n"
+            else:
+                ai_block = "AI-style: no answers flagged by grader\n"
 
         # Client IP (captured once at session init) — cross-reference against
         # the support portal CSV log to detect agents running queries through
@@ -2023,7 +2210,7 @@ Product:  {product_name}
 Date:     {datetime.now().strftime("%d %b %Y %H:%M")}
 Score:    {earned} / {max_score}
 Result:   {pct}% — {"PASSED ✅" if passed else "FAILED ❌"}
-{ip_block}{timing_block}================================
+{ip_block}{ai_block}================================
 
 QUESTION BY QUESTION BREAKDOWN:
 """
@@ -2031,14 +2218,11 @@ QUESTION BY QUESTION BREAKDOWN:
             sc = scores[i] if i < len(scores) else 0
             fb = feedbacks[i] if i < len(feedbacks) else ""
             ans = answers[i] if i < len(answers) else ""
-            secs = question_times[i] if i < len(question_times) else None
+            ai_flag = ai_flags[i] if i < len(ai_flags) else False
             lbl = "Strong" if sc >= 8 else "Partial" if sc >= 5 else "Weak"
-            time_str = ""
-            if secs is not None:
-                flag = " ⚡FAST" if secs < FAST_THRESHOLD_S else ""
-                time_str = f" — {secs}s{flag}"
+            ai_str = " — 🤖 AI-STYLE" if ai_flag else ""
             body += f"""
-Q{i+1}: {q['tag']} — {sc}/10 ({lbl}){time_str}
+Q{i+1}: {q['tag']} — {sc}/10 ({lbl}){ai_str}
 Question: {q['question']}
 Agent answer: {ans}
 Feedback: {fb}
