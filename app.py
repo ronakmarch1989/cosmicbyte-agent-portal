@@ -9,6 +9,33 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
 # ─────────────────────────────────────────────
+#  CLIENT IP HELPER
+#  Reads X-Forwarded-For from st.context.headers (set by Streamlit Cloud and
+#  most managed proxies). First entry in the comma-separated list is the
+#  original client. Returns "" on bare-metal deployments without a proxy or
+#  on Streamlit versions older than 1.36 — degrades gracefully.
+# ─────────────────────────────────────────────
+def _get_client_ip():
+    try:
+        ctx = getattr(st, "context", None)
+        if ctx is None:
+            return ""
+        headers = getattr(ctx, "headers", None)
+        if headers is None:
+            return ""
+        for key in ("X-Forwarded-For", "x-forwarded-for"):
+            v = headers.get(key)
+            if v:
+                return v.split(",")[0].strip()
+        for key in ("X-Real-IP", "x-real-ip"):
+            v = headers.get(key)
+            if v:
+                return v.strip()
+        return ""
+    except Exception:
+        return ""
+
+# ─────────────────────────────────────────────
 #  PAGE CONFIG
 # ─────────────────────────────────────────────
 st.set_page_config(
@@ -1606,6 +1633,9 @@ def init_state():
         "all_results": [],
         "grading": False,
         "current_grade": None,
+        "question_starts": {},   # {question_idx: unix_ts} — set when an unanswered question first renders
+        "question_times": [],    # seconds-taken parallel to scores/answers/feedbacks
+        "client_ip": _get_client_ip(),  # captured once per session for cross-ref with support portal log
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -1707,6 +1737,8 @@ def show_home():
                         st.session_state.earned = 0
                         st.session_state.possible = 0
                         st.session_state.current_grade = None
+                        st.session_state.question_starts = {}
+                        st.session_state.question_times = []
                         st.session_state.screen = "quiz"
                         st.rerun()
                 else:
@@ -1761,6 +1793,13 @@ def show_quiz():
     # Answer input — disabled if already graded
     already_answered = cur < len(st.session_state.answers)
     answer_val = st.session_state.answers[cur] if already_answered else ""
+
+    # Start the per-question timer the first time this question renders unanswered.
+    # Used to flag suspiciously fast submissions (likely copy-pasted from another
+    # tab / AI). Navigation back-and-forth does not reset the timer because the
+    # idx is only written once.
+    if not already_answered and cur not in st.session_state.question_starts:
+        st.session_state.question_starts[cur] = time.time()
 
     answer = st.text_area(
         "Your answer",
@@ -1818,9 +1857,16 @@ def show_quiz():
                             product["name"]
                         )
 
+                    # Capture how long this question took (from first render of
+                    # the unanswered state to "Check answer" click). Sub-20s on a
+                    # multi-paragraph rubric is a strong cheat signal.
+                    start_t = st.session_state.question_starts.get(cur, time.time())
+                    elapsed = max(0, int(time.time() - start_t))
+
                     st.session_state.answers.append(answer.strip())
                     st.session_state.scores.append(result["score"])
                     st.session_state.feedbacks.append(result["feedback"])
+                    st.session_state.question_times.append(elapsed)
                     st.session_state.earned += result["score"]
                     st.session_state.possible += 10
                     st.rerun()
@@ -1863,7 +1909,9 @@ def show_result():
                 qs,
                 st.session_state.scores,
                 st.session_state.feedbacks,
-                st.session_state.answers
+                st.session_state.answers,
+                st.session_state.question_times,
+                st.session_state.get("client_ip", ""),
             )
 
     # Hero
@@ -1894,13 +1942,21 @@ def show_result():
 
     # Review
     st.markdown("### Question by question review")
+    # 20s threshold: an honest answer to any of these multi-paragraph rubric
+    # questions takes longer to read+type than this. Sub-20s is a soft cheat flag.
+    FAST_THRESHOLD_S = 20
     for i, q in enumerate(qs):
         sc = st.session_state.scores[i] if i < len(st.session_state.scores) else 0
         fb = st.session_state.feedbacks[i] if i < len(st.session_state.feedbacks) else ""
         ans = st.session_state.answers[i] if i < len(st.session_state.answers) else ""
+        secs = st.session_state.question_times[i] if i < len(st.session_state.question_times) else None
         level = "score-good" if sc >= 8 else "score-ok" if sc >= 5 else "score-weak"
         lbl = "Strong" if sc >= 8 else "Partial" if sc >= 5 else "Weak"
-        with st.expander(f"Q{i+1}: {q['tag']} — {sc}/10 ({lbl})"):
+        time_lbl = ""
+        if secs is not None:
+            flag = " ⚡fast" if secs < FAST_THRESHOLD_S else ""
+            time_lbl = f" — {secs}s{flag}"
+        with st.expander(f"Q{i+1}: {q['tag']} — {sc}/10 ({lbl}){time_lbl}"):
             st.markdown(f"**{q['question']}**")
             st.markdown(f"*Your answer:* {ans}")
             st.markdown(f"""<div class="score-box {level}">{fb}</div>""", unsafe_allow_html=True)
@@ -1925,6 +1981,8 @@ def show_result():
             st.session_state.earned = 0
             st.session_state.possible = 0
             st.session_state.current_grade = None
+            st.session_state.question_starts = {}
+            st.session_state.question_times = []
             st.session_state.screen = "quiz"
             st.rerun()
 
@@ -1932,12 +1990,30 @@ def show_result():
 # ─────────────────────────────────────────────
 #  SEND RESULT EMAIL
 # ─────────────────────────────────────────────
-def send_result_email(agent_name, product_name, earned, max_score, pct, passed, qs, scores, feedbacks, answers):
+def send_result_email(agent_name, product_name, earned, max_score, pct, passed, qs, scores, feedbacks, answers, question_times=None, client_ip=""):
     try:
         gmail = st.secrets["GMAIL_ADDRESS"]
         app_password = st.secrets["GMAIL_APP_PASSWORD"]
 
         subject = f"[Cosmic Byte] {agent_name} — {product_name} Test — {'PASSED ✅' if passed else 'FAILED ❌'} ({pct}%)"
+
+        # Timing summary (top of body) — flags suspiciously fast submissions
+        # which strongly correlate with copy-paste from another tab / AI tool.
+        question_times = question_times or []
+        FAST_THRESHOLD_S = 20
+        timing_block = ""
+        if question_times:
+            avg_s = round(sum(question_times) / len(question_times))
+            fast_qs = [i + 1 for i, t in enumerate(question_times) if t < FAST_THRESHOLD_S]
+            timing_block = f"""Timing:   avg {avg_s}s/question"""
+            if fast_qs:
+                timing_block += f" — ⚠ {len(fast_qs)} fast submission(s) under {FAST_THRESHOLD_S}s: Q{', Q'.join(str(n) for n in fast_qs)}"
+            timing_block += "\n"
+
+        # Client IP (captured once at session init) — cross-reference against
+        # the support portal CSV log to detect agents running queries through
+        # the support AI during the test window.
+        ip_block = f"Test IP:  {client_ip or '(unavailable — check Streamlit deployment proxy config)'}\n"
 
         body = f"""
 COSMIC BYTE — AGENT TEST RESULT
@@ -1947,7 +2023,7 @@ Product:  {product_name}
 Date:     {datetime.now().strftime("%d %b %Y %H:%M")}
 Score:    {earned} / {max_score}
 Result:   {pct}% — {"PASSED ✅" if passed else "FAILED ❌"}
-================================
+{ip_block}{timing_block}================================
 
 QUESTION BY QUESTION BREAKDOWN:
 """
@@ -1955,9 +2031,14 @@ QUESTION BY QUESTION BREAKDOWN:
             sc = scores[i] if i < len(scores) else 0
             fb = feedbacks[i] if i < len(feedbacks) else ""
             ans = answers[i] if i < len(answers) else ""
+            secs = question_times[i] if i < len(question_times) else None
             lbl = "Strong" if sc >= 8 else "Partial" if sc >= 5 else "Weak"
+            time_str = ""
+            if secs is not None:
+                flag = " ⚡FAST" if secs < FAST_THRESHOLD_S else ""
+                time_str = f" — {secs}s{flag}"
             body += f"""
-Q{i+1}: {q['tag']} — {sc}/10 ({lbl})
+Q{i+1}: {q['tag']} — {sc}/10 ({lbl}){time_str}
 Question: {q['question']}
 Agent answer: {ans}
 Feedback: {fb}
