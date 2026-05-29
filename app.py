@@ -1,6 +1,6 @@
 """
 ==============================================================================
-COSMIC BYTE — AGENT TEST PORTAL  —  app version: 1.1.0
+COSMIC BYTE — AGENT TEST PORTAL  —  app version: 1.2.0
 ==============================================================================
 
 What this file is:
@@ -64,6 +64,38 @@ CHANGELOG FORMAT:
 ------------------------------------------------------------------------------
 CHANGELOG (newest entry first)
 ------------------------------------------------------------------------------
+
+v1.2.0 (2026-05-29) -- Claude
+  - Y-bump: added two new products with full scenario-based question
+    banks, both sourced directly from their user manuals.
+
+  1. Helios Mouse (id "helios_mouse", category "Mouse"). 10 questions.
+     Tri-mode (Wired + 2.4G + Bluetooth BT1/BT2), FR2012+S203, DPI
+     800-10000, Huano 10M, 81g, 6 RGB effects, 5 buttons. Key gotchas
+     baked into rubrics: Bluetooth polling is capped at 125Hz (1000Hz
+     only on wired/2.4G), software is Windows-only, BT first-use long
+     press is 1s not 3s, BT1=green / BT2=blue, wired works regardless
+     of power-switch position.
+
+  2. Phantom TKL (id "phantom_tkl", category "Keyboard"). 12 questions.
+     This is the FIRST product in a new "Keyboard" category -- no code
+     change needed, show_home() builds the category filter dynamically
+     from set(p["category"]), so "Keyboard" appears in the dropdown
+     automatically. Triple mode (2.4G + BT + wired USB-C), 82-key
+     gasket mount, hot-swap 3/5-pin OUTEMU (50M), PBT, RGB 18 modes
+     with power-off memory, 2500mAh, volume knob. Key gotchas baked in:
+     two SEPARATE switches (connection mode switch vs Windows/Mac system
+     switch), 2.4G re-pair = FN+4, BT 3 devices on FN+1/2/3 (hold 3s to
+     pair, tap to switch), custom lighting record = FN+`~ to enter and
+     again to save, FN+W and FN+L-WIN are intentional toggles not
+     faults, sleep/deep-sleep wake delay is normal.
+
+  Notes:
+     - Both warranty rubrics correctly exclude water/physical damage
+       (1yr manufacturing defects only) and carry the standard support
+       block (+91 7351615161, cc@thecosmicbyte.com).
+     - No changes to grading, email, IP capture, or the AI-style
+       detection added in v1.1.0 -- products-only edit.
 
 v1.1.0 (2026-05-07) -- Claude
   - Y-bump: replace per-question timing with grader-side AI-style
@@ -168,7 +200,7 @@ v1.0.0 (2026-05-07) -- Claude
 ==============================================================================
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 import streamlit as st
 import anthropic
@@ -1785,6 +1817,156 @@ PRODUCTS = [
                 "scenario": "A customer asks: 'My Raptor Mouse got wet in the rain. Is that covered? Also can it reach 1000Hz polling?'",
                 "question": "Address the warranty question and confirm the Raptor Mouse's polling rate specification.",
                 "rubric": "Polling rate: the Raptor Mouse has a maximum polling rate of 500Hz — it does NOT support 1000Hz. This is a hardware specification of the PixArt 3212 sensor and cannot be upgraded. Customers expecting 1000Hz should look at the Atlas, Aether, Ignis, or Velox models. Warranty: 1 year against manufacturing defects only. Water/rain damage is NOT covered under warranty — physical and water damage are explicitly excluded. The customer's rain damage is not covered. Weight: 96g without cable — heavier than tri-mode models. Support: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp: +91 7351615161, cc@thecosmicbyte.com."
+            }
+        ]
+    },
+    {
+        "id": "helios_mouse",
+        "name": "Helios Mouse",
+        "category": "Mouse",
+        "description": "Helios Dragon tri-mode gaming mouse (Wired + 2.4GHz Wireless + Bluetooth BT1/BT2). FR2012 + S203 sensor, DPI 800-10,000, polling up to 1000Hz on wired/2.4G but only 125Hz on Bluetooth, 60 IPS / 20G acceleration, Huano switches (10M clicks), 81g without cable, 1.6m USB-A to Type-C braided cable, PTFE feet (0.5mm), 6 RGB effects, 5 programmable buttons, ABS surface, 122x74x43mm. Windows-only software for DPI, button remapping, macros, polling rate and RGB.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity - all three modes",
+                "scenario": "A new customer just unboxed their Helios and asks: 'How do I connect this in wired mode, with the dongle, and over Bluetooth? Which one should I use for gaming?'",
+                "question": "Explain all three connection modes on the Helios and recommend the best one for competitive gaming.",
+                "rubric": "The Helios is TRI-mode: Wired, 2.4GHz wireless, and Bluetooth. WIRED: connect the USB-A to Type-C braided cable to the PC; the mouse automatically switches to wired mode regardless of the power switch position, supports up to 1000Hz, and charges while connected. 2.4GHz: plug the USB receiver into the PC, turn the power switch ON, short press the 2.4G/BT button on the bottom; a flashing red LED indicates 2.4GHz pairing and the light turning OFF means it is connected. BLUETOOTH: covered separately (BT1/BT2). RECOMMENDATION: wired mode is best for competitive gaming and lowest latency; 2.4GHz is the best wireless option (up to 1000Hz). Bluetooth is for laptops/tablets/productivity. Agent should recommend wired or 2.4GHz for gaming, not Bluetooth."
+            },
+            {
+                "tag": "Bluetooth pairing - BT1/BT2 and first use",
+                "scenario": "A customer says: 'I want to pair my Helios to both my laptop and my tablet over Bluetooth. I just unboxed it. How do I set up two Bluetooth devices and tell them apart?'",
+                "question": "Walk the customer through pairing the Helios to two separate Bluetooth devices.",
+                "rubric": "The Helios supports two Bluetooth channels: BT1 and BT2. Turn the power switch ON. Short press the 2.4G/BT button until the LED indicates the channel: GREEN blinking = Bluetooth Channel 1 (BT1), BLUE blinking = Bluetooth Channel 2 (BT2). Then long press the 2.4G/BT button for 3 seconds to enter pairing (IMPORTANT: if using the mouse for the first time after unboxing, press for only 1 second). Fast blinking indicates pairing mode. Select the mouse from the device's Bluetooth list - it appears as 'Helios BT1' or 'Helios BT2'. The light turns OFF after a successful connection. Repeat on the second device using the other channel. Note: Bluetooth polling rate is 125Hz (lower than wired/2.4G)."
+            },
+            {
+                "tag": "Polling rate across modes",
+                "scenario": "A customer says: 'I connected my Helios over Bluetooth and set the polling rate to 1000Hz in software but it still feels less responsive than my old wired mouse. Is mine defective?'",
+                "question": "Explain the polling rate behaviour of the Helios across its three modes and address the customer's concern.",
+                "rubric": "Not defective. The Helios supports up to 1000Hz polling ONLY in wired and 2.4GHz modes (selectable 125/250/500/1000Hz, software adjustable). In BLUETOOTH mode the polling rate is capped at 125Hz - this is a Bluetooth limitation, not a fault, and no software setting can raise Bluetooth above 125Hz. That is why Bluetooth feels less responsive. For maximum responsiveness the customer should switch to wired or 2.4GHz wireless mode, where they can use 1000Hz. Be honest and clear that 1000Hz is not achievable over Bluetooth."
+            },
+            {
+                "tag": "DPI range and adjustment",
+                "scenario": "A customer asks: 'What DPI does the Helios go up to and how do I change it? I want precise control.'",
+                "question": "Explain the DPI range and adjustment options on the Helios.",
+                "rubric": "DPI range: 800 to 10,000 DPI (FR2012 + S203 sensor). DPI can be changed two ways: (1) the dedicated DPI button on the mouse - press to cycle through preset DPI levels; (2) the Windows software (recommended for precise control), which allows setting exact DPI values. For precise control, recommend the software. Max tracking speed 60 IPS, acceleration 20G. If the DPI button does nothing, it may have been remapped in software - resetting the DPI profile or reinstalling the software fixes it."
+            },
+            {
+                "tag": "RGB lighting",
+                "scenario": "A customer asks: 'How many RGB effects does the Helios have and how do I change or turn them off?'",
+                "question": "Explain RGB functionality on the Helios.",
+                "rubric": "The Helios has 6 preset RGB lighting modes. The lighting appears on the top of the mouse. RGB modes can be customised or turned off entirely using the Windows software. If RGB stops working: it may have been turned off in software (switch the RGB mode back on or reset settings), or the battery may be low (recharge). The software allows full RGB control including disabling it. Software is Windows-only."
+            },
+            {
+                "tag": "Software support and Windows-only",
+                "scenario": "A customer on a Mac says: 'I downloaded the software but my Helios is not detected. I want to remap buttons and create macros.'",
+                "question": "Explain the Helios software capabilities and why the customer's mouse may not be detected.",
+                "rubric": "The Helios software supports: DPI customisation, button remapping, macro creation, polling rate adjustment, and RGB lighting control. CRITICAL: the software is supported on Windows OS ONLY - it will not work on macOS, which is why a Mac user cannot detect or configure it. On Windows, if not detected: run the software as Administrator, reconnect the mouse after installing the software, and use WIRED mode for the first software detection. The Mac customer can still use the mouse itself across all modes, but cannot run the configuration software. Be honest that macOS is not supported for the software."
+            },
+            {
+                "tag": "Charging and first use",
+                "scenario": "A customer just received their Helios and asks: 'How do I charge it? Can I use it while it charges? Anything I should do before first use?'",
+                "question": "Explain charging instructions for the Helios.",
+                "rubric": "Use the included USB cable to charge. Charge for at least 30 minutes before first use. The mouse CAN be used while charging - connecting the cable puts it in wired mode (and the power switch position does not matter when the cable is connected). The mouse charges whenever connected via USB regardless of mode. Recommend a full charge for best wireless battery life."
+            },
+            {
+                "tag": "Mouse not powering on or not connecting in 2.4G",
+                "scenario": "A customer says: 'My Helios will not turn on in wireless mode, and even when it seems on, my PC will not detect it through the dongle.'",
+                "question": "Walk the customer through diagnosing a Helios that won't power on and won't connect in 2.4GHz mode.",
+                "rubric": "POWER: (1) battery may be low - charge for at least 30 minutes; (2) ensure the power switch is ON for wireless modes; (3) note that when the USB cable is connected the mouse works in wired mode regardless of switch position, so test wired to confirm it is alive. 2.4GHz CONNECTION: (1) ensure the power switch is ON; (2) ensure the USB receiver is properly inserted; (3) short press the 2.4G/BT button - the red light should flash to indicate pairing; (4) try another USB port; (5) avoid USB hubs for best signal - connect the receiver directly to the PC. Light turning OFF means connected."
+            },
+            {
+                "tag": "Cursor lag, stuttering and disconnections",
+                "scenario": "A customer says: 'My Helios cursor stutters and randomly disconnects while gaming on 2.4GHz wireless.'",
+                "question": "Diagnose cursor lag/stuttering and random disconnections on the Helios.",
+                "rubric": "LAG/STUTTER: reduce wireless interference, keep the mouse within recommended range, increase the polling rate via software, clean the sensor and mouse feet, and use WIRED mode for competitive gaming (lowest latency). RANDOM DISCONNECTIONS: low battery is a common cause - recharge; USB receiver interference - move the receiver (avoid USB 3.0 ports/hubs and keep it away from metal surfaces and Wi-Fi routers); keep the mouse within line-of-sight of the receiver. Moving the receiver to a front USB port or using an extension improves line of sight. If problems persist on wired mode too, escalate."
+            },
+            {
+                "tag": "Warranty, specs and care",
+                "scenario": "A customer says: 'My Helios got splashed with a drink and now a button is stuck. It is 5 months old. Is this covered? Also how heavy is it and what cleaning is safe?'",
+                "question": "Address the warranty question for the Helios and explain safe care and key specs.",
+                "rubric": "WARRANTY: 1 year against manufacturing defects only. Water/liquid damage is explicitly NOT covered - the drink spill is not covered under warranty. Physical damage and tampered products are also not covered. CARE: clean using a dry microfiber cloth only, avoid liquids and extreme heat, do not disassemble the mouse, store in a cool dry place. KEY SPECS: 81 grams without cable (lightweight), 122x74x43mm, Huano switches rated 10 million clicks, PTFE feet, ABS surface. SUPPORT: +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp +91 7351615161, cc@thecosmicbyte.com. For a genuine manufacturing defect unrelated to the spill the customer could claim, but the liquid damage complicates it - be honest."
+            }
+        ]
+    },
+    {
+        "id": "phantom_tkl",
+        "name": "Phantom TKL",
+        "category": "Keyboard",
+        "description": "Phantom TKL wireless triple-mode (2.4G + Bluetooth + Wired USB-C) mechanical keyboard. 82 keys US layout, gasket mount, hot-swappable 3/5-pin OUTEMU switches (50M keystroke life), PBT keycaps, RGB with 18 lighting modes and power-off memory, 1000Hz polling, 1.8m braided USB-C cable with magnetic ring, 2500mAh battery, 333x143x43mm, 820g, full-key anti-ghosting, volume knob. Compatible with Windows/macOS/Linux/Android/iOS. Software for wired and wireless.",
+        "available": True,
+        "questions": [
+            {
+                "tag": "Connectivity - three modes and mode switch",
+                "scenario": "A new customer just unboxed their Phantom TKL and asks: 'How do I connect it wired, with the dongle, and over Bluetooth? And how do I know when it is charged?'",
+                "question": "Explain all three connection modes on the Phantom TKL, the mode switch positions, and the charging indicator.",
+                "rubric": "Triple mode controlled by the MODE SWITCH: MIDDLE = USB (wired), 2.4G position = wireless dongle, BT position = Bluetooth. WIRED: set the mode switch to the middle (USB) position, connect the provided USB-C cable; the keyboard works wired while charging the battery. 2.4GHz: set the switch to 2.4G, insert the USB receiver into the PC - it is PRE-PAIRED at the factory. BLUETOOTH: set the switch to BT (covered separately). CHARGING INDICATOR (in wired mode): RED light = charging, OFF = fully charged. Polling rate 1000Hz. The mode switch position is the key first step for each mode."
+            },
+            {
+                "tag": "2.4GHz re-pairing",
+                "scenario": "A customer says: 'My Phantom TKL was working on the dongle but suddenly stopped and will not reconnect in 2.4G mode.'",
+                "question": "Walk the customer through re-pairing the Phantom TKL in 2.4GHz mode.",
+                "rubric": "First confirm the mode switch is set to 2.4G and the USB receiver is plugged into the PC. The keyboard is pre-paired at the factory, but if pairing is lost: HOLD FN + 4 for 3 seconds until the WHITE indicator flashes rapidly, then insert the receiver into the PC. Once paired, the indicator returns to its default state. If still failing, try a different USB port and avoid hubs. The re-pair combination is FN + 4 specifically."
+            },
+            {
+                "tag": "Bluetooth multi-device pairing and switching",
+                "scenario": "A customer says: 'I want to use my Phantom TKL with my work laptop, my home PC and my phone over Bluetooth, and switch between them quickly. How?'",
+                "question": "Explain how to pair and switch between multiple Bluetooth devices on the Phantom TKL.",
+                "rubric": "The Phantom TKL supports up to 3 Bluetooth devices. First set the MODE SWITCH to BT. To PAIR a device: hold FN + 1, FN + 2, or FN + 3 for 3 seconds (one channel per device) - the BLUE indicator flashes rapidly; complete pairing from that device's Bluetooth menu. To SWITCH between already-paired devices: briefly press FN + 1, FN + 2, or FN + 3. So three devices map to channels 1/2/3, hold 3s to pair, tap briefly to switch. Ensure Bluetooth is enabled on each device."
+            },
+            {
+                "tag": "System switching Windows/Mac",
+                "scenario": "A Mac user says: 'On my Phantom TKL the Windows and Alt keys seem wrong and some shortcuts do not behave like a Mac keyboard. What do I do?'",
+                "question": "Explain the system switching feature on the Phantom TKL.",
+                "rubric": "The Phantom TKL has a SYSTEM SWITCH (separate from the connection mode switch). Toggle it: LEFT = Windows (default), RIGHT = macOS. In macOS mode the Win and Alt keys are swapped to match Mac layout. The Mac user should set the system switch to the RIGHT (macOS) position to get correct Mac key behaviour and shortcuts. Also note the FN function row adapts (e.g. FN+F3 Desktop, FN+F4 App Switch on Mac). The keyboard is compatible with Windows, macOS, Linux, Android and iOS."
+            },
+            {
+                "tag": "FN function keys and shortcuts",
+                "scenario": "A customer asks: 'What do the FN shortcuts do on my Phantom TKL? I want media controls, screenshots, copy/paste and brightness.'",
+                "question": "Explain the main FN combination shortcuts on the Phantom TKL.",
+                "rubric": "FN combinations: FN+F1/F2 = brightness control; FN+F3 = Desktop; FN+F4 = Multi-screen display (Windows) / App switch (Mac); FN+F5 = Emoji; FN+F6 = Screenshot; FN+F7/F8/F9 = Cut/Copy/Paste; FN+F10/F11/F12 = Previous/Play-Pause/Next track; FN+L-WIN = Lock/Unlock the Windows key; FN+W = Swap WASD with arrow keys. Agent should correctly map media (F10-F12), screenshot (F6), and copy/paste (F8/F9 with F7 cut). Note F1/F2 is keyboard brightness, distinct from backlight effect controls."
+            },
+            {
+                "tag": "Volume knob control",
+                "scenario": "A customer asks: 'There is a knob on my Phantom TKL. What does it do?'",
+                "question": "Explain the knob control functions on the Phantom TKL.",
+                "rubric": "The knob controls volume: rotate CLOCKWISE = volume up, rotate COUNTER-CLOCKWISE = volume down, PRESS the knob = mute. Simple three-function rotary encoder. (Note: in custom lighting record mode the keyboard has separate behaviour, but the knob's default role is volume up/down and press-to-mute.)"
+            },
+            {
+                "tag": "Backlight control - 18 modes, brightness, speed, color",
+                "scenario": "A customer asks: 'How do I change the RGB effects, colours, brightness and speed on my Phantom TKL? And how do I turn the lights off?'",
+                "question": "Explain the backlight controls on the Phantom TKL.",
+                "rubric": "Backlight controls (all FN combos): FN+Backspace = toggle backlight ON/OFF; FN+Home = switch between the 18 lighting effects; FN+PgUp / FN+PgDn = change colours; FN+Up / FN+Down = adjust brightness (5 levels, 0-100%); FN+Right / FN+Left = adjust speed (5 levels); FN+ESC held 3 seconds = restore factory settings. The keyboard has RGB with 18 lighting modes and POWER-OFF MEMORY (it remembers the setting after power off). Also FN+0 = default FPS mode (WASD + arrow keys illuminated). To turn lights off use FN+Backspace."
+            },
+            {
+                "tag": "Custom lighting record mode",
+                "scenario": "A customer says: 'I want to set my own custom per-key colours on the Phantom TKL, not the presets. How do I record a custom lighting layout?'",
+                "question": "Walk the customer through the custom lighting record mode on the Phantom TKL.",
+                "rubric": "Use FN + `~ (the tilde/backtick key) for Custom Lighting Record Mode. STEPS: (1) Press FN + `~ to ENTER recording - the indicator flashes. (2) Tap an individual key REPEATEDLY to cycle its colour through: Red - Blue - Yellow - Purple - Cyan - White - Off. Repeat per key for the desired layout. (3) Press FN + `~ AGAIN to SAVE and EXIT. So the same FN+`~ combo both enters and exits/saves, and each key is tapped repeatedly to cycle its colour. Separately, FN+0 gives a ready-made FPS lighting mode (WASD + arrows)."
+            },
+            {
+                "tag": "WASD/arrow swap and Windows key lock",
+                "scenario": "A customer says: 'Two problems: my arrow keys are now typing W/A/S/D in games, and my Windows key has stopped opening the Start menu. Did my keyboard break?'",
+                "question": "Diagnose both issues on the Phantom TKL and tell the customer how to fix them.",
+                "rubric": "Neither is a fault - both are intentional toggles. WASD/ARROW SWAP: FN+W swaps WASD with the arrow keys; the customer has this enabled, so press FN+W again to swap them back to normal. WINDOWS KEY: FN+L-WIN locks/unlocks the Windows key (a gaming feature to prevent accidental Start menu during play); the key is currently LOCKED, so press FN+L-WIN to unlock it. Reassure the customer the keyboard is working as designed - these are FN toggles, not defects."
+            },
+            {
+                "tag": "Battery, power saving and quick drain",
+                "scenario": "A customer says: 'My Phantom TKL battery drains really fast and sometimes the keyboard seems asleep and takes a moment to wake. Is something wrong?'",
+                "question": "Explain the Phantom TKL battery, power-saving behaviour, and how to extend battery life.",
+                "rubric": "Battery is 2500mAh rechargeable. POWER SAVING (normal, not a fault): Sleep mode after 2 minutes of inactivity; Deep Sleep after 30 minutes; WAKE by pressing any key (takes about 2-4 seconds to wake) - this is why there is a brief delay. FAST DRAIN: the backlight is the main draw (working current ~284.3mAh with backlight vs ~11.59mAh without). To extend battery life: reduce backlight brightness (FN+Down), turn the backlight off (FN+Backspace), or use WIRED mode (which also charges). In wired mode, RED = charging and the light goes OFF when fully charged. Reassure the wake delay is normal power-saving behaviour."
+            },
+            {
+                "tag": "Hot-swap switches, keycaps and build",
+                "scenario": "A customer asks: 'Can I change the switches on my Phantom TKL myself? What switches and keycaps does it use, and what is gasket mount?'",
+                "question": "Explain the switch, keycap and build specifications of the Phantom TKL.",
+                "rubric": "SWITCHES: hot-swappable, supporting both 3-pin and 5-pin switches - yes, the customer can change switches themselves without soldering. Stock switches are OUTEMU rated for 50 million keystrokes. KEYCAPS: PBT keycaps (durable, resist shine). BUILD: gasket mount structure (switch plate cushioned for a softer typing feel and better sound). It is an 82-key keyboard, US layout, with full-key anti-ghosting (all keys register simultaneously). 333x143x43mm, ~820g, 1.8m braided USB-C cable with magnetic ring. When swapping switches, use 3-pin or 5-pin compatible switches and seat them gently with a keycap/switch puller."
+            },
+            {
+                "tag": "Warranty and support",
+                "scenario": "A customer says: 'A few keys on my Phantom TKL stopped registering after I spilled water on it 4 months ago. Is this covered under warranty? Who do I contact?'",
+                "question": "Explain the Phantom TKL warranty coverage and provide support contact details.",
+                "rubric": "WARRANTY: 1 year against manufacturing defects only. WATER damage is explicitly NOT covered - the spill-related key failure is not covered under warranty. Physical damage and tampered products are also excluded. Since the failure followed a water spill, it falls outside warranty. SUPPORT: Customer Care +91 7351615161 (Mon-Sat 10am-6pm), WhatsApp +91 7351615161, email cc@thecosmicbyte.com. Scan the QR code in the manual for the warranty claim procedure. As a possible self-help step before contacting support, since switches are hot-swappable the customer could try reseating/replacing affected switches, but be honest that liquid damage voids warranty coverage."
             }
         ]
     },
